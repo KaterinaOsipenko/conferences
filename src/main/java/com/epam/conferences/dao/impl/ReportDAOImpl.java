@@ -1,5 +1,7 @@
-package com.epam.conferences.dao;
+package com.epam.conferences.dao.impl;
 
-public class ReportDaoImpl implements ReportDao {
+import com.epam.conferences.dao.ReportDAO;
+
+public class ReportDAOImpl implements ReportDAO {
 
 }

@@ -1,5 +1,7 @@
-package com.epam.conferences.dao;
+package com.epam.conferences.dao.impl;
 
-public class EventDaoImpl implements EventDao {
+import com.epam.conferences.dao.EventDAO;
+
+public class EventDAOImpl implements EventDAO {
 
 }

@@ -1,2 +1,5 @@
-package com.epam.conferences.dao;public interface EventDao {
+package com.epam.conferences.dao;
+
+public interface EventDAO {
+
 }
