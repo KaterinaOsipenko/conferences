@@ -7,18 +7,18 @@ import com.epam.conferences.dao.UserDAO;
 
 public class DAOFactoryImpl extends DAOFactory {
 
-  @Override
-  public UserDAO getUserDao() {
-    return new UserDAOImpl();
-  }
+    @Override
+    public UserDAO getUserDao() {
+        return new UserDAOImpl();
+    }
 
-  @Override
-  public EventDAO getEventDao() {
-    return new EventDAOImpl();
-  }
+    @Override
+    public EventDAO getEventDao() {
+        return new EventDAOImpl();
+    }
 
-  @Override
-  public ReportDAO getReportDao() {
-    return new ReportDAOImpl();
-  }
+    @Override
+    public ReportDAO getReportDao() {
+        return new ReportDAOImpl();
+    }
 }

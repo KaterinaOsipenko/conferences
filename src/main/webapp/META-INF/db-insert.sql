@@ -47,10 +47,21 @@ VALUES ('Great Britain ', 'London', 'Piccadilly', '24', '56');
 INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`, `numberApartment`)
 VALUES ('USA', 'New Yourk', 'Manhetten', '9', '67');
 
-INSERT INTO `conferences`.`events` (`name`, `date`, `id_address`)
-VALUES ('Medicine today', '25.10.2022', '1');
-INSERT INTO `conferences`.`events` (`name`, `date`, `id_address`)
-VALUES ('Computer Science', '23.5.2023', '2');
+INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
+VALUES ('Medicine today', '2022-10-25 19:00:00', 'Conference about investigations in medicine nowadays', '1')
+;
+INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
+VALUES ('Computer Science', '2023-05-23 18:00:00', 'Computer Technologies in our world ', '2');
+INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
+VALUES ('Science', '2023-08-08 17:00:00', 'Science discoveries in North part of world', '3');
+INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
+VALUES ('CompEngineering', '2022-12-23 19:30:00', 'IT - the future of humanity.', '4');
+INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
+VALUES ('Engineering', '2022-11-20 20:00:00', 'Engineering for students.', '4');
+INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
+VALUES ('Art', '2023-01-23 18:30:00', 'Art therapy for injured', '3');
+INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
+VALUES ('Nutrition', '2023-05-12 18:30:00', 'All secrets of healthy food', '2');
 
 INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
 VALUES ('1', '2', '1');

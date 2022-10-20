@@ -53,10 +53,11 @@ CREATE TABLE `conferences`.`addresses`
 
 CREATE TABLE `conferences`.`events`
 (
-    `id`         INT         NOT NULL AUTO_INCREMENT,
-    `name`       VARCHAR(45) NOT NULL,
-    `date`       DATE        NOT NULL,
-    `id_address` INT         NOT NULL,
+    `id`          INT         NOT NULL AUTO_INCREMENT,
+    `name`        VARCHAR(45) NOT NULL,
+    `date`        TIMESTAMP   NOT NULL,
+    `description` VARCHAR(65),
+    `id_address`  INT         NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
     INDEX `fk_events_adresses_idx` (`id_address` ASC) VISIBLE,

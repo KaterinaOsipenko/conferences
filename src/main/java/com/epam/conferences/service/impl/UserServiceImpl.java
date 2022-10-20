@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserDAO userDao) {
         if (userDao == null) {
             logger.error("UserServiceImpl: UserDao reference in constructor is NULL.");
+            throw new IllegalArgumentException("UserServiceImpl: UserDao reference in constructor is NULL.");
         }
         this.userDao = userDao;
     }

@@ -1,115 +1,162 @@
 package com.epam.conferences.model;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Set;
 
 public class Event implements Serializable {
 
-  private long id;
+    private final long id;
 
-  private String name;
+    private final String name;
 
-  private Timestamp date;
+    private final LocalDateTime date;
 
-  private int addressId;
+    private final String description;
 
-  private Set<Integer> reportsId;
+    private final Address address;
 
-  private Set<User> registerUsers;
+    private final Set<Integer> reportsId;
 
-  public long getId() {
-    return id;
-  }
+    private final Set<User> registerUsers;
 
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Timestamp getDate() {
-    return date;
-  }
-
-  public void setDate(Timestamp date) {
-    this.date = date;
-  }
-
-  public int getAddressId() {
-    return addressId;
-  }
-
-  public void setAddress(int addressId) {
-    this.addressId = addressId;
-  }
-
-  public Set<Integer> getReports() {
-    return reportsId;
-  }
-
-  public void setReports(Set<Integer> reportsId) {
-    this.reportsId = reportsId;
-  }
-
-  public Set<User> getRegisterUsers() {
-    return registerUsers;
-  }
-
-  public void setRegisterUsers(Set<User> registerUsers) {
-    this.registerUsers = registerUsers;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof Event)) {
-      return false;
+    private Event(EventBuilder eventBuilder) {
+        this.id = eventBuilder.id;
+        this.address = eventBuilder.address;
+        this.reportsId = eventBuilder.reportsId;
+        this.name = eventBuilder.name;
+        this.date = eventBuilder.date;
+        this.registerUsers = eventBuilder.registerUsers;
+        this.description = eventBuilder.description;
     }
 
-    Event event = (Event) o;
+    public long getId() {
+        return id;
+    }
 
-    if (getId() != event.getId()) {
-      return false;
+    public String getName() {
+        return name;
     }
-    if (getAddressId() != event.getAddressId()) {
-      return false;
-    }
-    if (getName() != null ? !getName().equals(event.getName()) : event.getName() != null) {
-      return false;
-    }
-    if (getDate() != null ? !getDate().equals(event.getDate()) : event.getDate() != null) {
-      return false;
-    }
-    if (reportsId != null ? !reportsId.equals(event.reportsId) : event.reportsId != null) {
-      return false;
-    }
-    return getRegisterUsers() != null ? getRegisterUsers().equals(event.getRegisterUsers())
-        : event.getRegisterUsers() == null;
-  }
 
-  @Override
-  public int hashCode() {
-    int result = (int) (getId() ^ (getId() >>> 32));
-    result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-    result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
-    result = 31 * result + getAddressId();
-    result = 31 * result + (reportsId != null ? reportsId.hashCode() : 0);
-    result = 31 * result + (getRegisterUsers() != null ? getRegisterUsers().hashCode() : 0);
-    return result;
-  }
+    public LocalDateTime getDate() {
+        return date;
+    }
 
-  @Override
-  public String toString() {
-    return "Event{" + "id=" + id + ", name='" + name + '\'' + ", date=" + date + ", address="
-        + addressId + ", reports=" + reportsId + ", registerUsers=" + registerUsers + '}';
-  }
+    public Address getAddress() {
+        return address;
+    }
+
+    public Set<Integer> getReports() {
+        return reportsId;
+    }
+
+    public Set<User> getRegisterUsers() {
+        return registerUsers;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Event)) {
+            return false;
+        }
+
+        Event event = (Event) o;
+
+        if (getId() != event.getId()) {
+            return false;
+        }
+        if (getAddress() != event.getAddress()) {
+            return false;
+        }
+        if (getName() != null ? !getName().equals(event.getName()) : event.getName() != null) {
+            return false;
+        }
+        if (getDate() != null ? !getDate().equals(event.getDate()) : event.getDate() != null) {
+            return false;
+        }
+        if (!Objects.equals(reportsId, event.reportsId)) {
+            return false;
+        }
+        return getRegisterUsers() != null ? getRegisterUsers().equals(event.getRegisterUsers())
+                : event.getRegisterUsers() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (getId() ^ (getId() >>> 32));
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
+        result = 31 * result + (reportsId != null ? reportsId.hashCode() : 0);
+        result = 31 * result + (getRegisterUsers() != null ? getRegisterUsers().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" + "id=" + id + ", name='" + name + '\'' + ", date=" + date + ", address="
+                + address + ", reports=" + reportsId + ", registerUsers=" + registerUsers + '}';
+    }
+
+    public static class EventBuilder {
+        private long id;
+
+        private String name;
+
+        private LocalDateTime date;
+
+        private String description;
+
+        private Address address;
+
+        private Set<Integer> reportsId;
+
+        private Set<User> registerUsers;
+
+        public EventBuilder setId(long id) {
+            this.id = id;
+            return this;
+        }
+
+        public EventBuilder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public EventBuilder setDate(LocalDateTime date) {
+            this.date = date;
+            return this;
+        }
+
+        public EventBuilder setDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public EventBuilder setAddress(Address address) {
+            this.address = address;
+            return this;
+        }
+
+        public EventBuilder setReportsId(Set<Integer> reportsId) {
+            this.reportsId = reportsId;
+            return this;
+        }
+
+        public EventBuilder setRegisterUsers(Set<User> registerUsers) {
+            this.registerUsers = registerUsers;
+            return this;
+        }
+
+        public Event build() {
+            return new Event(this);
+        }
+    }
 }
