@@ -1,6 +1,7 @@
 package com.epam.conferences.controller;
 
 import com.epam.conferences.model.User;
+import com.epam.conferences.util.PathUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,6 +23,6 @@ public class LogoutServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         request.getSession().invalidate();
         logger.info("LogoutServlet: user {} logout. Forwarding to home page.", user);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher(PathUtil.HOME_PAGE).forward(request, response);
     }
 }

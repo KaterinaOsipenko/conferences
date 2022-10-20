@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import javax.naming.NamingException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class EventServiceImpl implements EventService {
 
@@ -93,5 +94,18 @@ public class EventServiceImpl implements EventService {
             maxPage = 1;
         }
         return maxPage;
+    }
+
+    @Override
+    public Event findEvent(int id) throws ServiceException {
+        logger.info("EventServiceImpl: get event by id = {}.", id);
+        Optional<Event> event;
+        try {
+            event = eventDAO.findById(DAOFactory.getConnection(), id);
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("EventServiceImpl: exception during counting all events.");
+            throw new ServiceException(e);
+        }
+        return event.orElse(null);
     }
 }

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="css/Responsive-UI-Card.css">
-    <title>Login</title>
+    <title>Events</title>
 </head>
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
 <header class="masthead" style="background-image: url('img/downloads-bg.jpg');">
@@ -54,7 +54,8 @@
                                 </p>
                                 <div class="ftr">
                                     <div class="btn-register">
-                                        <a class="btn btn-primary" role="button" href="registerForEvent.jsp">Choose
+                                        <a class="btn btn-primary" role="button"
+                                           href="${pageContext.request.contextPath}/eventCardServlet">Choose
                                             event</a>
                                     </div>
                                 </div>

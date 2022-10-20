@@ -22,6 +22,8 @@ public class EventDAOImpl implements EventDAO {
 
     private static final String COUNT_EVENTS = "SELECT COUNT(*) FROM events";
 
+    private static final String FIND_EVENT_BY_ID = "SELECT * FROM events JOIN addresses a on a.id = events.id_address WHERE events.id = ?";
+
     @Override
     public List<Event> findAll(Connection connection) throws DBException {
         logger.info("EventDAOImpl: find all events.");
@@ -68,6 +70,24 @@ public class EventDAOImpl implements EventDAO {
         }
         logger.info("EventDAOImpl: all events were calculated.");
         return count;
+    }
+
+    @Override
+    public Optional<Event> findById(Connection connection, int id) throws DBException {
+        logger.info("EventDAOImpl: obtaining event by id={}", id);
+        Optional<Event> event = Optional.empty();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FIND_EVENT_BY_ID)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                event = Optional.of(extractEvent(resultSet));
+            }
+            event.ifPresent(e -> logger.info("EventDAOImpl: event with id={} was get successfully.", id));
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception during obtaining event with id={}.", id);
+            throw new DBException(e);
+        }
+        return event;
     }
 
     private List<Event> extractEventList(ResultSet resultSet) throws SQLException {

@@ -14,4 +14,6 @@ public interface EventService {
     Integer countEvents() throws ServiceException;
 
     Integer maxPage() throws ServiceException;
+
+    Event findEvent(int id) throws ServiceException;
 }

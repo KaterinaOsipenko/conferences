@@ -44,8 +44,10 @@ public class EventListServlet extends HttpServlet {
             request.setAttribute("maxPage", eventService.maxPage());
             eventList = eventService.findEvents(page);
         } catch (ServiceException e) {
+            logger.error("EventListServlet: exception ({}) during finding events for page {}", e.getMessage(), page);
             request.setAttribute("ex", e.getMessage());
         }
+        logger.info("EventListServlet: forwarding to {}", PathUtil.EVENT_LIST_PAGE);
         request.setAttribute("eventList", eventList);
         request.getRequestDispatcher(PathUtil.EVENT_LIST_PAGE).forward(request, response);
     }
