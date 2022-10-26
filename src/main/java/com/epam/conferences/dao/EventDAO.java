@@ -18,6 +18,8 @@ public interface EventDAO {
 
     List<Event> findAllFutureEvents(Connection connection, int offset, int count) throws DBException;
 
+    List<Event> findAllPastEvents(Connection connection, int offset, int count) throws DBException;
+
     Integer countEvents(Connection connection) throws DBException;
 
     Optional<Event> findById(Connection connection, int id) throws DBException;

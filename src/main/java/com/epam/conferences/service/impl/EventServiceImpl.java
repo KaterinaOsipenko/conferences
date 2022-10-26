@@ -163,9 +163,21 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
-    public List<Event> findPastEvents(int page) {
-        logger.info("EventServiceImpl: find all events in the past on page {}.", page);
-        List<Event> eventList = new ArrayList<>();
+    public List<Event> findPastEvents(int page) throws ServiceException {
+        logger.info("EventServiceImpl: find all in the past on page {}.", page);
+        List<Event> eventList;
+        try {
+            int count = getCountForPage(page);
+            eventList = eventDAO.findAllPastEvents(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            if (eventList == null) {
+                logger.error("EventServiceImpl: list of events is NULL.");
+                throw new ServiceException("EventServiceImpl: list of events is NULL.");
+            }
+        } catch (DBException | NamingException | SQLException | ServiceException e) {
+            logger.error("EventServiceImpl: exception during getting all events in the past.");
+            throw new ServiceException(e);
+        }
+        logger.info("EventServiceImpl: all events in past for page {} were obtained successfully.", page);
         return eventList;
     }
 

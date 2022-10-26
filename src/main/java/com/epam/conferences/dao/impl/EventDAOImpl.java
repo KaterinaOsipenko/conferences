@@ -37,6 +37,12 @@ public class EventDAOImpl implements EventDAO {
             "FROM events JOIN addresses on addresses.id = events.id_address WHERE events.date > NOW()) " +
             "AS tmp ORDER BY events.id LIMIT ? OFFSET ?";
 
+    private static final String FIND_ALL_PAST_EVENTS = "SELECT * FROM " +
+            "(SELECT events.id, events.name, events.date AS date, events.description, events.id_address, addresses.country, " +
+            "addresses.city, addresses.street, addresses.numberBuilding, addresses.numberApartment " +
+            "FROM events JOIN addresses on addresses.id = events.id_address WHERE events.date < NOW()) " +
+            "AS tmp ORDER BY events.id LIMIT ? OFFSET ?";
+
     @Override
     public List<Event> findAll(Connection connection) throws DBException {
         logger.info("EventDAOImpl: find all events.");
@@ -158,6 +164,23 @@ public class EventDAOImpl implements EventDAO {
             eventList = extractEventList(resultSet);
         } catch (SQLException e) {
             logger.error("EventDAOImpl: exception during obtaining future events with offset {}.", offset);
+            throw new DBException(e);
+        }
+        logger.info("EventDAOImpl: all events were found.");
+        return eventList;
+    }
+
+    @Override
+    public List<Event> findAllPastEvents(Connection connection, int offset, int count) throws DBException {
+        logger.info("EventDAOImpl: obtaining past events with offset {}", offset);
+        List<Event> eventList;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL_PAST_EVENTS)) {
+            preparedStatement.setInt(1, count);
+            preparedStatement.setInt(2, offset);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            eventList = extractEventList(resultSet);
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception during obtaining past events with offset {}.", offset);
             throw new DBException(e);
         }
         logger.info("EventDAOImpl: all events were found.");
