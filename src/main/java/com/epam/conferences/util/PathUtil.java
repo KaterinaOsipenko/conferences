@@ -6,7 +6,8 @@ public class PathUtil {
     public final static String REGISTRATION_PAGE = "registration.jsp";
     public final static String PROFILE_PAGE = "profile.jsp";
     public final static String ERROR_PAGE = "error.jsp";
-
+    public final static String CHOOSE_EVENT_PAGE = "chooseEvent.jsp";
+    public final static String SUCCESS_PAGE = "success.jsp";
     public final static String HOME_PAGE = "index.jsp";
     public final static String EVENT_LIST_PAGE = "registerForEvent.jsp";
     public final static String EVENT_CARD_PAGE = "cardEvent.jsp";

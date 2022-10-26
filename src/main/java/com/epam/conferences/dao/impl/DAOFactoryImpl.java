@@ -4,6 +4,10 @@ import com.epam.conferences.dao.DAOFactory;
 import com.epam.conferences.dao.EventDAO;
 import com.epam.conferences.dao.ReportDAO;
 import com.epam.conferences.dao.UserDAO;
+import com.epam.conferences.exception.DBException;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class DAOFactoryImpl extends DAOFactory {
 
@@ -20,5 +24,14 @@ public class DAOFactoryImpl extends DAOFactory {
     @Override
     public ReportDAO getReportDao() {
         return new ReportDAOImpl();
+    }
+
+    @Override
+    public void rollback(Connection connection) throws DBException {
+        try {
+            connection.rollback();
+        } catch (SQLException e) {
+            throw new DBException(e);
+        }
     }
 }

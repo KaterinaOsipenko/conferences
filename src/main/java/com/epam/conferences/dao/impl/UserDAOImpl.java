@@ -1,7 +1,9 @@
 package com.epam.conferences.dao.impl;
 
+import com.epam.conferences.dao.DAOFactory;
 import com.epam.conferences.dao.UserDAO;
 import com.epam.conferences.exception.DBException;
+import com.epam.conferences.model.Event;
 import com.epam.conferences.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,19 +19,48 @@ public class UserDAOImpl implements UserDAO {
     private static final String FIND_ALL_USERS = "SELECT * FROM users";
     private static final String FIND_USER_BY_ID = "SELECT * FROM users WHERE id = ?";
     private static final String FIND_USER_BY_EMAIL = "SELECT * FROM users WHERE email = ?";
-    private static final String UPDATE_USER_BY_ID = "UPDATE users SET firstName = ? WHERE id = ?";
-    private static final String DELETE_USER_BY_ID = "DELETE FROM users WHERE id = ?";
+    private static final String INSERT_USER_TO_PRESENCE = "INSERT INTO user_event_presence (id_user, id_event) VALUES (?, ?)";
     private static final String INSERT_USER = "INSERT INTO users (firstName, lastName, email, password, id_role)" + " VALUES (?, ?, ?, ?, ?)";
+    private static final String INSERT_REG_USER = "INSERT INTO users (email)" + " VALUES (?)";
+
+    private static final String UPDATE_USER = "UPDATE users SET firstName = ?, lastName = ?, email = ?, password = ?, id_role = ? WHERE id = ?";
 
     @Override
     public void insertUser(Connection connection, User user) throws DBException {
         logger.info("UserDAOImpl: inserting user {}", user);
-        try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER)) {
             insertParameters(preparedStatement, user);
             preparedStatement.executeUpdate();
             logger.info("UserDAOImpl: {} was insert successfully", user);
         } catch (SQLException e) {
             logger.error("UserDAOImpl: insert user exception: ", e);
+            throw new DBException(e);
+        }
+    }
+
+    @Override
+    public void insertUserToEvent(Connection connection, Event event, User user) throws DBException {
+        logger.info("UserDAOImpl: insert user {} to  event {}", user, event);
+        try (PreparedStatement insertToUsers = connection.prepareStatement(INSERT_REG_USER, Statement.RETURN_GENERATED_KEYS);
+             PreparedStatement insertToPresence = connection.prepareStatement(INSERT_USER_TO_PRESENCE)) {
+            connection.setAutoCommit(false);
+
+            insertToUsers.setString(1, user.getEmail());
+            insertToUsers.executeUpdate();
+            ResultSet generatedKeys = insertToUsers.getGeneratedKeys();
+            while (generatedKeys.next()) {
+                user.setId(generatedKeys.getLong(1));
+            }
+
+            insertToPresence.setLong(1, user.getId());
+            insertToPresence.setLong(2, event.getId());
+            insertToPresence.executeUpdate();
+
+            connection.commit();
+            connection.setAutoCommit(true);
+        } catch (SQLException e) {
+            DAOFactory.getInstance().rollback(connection);
+            logger.error("UserDAOImpl: exception ({}) during inserting user {} to event {}.", e.getMessage(), user, event);
             throw new DBException(e);
         }
     }
@@ -69,15 +100,18 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public Optional<User> updateUser(Connection connection, User user) {
-        return null;
+    public void updateUser(Connection connection, User user) throws DBException {
+        logger.info("UserDAOImpl: update user {}", user);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)) {
+            insertParameters(preparedStatement, user);
+            preparedStatement.setLong(6, user.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("UserDAOImpl: updating user exception: ", e);
+            throw new DBException(e);
+        }
     }
-
-    @Override
-    public Optional<User> deleteUser(Connection connection, User user) {
-        return null;
-    }
-
+ 
     @Override
     public List<User> findAllUsers(Connection connection) throws DBException {
         logger.info("UserDAOImpl: get list of all users");
@@ -85,15 +119,22 @@ public class UserDAOImpl implements UserDAO {
         try {
             Statement statement = connection.createStatement();
             ResultSet set = statement.executeQuery(FIND_ALL_USERS);
-            while (set.next()) {
-                listUsers.add(extractUser(set));
-            }
+            listUsers = extractUsersList(set);
             logger.info("UserDAOImpl: all users were found.");
         } catch (SQLException e) {
             logger.error("UserDAOImpl: find all users exception.");
             throw new DBException(e);
         }
         return listUsers;
+    }
+
+    private List<User> extractUsersList(ResultSet resultSet) throws SQLException {
+        List<User> userList = new ArrayList<>();
+        while (resultSet.next()) {
+            Optional<User> event = Optional.ofNullable(extractUser(resultSet));
+            event.ifPresent(userList::add);
+        }
+        return userList;
     }
 
     private void insertParameters(PreparedStatement preparedStatement, User user) throws SQLException {
@@ -110,7 +151,9 @@ public class UserDAOImpl implements UserDAO {
         user.setFirstName(userSet.getString("firstName"));
         user.setLastName(userSet.getString("lastName"));
         user.setEmail(userSet.getString("email"));
-        user.setPassword(userSet.getString("password").toCharArray());
+        if (userSet.getString("password") != null) {
+            user.setPassword(userSet.getString("password").toCharArray());
+        }
         user.setRoleId(userSet.getInt("id_role"));
         return user;
     }

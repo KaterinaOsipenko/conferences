@@ -37,10 +37,27 @@ public class RegistrationServlet extends HttpServlet {
         String address;
         try {
             String email = req.getParameter("email");
-            if (userService.findUserByEmail(email) != null) {
+            User user = userService.findUserByEmail(email);
+            if (user != null && user.getRoleId() != 3) {
                 logger.error("RegisterCommand: there is user with this email. ");
                 session.setAttribute("ex", "There is user with this email. Please login.");
                 address = PathUtil.LOGIN_PAGE;
+            } else if (user != null && user.getRoleId() == 3) {
+                String firstname = req.getParameter("firstname");
+                String lastname = req.getParameter("lastname");
+                String role = req.getParameter("role");
+                char[] password = req.getParameter("password").toCharArray();
+                int roleId = Role.valueOf(role).id;
+
+                user.setRoleId(roleId);
+                user.setPassword(password);
+                user.setFirstName(firstname);
+                user.setLastName(lastname);
+
+                userService.updateUser(user);
+                session.setAttribute("user", user);
+                address = PathUtil.PROFILE_PAGE;
+
             } else {
                 String firstname = req.getParameter("firstname");
                 String lastname = req.getParameter("lastname");
@@ -48,15 +65,15 @@ public class RegistrationServlet extends HttpServlet {
                 char[] password = req.getParameter("password").toCharArray();
                 int roleId = Role.valueOf(role).id;
 
-                User user = new User();
-                user.setFirstName(firstname);
-                user.setLastName(lastname);
-                user.setEmail(email);
-                user.setPassword(PasswordEncoder.encryptPassword(password));
-                user.setRoleId(roleId);
+                User newUser = new User();
+                newUser.setFirstName(firstname);
+                newUser.setLastName(lastname);
+                newUser.setEmail(email);
+                newUser.setPassword(PasswordEncoder.encryptPassword(password));
+                newUser.setRoleId(roleId);
 
-                userService.saveUser(user);
-                session.setAttribute("user", user);
+                userService.saveUser(newUser);
+                session.setAttribute("user", newUser);
                 address = PathUtil.PROFILE_PAGE;
             }
         } catch (ServiceException e) {

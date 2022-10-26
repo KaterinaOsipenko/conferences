@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,14 +21,34 @@
         <section class="py-4 py-xl-5">
             <div class="container h-100" style="width: 50%">
                 <div class="text-white bg-primary border rounded border-0 p-4 py-5">
+                    <p class="mb-4" style="text-align: left">
+                        <a style="color: black;" href="${pageContext.request.contextPath}/eventListServlet">Go Back</a>
+                    </p>
                     <div class="row h-100">
                         <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
                             <div>
-                                <h1 class="text-uppercase fw-bold text-white mb-3">Biben dum<br>fringi dictum, augue
-                                    purus</h1>
-                                <p class="mb-4">Etiam a rutrum, mauris lectus aptent convallis. Fusce vulputate aliquam,
-                                    sagittis odio metus. Nulla porttitor vivamus viverra laoreet, aliquam netus.</p>
-                                <button class="btn btn-light fs-5 py-2 px-4" type="button">Button</button>
+                                <h1 class="text-uppercase fw-bold text-white mb-3">${event.name}</h1>
+                                <p class="mb-4">${event.description}</p>
+                                <p class="mb-4">${event.address.country}, ${event.address}</p>
+                                <p class="mb-4">
+                                    Date: ${event.date.dayOfMonth}-${event.date.monthValue}-${event.date.year}</p>
+                                <p class="mb-4">
+                                    <c:choose>
+                                        <c:when test="${event.date.minute == 0}">
+                                            <c:out value="Time: ${event.date.hour}:${event.date.minute}0"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:out value="Time: ${event.date.hour}:${event.date.minute}"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </p>
+                                <div class="ftr">
+                                    <div class="btn-register">
+                                        <a class="btn btn-light"
+                                           href="${pageContext.request.contextPath}/chooseEvent?id=${event.id}"
+                                           role="button">Choose event</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

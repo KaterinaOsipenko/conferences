@@ -32,6 +32,7 @@ public class EventListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("EventListServlet: doGet method.");
         int page;
+        String sort;
         if (request.getParameter("page") == null || request.getParameter("page").equals("")) {
             page = 1;
             request.setAttribute("currentPage", 1);
@@ -39,16 +40,22 @@ public class EventListServlet extends HttpServlet {
             page = Integer.parseInt(request.getParameter("page"));
             request.setAttribute("currentPage", page);
         }
-        List<Event> eventList = null;
+        List<Event> eventList;
         try {
+            if (request.getParameter("sort") == null) {
+                eventList = eventService.findEvents(page);
+            } else {
+                sort = request.getParameter("sort");
+                request.setAttribute("sort", sort);
+                eventList = eventService.findEventsSorted(page, sort);
+            }
             request.setAttribute("maxPage", eventService.maxPage());
-            eventList = eventService.findEvents(page);
+            request.setAttribute("eventList", eventList);
         } catch (ServiceException e) {
             logger.error("EventListServlet: exception ({}) during finding events for page {}", e.getMessage(), page);
             request.setAttribute("ex", e.getMessage());
         }
         logger.info("EventListServlet: forwarding to {}", PathUtil.EVENT_LIST_PAGE);
-        request.setAttribute("eventList", eventList);
         request.getRequestDispatcher(PathUtil.EVENT_LIST_PAGE).forward(request, response);
     }
 

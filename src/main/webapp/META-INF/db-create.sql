@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `conferences`.`user_event_presence`;
 DROP TABLE IF EXISTS `conferences`.`reports`;
 DROP TABLE IF EXISTS `conferences`.`events`;
 DROP TABLE IF EXISTS `conferences`.`users`;
@@ -20,7 +21,7 @@ CREATE TABLE `conferences`.`users`
     `firstName` VARCHAR(45)  NULL,
     `lastName`  VARCHAR(45)  NULL,
     `email`     VARCHAR(45)  NOT NULL,
-    `password`  VARCHAR(100) NOT NULL,
+    `password`  VARCHAR(100) NULL,
     `id_role`   INT          NOT NULL DEFAULT 3,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
@@ -90,6 +91,25 @@ CREATE TABLE `conferences`.`reports`
             ON UPDATE CASCADE,
     CONSTRAINT `fk_reports_users`
         FOREIGN KEY (`id_speaker`)
+            REFERENCES `conferences`.`users` (`id`)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+);
+
+CREATE TABLE `conferences`.`user_event_presence`
+(
+    `id_user`  INT     NOT NULL,
+    `id_event` INT     NOT NULL,
+    `presence` TINYINT NULL DEFAULT 0,
+    PRIMARY KEY (`id_user`, `id_event`),
+    INDEX `presence_event_idx` (`id_event` ASC) VISIBLE,
+    CONSTRAINT `presence_event`
+        FOREIGN KEY (`id_event`)
+            REFERENCES `conferences`.`events` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT `presence_user`
+        FOREIGN KEY (`id_user`)
             REFERENCES `conferences`.`users` (`id`)
             ON DELETE CASCADE
             ON UPDATE CASCADE

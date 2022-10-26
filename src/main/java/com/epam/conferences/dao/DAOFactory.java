@@ -1,6 +1,7 @@
 package com.epam.conferences.dao;
 
 import com.epam.conferences.dao.impl.DAOFactoryImpl;
+import com.epam.conferences.exception.DBException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -44,5 +45,7 @@ public abstract class DAOFactory {
     public abstract EventDAO getEventDao();
 
     public abstract ReportDAO getReportDao();
+
+    public abstract void rollback(Connection connection) throws DBException;
 
 }

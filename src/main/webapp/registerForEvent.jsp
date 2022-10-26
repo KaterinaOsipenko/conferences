@@ -18,25 +18,63 @@
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
 <header class="masthead" style="background-image: url('img/downloads-bg.jpg');">
     <div class="intro-body" style="margin-top: 16px;padding-bottom: 0px;margin-bottom: 1px;">
+        <div class="ftr" style="display:flex; gap:0.1rem; justify-content: center">
+            <div class="btn-register">
+                <a class="btn btn-primary"
+                   href="${pageContext.request.contextPath}/eventListServlet?sort=date"
+                   role="button">Sort by Date</a>
+            </div>
+            <div class="btn-register">
+                <a class="btn btn-primary"
+                   href="${pageContext.request.contextPath}/eventListServlet?sort=future"
+                   role="button">Show future events</a>
+            </div>
+            <div class="btn-register">
+                <a class="btn btn-primary"
+                   href="${pageContext.request.contextPath}/eventListServlet?sort=past"
+                   role="button">Show past events</a>
+            </div>
+            <div class="btn-register">
+                <a class="btn btn-primary"
+                   href="${pageContext.request.contextPath}/eventListServlet?sort=reports"
+                   role="button">Show past events</a>
+            </div>
+            <div class="btn-register">
+                <a class="btn btn-primary"
+                   href="${pageContext.request.contextPath}/eventListServlet?sort=users"
+                   role="button">Show past events</a>
+            </div>
+        </div>
         <div class="container" style="display: flex; align-items: center;">
             <c:if test="${currentPage > 1}">
                 <div>
-                    <a aria-label="Previous"
-                       href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}">
-                        <span style="font-size: 50px; padding-right: 10px;">«</span>
-                    </a>
+
+                    <c:choose>
+                        <c:when test="${not empty sort}">
+                            <a aria-label="Previous"
+                               href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}&sort=${sort}">
+                                <span style="font-size: 50px; padding-right: 10px;">«</span>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <a aria-label="Previous"
+                               href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}">
+                                <span style="font-size: 50px; padding-right: 10px;">«</span>
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
+
                 </div>
             </c:if>
             <div class="row" style="width: 100%;">
                 <c:forEach var="event" items="${eventList}">
-                    <c:set var="id-event" value="${event.id}" scope="request"/>
                     <div class="col-md-4">
                         <div class="blog-card blog-card-blog">
                             <div class="blog-table">
                                 <h6 class="blog-category blog-text-success"><i
                                         class="far fa-newspaper"></i> ${event.address.country}</h6>
                                 <h4 class="blog-card-caption">
-                                    <a href="#">${event.name}</a>
+                                    <a href="${pageContext.request.contextPath}/eventCardServlet?id=${event.id}">${event.name}</a>
                                 </h4>
                                 <p class="blog-card-description">${event.address}</p>
                                 <p class="blog-card-description">
@@ -44,7 +82,7 @@
                                 </p>
                                 <p class="blog-card-description">
                                     <c:choose>
-                                        <c:when test="${event.date.minute} == 0">
+                                        <c:when test="${event.date.minute == 0}">
                                             <c:out value="Time: ${event.date.hour}:${event.date.minute}0"/>
                                         </c:when>
                                         <c:otherwise>
@@ -54,9 +92,9 @@
                                 </p>
                                 <div class="ftr">
                                     <div class="btn-register">
-                                        <a class="btn btn-primary" role="button"
-                                           href="${pageContext.request.contextPath}/eventCardServlet">Choose
-                                            event</a>
+                                        <a class="btn btn-primary"
+                                           href="${pageContext.request.contextPath}/chooseEvent?id=${event.id}"
+                                           role="button">Choose event</a>
                                     </div>
                                 </div>
                             </div>
@@ -66,10 +104,20 @@
             </div>
             <c:if test="${maxPage > currentPage}">
                 <div>
-                    <a aria-label="Next"
-                       href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}">
-                        <span style="font-size: 50px; padding-right: 10px;">»</span>
-                    </a>
+                    <c:choose>
+                        <c:when test="${not empty sort}">
+                            <a aria-label="Next"
+                               href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}&sort=${sort}">
+                                <span style="font-size: 50px; padding-right: 10px;">»</span>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <a aria-label="Next"
+                               href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}">
+                                <span style="font-size: 50px; padding-right: 10px;">»</span>
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </c:if>
         </div>
@@ -77,11 +125,25 @@
              style="padding-bottom: 0;margin-bottom: -119px;margin-top: 93px;">
             <ul class="pagination">
                 <c:if test="${currentPage > 1}">
-                    <li class="page-item"><a class="page-link" style="background: transparent; border: none;"
-                                             class="page-link"
-                                             aria-label="Previous"
-                                             href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}"><span
-                            aria-hidden="true">«</span></a></li>
+                    <li class="page-item">
+                        <c:choose>
+                            <c:when test="${not empty sort}">
+                                <a class="page-link" style="background: transparent; border: none;"
+                                   aria-label="Previous"
+                                   href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}&sort=${sort}">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="page-link" style="background: transparent; border: none;"
+                                   aria-label="Previous"
+                                   href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </li>
                 </c:if>
                 <c:forEach var="i" begin="1" end="${maxPage}">
                     <c:if test="${currentPage == i}">
@@ -118,11 +180,22 @@
                     </c:if>
                 </c:forEach>
                 <c:if test="${maxPage > currentPage}">
-                    <li class="page-item fs-2 text-start"><a class="page-link"
-                                                             style="background: transparent; border: none;"
-                                                             aria-label="Next"
-                                                             href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}"><span
-                            aria-hidden="true">»</span></a></li>
+                    <li class="page-item fs-2 text-start">
+                        <c:choose>
+                            <c:when test="${not empty sort}">
+                                <a class="page-link" style="background: transparent; border: none;" aria-label="Next"
+                                   href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}&sort=${sort}">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="page-link" style="background: transparent; border: none;" aria-label="Next"
+                                   href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </c:otherwise>
+                        </c:choose>
+                    </li>
                 </c:if>
             </ul>
         </nav>

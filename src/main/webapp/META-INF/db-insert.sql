@@ -6,6 +6,7 @@ TRUNCATE TABLE `conferences`.`topics`;
 TRUNCATE TABLE `conferences`.`addresses`;
 TRUNCATE TABLE `conferences`.`events`;
 TRUNCATE TABLE reports;
+TRUNCATE TABLE user_event_presence;
 
 SET FOREIGN_KEY_CHECKS = 1;
 
@@ -48,8 +49,7 @@ INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuild
 VALUES ('USA', 'New Yourk', 'Manhetten', '9', '67');
 
 INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
-VALUES ('Medicine today', '2022-10-25 19:00:00', 'Conference about investigations in medicine nowadays', '1')
-;
+VALUES ('Medicine today', '2022-10-25 19:00:00', 'Conference about investigations in medicine nowadays', '1');
 INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
 VALUES ('Computer Science', '2023-05-23 18:00:00', 'Computer Technologies in our world ', '2');
 INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)

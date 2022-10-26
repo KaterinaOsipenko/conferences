@@ -53,11 +53,11 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("ex", "There is no user with this email. PLease, create account.");
                 address = PathUtil.REGISTRATION_PAGE;
             }
-            response.sendRedirect(address);
         } catch (ServiceException e) {
             logger.error("LoginServlet: exception while login command was in work " + e.getMessage());
             session.setAttribute("ex", e);
-            response.sendRedirect(PathUtil.ERROR_PAGE);
+            address = PathUtil.ERROR_PAGE;
         }
+        response.sendRedirect(address);
     }
 }

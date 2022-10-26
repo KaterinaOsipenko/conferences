@@ -4,8 +4,11 @@ import com.epam.conferences.dao.EventDAO;
 import com.epam.conferences.dao.UserDAO;
 import com.epam.conferences.dao.impl.DAOFactoryImpl;
 import com.epam.conferences.exception.ServiceException;
+import com.epam.conferences.service.EmailService;
 import com.epam.conferences.service.EventService;
+import com.epam.conferences.service.NotificationManager;
 import com.epam.conferences.service.UserService;
+import com.epam.conferences.service.impl.EmailServiceImpl;
 import com.epam.conferences.service.impl.EventServiceImpl;
 import com.epam.conferences.service.impl.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;
@@ -37,8 +40,17 @@ public class ContextListener implements ServletContextListener {
         UserDAO userDAO = DAOFactoryImpl.getInstance().getUserDao();
         EventDAO eventDAO = DAOFactoryImpl.getInstance().getEventDao();
 
-        UserService userService = new UserServiceImpl(userDAO);
-        EventService eventService = new EventServiceImpl(eventDAO);
+        NotificationManager userManager = new NotificationManager();
+        NotificationManager eventManager = new NotificationManager();
+
+        EmailService emailService = new EmailServiceImpl("587", "smtp.gmail.com");
+
+        userManager.addObserver("registration", new RegistrationListener(emailService));
+        userManager.addObserver("registrationToEvent", new RegistrationToEventListener(emailService));
+        eventManager.addObserver("registrationToEvent", new RegistrationToEventListener(emailService));
+
+        UserService userService = new UserServiceImpl(userDAO, userManager);
+        EventService eventService = new EventServiceImpl(eventDAO, eventManager);
 
         servletContext.setAttribute("userService", userService);
         servletContext.setAttribute("eventService", eventService);

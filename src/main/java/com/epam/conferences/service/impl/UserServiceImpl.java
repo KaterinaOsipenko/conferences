@@ -4,7 +4,9 @@ import com.epam.conferences.dao.DAOFactory;
 import com.epam.conferences.dao.UserDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.exception.ServiceException;
+import com.epam.conferences.model.Event;
 import com.epam.conferences.model.User;
+import com.epam.conferences.service.NotificationManager;
 import com.epam.conferences.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,12 +21,18 @@ public class UserServiceImpl implements UserService {
 
     private final UserDAO userDao;
 
-    public UserServiceImpl(UserDAO userDao) {
+    private final NotificationManager notificationManager;
+
+    public UserServiceImpl(UserDAO userDao, NotificationManager notificationManager) {
         if (userDao == null) {
             logger.error("UserServiceImpl: UserDao reference in constructor is NULL.");
             throw new IllegalArgumentException("UserServiceImpl: UserDao reference in constructor is NULL.");
+        } else if (notificationManager == null) {
+            logger.error("UserServiceImpl: NotificationManager reference in constructor is NULL.");
+            throw new IllegalArgumentException("UserServiceImpl: NotificationManager reference in constructor is NULL.");
         }
         this.userDao = userDao;
+        this.notificationManager = notificationManager;
     }
 
     @Override
@@ -37,11 +45,24 @@ public class UserServiceImpl implements UserService {
         logger.info("UserServiceImpl: saving user.");
         try {
             this.userDao.insertUser(DAOFactory.getConnection(), user);
+            notificationManager.notify("registration", user, null);
         } catch (SQLException | NamingException | DBException e) {
             logger.error("UserServiceImpl: exception {} during saving user", e.getMessage());
             throw new ServiceException(e);
         }
         logger.info("UserServiceImpl: save user successfully.");
+    }
+
+    @Override
+    public void updateUser(User user) throws ServiceException {
+        logger.info("UserServiceImpl: update user {}.", user);
+        try {
+            userDao.updateUser(DAOFactory.getConnection(), user);
+        } catch (SQLException | NamingException | DBException e) {
+            logger.error("UserServiceImpl: exception {} during updating user {}", e.getMessage(), user);
+            throw new ServiceException(e);
+        }
+        logger.info("UserServiceImpl: updated user successfully.");
     }
 
     @Override
@@ -56,6 +77,19 @@ public class UserServiceImpl implements UserService {
         }
         logger.info("UserServiceImpl: obtain user successfully.");
         return userByEmail.orElse(null);
+    }
+
+    @Override
+    public void registerUserToEvent(Event event, User user) throws ServiceException {
+        logger.info("UserServiceImpl: register user {} to event {}.", user, event);
+        try {
+            this.userDao.insertUserToEvent(DAOFactory.getConnection(), event, user);
+            notificationManager.notify("registrationToEvent", user, event);
+        } catch (SQLException | NamingException | DBException e) {
+            logger.error("UserServiceImpl: exception {} during registration user {} to event{}", e.getMessage(), user, event);
+            throw new ServiceException(e);
+        }
+        logger.info("UserServiceImpl: registration user to event successfully.");
     }
 
 

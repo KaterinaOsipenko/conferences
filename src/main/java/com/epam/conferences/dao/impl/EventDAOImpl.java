@@ -4,6 +4,7 @@ import com.epam.conferences.dao.EventDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.model.Address;
 import com.epam.conferences.model.Event;
+import com.epam.conferences.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,14 +16,26 @@ import java.util.Optional;
 public class EventDAOImpl implements EventDAO {
 
     private static final Logger logger = LogManager.getLogger(EventDAOImpl.class);
-
     private static final String FIND_ALL_EVENTS = "SELECT * FROM events JOIN addresses a on a.id = events.id_address";
-    private static final String FIND_ALL_EVENTS_BY_PAGE = "SELECT * FROM events JOIN addresses on addresses.id = events.id_address " +
-            "ORDER BY events.id LIMIT ? OFFSET ?";
-
+    private static final String FIND_ALL_EVENTS_BY_PAGE = "SELECT events.id, events.name, events.date, " +
+            "events.description, events.id_address, addresses.country, addresses.city, addresses.street, " +
+            "addresses.numberBuilding, addresses.numberApartment " +
+            "FROM events JOIN addresses on addresses.id = events.id_address ORDER BY events.id LIMIT ? OFFSET ?";
+    private static final String INSERT_USER_TO_PRESENCE = "INSERT INTO user_event_presence (id_user, id_event) VALUES (?, ?)";
     private static final String COUNT_EVENTS = "SELECT COUNT(*) FROM events";
 
+    private static final String CHECK_USER_REGISTERED = "SELECT * FROM user_event_presence WHERE id_user = ? AND id_event = ?";
     private static final String FIND_EVENT_BY_ID = "SELECT * FROM events JOIN addresses a on a.id = events.id_address WHERE events.id = ?";
+
+    private static final String SORT_EVENTS_BY_DATE = "SELECT * FROM " +
+            "(SELECT events.id, events.name, events.date AS date, events.description, events.id_address, addresses.country, addresses.city, addresses.street, addresses.numberBuilding, addresses.numberApartment FROM events JOIN addresses on addresses.id = events.id_address) " +
+            "AS tmp ORDER BY date LIMIT ? OFFSET ?";
+
+    private static final String FIND_ALL_FUTURE_EVENTS = "SELECT * FROM " +
+            "(SELECT events.id, events.name, events.date AS date, events.description, events.id_address, addresses.country, " +
+            "addresses.city, addresses.street, addresses.numberBuilding, addresses.numberApartment " +
+            "FROM events JOIN addresses on addresses.id = events.id_address WHERE events.date > NOW()) " +
+            "AS tmp ORDER BY events.id LIMIT ? OFFSET ?";
 
     @Override
     public List<Event> findAll(Connection connection) throws DBException {
@@ -90,6 +103,67 @@ public class EventDAOImpl implements EventDAO {
         return event;
     }
 
+    @Override
+    public void insertUserToPresence(Connection connection, Event event, User user) throws DBException {
+        logger.info("EventDAOImpl: insert user with id={} and event with id={}", user.getId(), event.getId());
+        try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_TO_PRESENCE)) {
+            preparedStatement.setLong(1, user.getId());
+            preparedStatement.setLong(2, event.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception ({}) during insertion user with id={} and event with id={}", e.getMessage(), user.getId(), event.getId());
+            throw new DBException(e);
+        }
+    }
+
+    @Override
+    public boolean isUserRegisteredToEvent(Connection connection, Event event, User user) throws DBException {
+        logger.info("EventDAOImpl: check if user with id={} has already registered to event with id={}", user.getId(), event.getId());
+        try (PreparedStatement preparedStatement = connection.prepareStatement(CHECK_USER_REGISTERED)) {
+            preparedStatement.setLong(1, user.getId());
+            preparedStatement.setLong(2, event.getId());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.next();
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception ({}) during insertion user with id={} and event with id={}", e.getMessage(), user.getId(), event.getId());
+            throw new DBException(e);
+        }
+    }
+
+    @Override
+    public List<Event> sortByDate(Connection connection, int offset, int count) throws DBException {
+        logger.info("EventDAOImpl: obtaining events sorted by date with offset {}", offset);
+        List<Event> eventList;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(SORT_EVENTS_BY_DATE)) {
+            preparedStatement.setInt(1, count);
+            preparedStatement.setInt(2, offset);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            eventList = extractEventList(resultSet);
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception during obtaining events sorted by date with offset {}.", offset);
+            throw new DBException(e);
+        }
+        logger.info("EventDAOImpl: all events were found.");
+        return eventList;
+    }
+
+    @Override
+    public List<Event> findAllFutureEvents(Connection connection, int offset, int count) throws DBException {
+        logger.info("EventDAOImpl: obtaining future events with offset {}", offset);
+        List<Event> eventList;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FIND_ALL_FUTURE_EVENTS)) {
+            preparedStatement.setInt(1, count);
+            preparedStatement.setInt(2, offset);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            eventList = extractEventList(resultSet);
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception during obtaining future events with offset {}.", offset);
+            throw new DBException(e);
+        }
+        logger.info("EventDAOImpl: all events were found.");
+        return eventList;
+    }
+
     private List<Event> extractEventList(ResultSet resultSet) throws SQLException {
         List<Event> eventList = new ArrayList<>();
         while (resultSet.next()) {
@@ -112,8 +186,7 @@ public class EventDAOImpl implements EventDAO {
                 .setId(resultSet.getLong("id"))
                 .setDate(resultSet.getTimestamp("date").toLocalDateTime())
                 .setName(resultSet.getString("name"))
-                .setAddress(address)
-                .setDescription(resultSet.getString("description"))
+                .setAddress(address).setDescription(resultSet.getString("description"))
                 .build();
     }
 }

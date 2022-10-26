@@ -29,7 +29,7 @@ public class EventCardServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("EventCardServlet: doGet method.");
-        int eventId = (int) request.getAttribute("id-event");
+        int eventId = Integer.parseInt(request.getParameter("id"));
         Event event;
         String address;
         try {
