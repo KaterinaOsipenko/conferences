@@ -19,19 +19,20 @@
 <header class="masthead" style="background-image: url('/img/downloads-bg.jpg');">
     <div class="intro-body">
         <section class="py-4 py-xl-5">
-            <div class="container h-100" style="width: 50%">
-                <div class="text-white bg-primary border rounded border-0 p-4 py-5">
-                    <p class="mb-4" style="text-align: left">
+            <div class="container h-100">
+                <div class="text-white bg-primary border rounded border-0 p-4">
+                    <p style="text-align: left">
                         <a style="color: black;" href="${pageContext.request.contextPath}/eventListServlet">Go Back</a>
                     </p>
                     <div class="row h-100">
                         <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
                             <div>
-                                <h1 class="text-uppercase fw-bold text-white mb-3">${event.name}</h1>
+                                <h1 class="text-uppercase fw-bold text-white mb-3 mt-0">${event.name}</h1>
                                 <p class="mb-4">${event.description}</p>
                                 <p class="mb-4">${event.address.country}, ${event.address}</p>
                                 <p class="mb-4">
-                                    Date: ${event.date.dayOfMonth}-${event.date.monthValue}-${event.date.year}</p>
+                                    Date: ${event.date.dayOfMonth}-${event.date.monthValue}-${event.date.year}
+                                </p>
                                 <p class="mb-4">
                                     <c:choose>
                                         <c:when test="${event.date.minute == 0}">
@@ -42,6 +43,23 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </p>
+                                <c:if test="${not empty reports}">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <th>Topic</th>
+                                            <th>Speaker</th>
+                                            </thead>
+                                            <c:forEach var="report" items="${reports}">
+                                                <tr>
+                                                    <td>${report.topic.name}</td>
+                                                    <td>${report.speaker.firstName} ${report.speaker.lastName}</td>
+                                                </tr>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </c:if>
                                 <div class="ftr">
                                     <div class="btn-register">
                                         <a class="btn btn-light"
@@ -57,7 +75,6 @@
         </section>
     </div>
 </header>
-
 <%@include file="footer.jsp" %>
 </body>
 </html>

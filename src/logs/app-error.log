@@ -1196,3 +1196,9 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2022-10-26 15:31:02 ERROR EventDAOImpl: exception during obtaining events sorted by date with offset 0.
 2022-10-26 15:31:02 ERROR EventServiceImpl: exception during getting all events.
 2022-10-26 15:31:02 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'date' not found.) during finding events for page 1
+2022-10-27 16:00:18 ERROR ReportDAOImpl: exception (java.sql.SQLException: Column 'id_speaker' not found.) during obtaining all reports for event with id 2
+2022-10-27 16:00:18 ERROR ReportServiceImpl: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_speaker' not found.) during getting all reports of conference with id 2.
+2022-10-27 16:00:18 ERROR EventCardServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_speaker' not found.) during find event with id=2
+2022-10-27 16:00:24 ERROR ReportDAOImpl: exception (java.sql.SQLException: Column 'id_speaker' not found.) during obtaining all reports for event with id 2
+2022-10-27 16:00:24 ERROR ReportServiceImpl: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_speaker' not found.) during getting all reports of conference with id 2.
+2022-10-27 16:00:24 ERROR EventCardServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_speaker' not found.) during find event with id=2

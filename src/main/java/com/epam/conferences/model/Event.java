@@ -2,7 +2,7 @@ package com.epam.conferences.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Objects;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Event implements Serializable {
@@ -17,14 +17,14 @@ public class Event implements Serializable {
 
     private final Address address;
 
-    private final Set<Integer> reportsId;
+    private final Set<Report> reports;
 
     private final Set<User> registerUsers;
 
     private Event(EventBuilder eventBuilder) {
         this.id = eventBuilder.id;
         this.address = eventBuilder.address;
-        this.reportsId = eventBuilder.reportsId;
+        this.reports = eventBuilder.reports;
         this.name = eventBuilder.name;
         this.date = eventBuilder.date;
         this.registerUsers = eventBuilder.registerUsers;
@@ -47,8 +47,8 @@ public class Event implements Serializable {
         return address;
     }
 
-    public Set<Integer> getReports() {
-        return reportsId;
+    public Set<Report> getReports() {
+        return reports;
     }
 
     public Set<User> getRegisterUsers() {
@@ -61,32 +61,19 @@ public class Event implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Event)) {
-            return false;
-        }
+        if (this == o) return true;
+        if (!(o instanceof Event)) return false;
 
         Event event = (Event) o;
 
-        if (getId() != event.getId()) {
+        if (getId() != event.getId()) return false;
+        if (getName() != null ? !getName().equals(event.getName()) : event.getName() != null) return false;
+        if (getDate() != null ? !getDate().equals(event.getDate()) : event.getDate() != null) return false;
+        if (getDescription() != null ? !getDescription().equals(event.getDescription()) : event.getDescription() != null)
             return false;
-        }
-        if (getAddress() != event.getAddress()) {
-            return false;
-        }
-        if (getName() != null ? !getName().equals(event.getName()) : event.getName() != null) {
-            return false;
-        }
-        if (getDate() != null ? !getDate().equals(event.getDate()) : event.getDate() != null) {
-            return false;
-        }
-        if (!Objects.equals(reportsId, event.reportsId)) {
-            return false;
-        }
-        return getRegisterUsers() != null ? getRegisterUsers().equals(event.getRegisterUsers())
-                : event.getRegisterUsers() == null;
+        if (getAddress() != null ? !getAddress().equals(event.getAddress()) : event.getAddress() != null) return false;
+        if (getReports() != null ? !getReports().equals(event.getReports()) : event.getReports() != null) return false;
+        return getRegisterUsers() != null ? getRegisterUsers().equals(event.getRegisterUsers()) : event.getRegisterUsers() == null;
     }
 
     @Override
@@ -94,15 +81,24 @@ public class Event implements Serializable {
         int result = (int) (getId() ^ (getId() >>> 32));
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getDate() != null ? getDate().hashCode() : 0);
-        result = 31 * result + (reportsId != null ? reportsId.hashCode() : 0);
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getAddress() != null ? getAddress().hashCode() : 0);
+        result = 31 * result + (getReports() != null ? getReports().hashCode() : 0);
         result = 31 * result + (getRegisterUsers() != null ? getRegisterUsers().hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "Event{" + "id=" + id + ", name='" + name + '\'' + ", date=" + date + ", address="
-                + address + ", reports=" + reportsId + ", registerUsers=" + registerUsers + '}';
+        return "Event{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                ", description='" + description + '\'' +
+                ", address=" + address +
+                ", reports=" + reports +
+                ", registerUsers=" + registerUsers +
+                '}';
     }
 
     public static class EventBuilder {
@@ -116,7 +112,7 @@ public class Event implements Serializable {
 
         private Address address;
 
-        private Set<Integer> reportsId;
+        private Set<Report> reports = new HashSet<>();
 
         private Set<User> registerUsers;
 
@@ -145,8 +141,8 @@ public class Event implements Serializable {
             return this;
         }
 
-        public EventBuilder setReportsId(Set<Integer> reportsId) {
-            this.reportsId = reportsId;
+        public EventBuilder setReports(Set<Report> reports) {
+            this.reports = reports;
             return this;
         }
 

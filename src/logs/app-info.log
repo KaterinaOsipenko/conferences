@@ -19736,3 +19736,1151 @@
 2022-10-26 21:42:04 INFO EventListServlet: forwarding to registerForEvent.jsp
 2022-10-26 21:42:04 INFO JSPEncodingFilter: encoding filter start working.
 2022-10-26 21:42:04 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:24 INFO ContextListener: Servlet Context initialized.
+2022-10-26 21:44:24 INFO ContextListener: creating services.
+2022-10-26 21:44:24 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-26 21:44:24 INFO ValidationFilter: validation filter init
+2022-10-26 21:44:24 INFO EmailValidatorFilter: validation filter init
+2022-10-26 21:44:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:25 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:25 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:25 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:25 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:25 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:25 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:27 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:27 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:27 INFO EventListServlet: doGet method.
+2022-10-26 21:44:27 INFO EventServiceImpl: getting all events for 1.
+2022-10-26 21:44:27 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:27 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:27 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:27 INFO EventDAOImpl: count events.
+2022-10-26 21:44:27 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:27 INFO EventServiceImpl: get max page.
+2022-10-26 21:44:27 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:27 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:27 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:27 INFO EventDAOImpl: count events.
+2022-10-26 21:44:27 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:27 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:27 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:27 INFO EventDAOImpl: find all events by page.
+2022-10-26 21:44:27 INFO EventDAOImpl: all events were found.
+2022-10-26 21:44:27 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-26 21:44:27 INFO EventServiceImpl: get max page.
+2022-10-26 21:44:27 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:27 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:27 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:27 INFO EventDAOImpl: count events.
+2022-10-26 21:44:27 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:27 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-26 21:44:28 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:28 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:30 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:30 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:30 INFO EventListServlet: doGet method.
+2022-10-26 21:44:30 INFO EventServiceImpl: find needed sort.
+2022-10-26 21:44:30 INFO EventServiceImpl: find all in the past on page 1.
+2022-10-26 21:44:30 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:30 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:30 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:30 INFO EventDAOImpl: count events.
+2022-10-26 21:44:30 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:30 INFO EventServiceImpl: get max page.
+2022-10-26 21:44:30 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:30 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:30 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:30 INFO EventDAOImpl: count events.
+2022-10-26 21:44:30 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:30 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:30 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:30 INFO EventDAOImpl: obtaining past events with offset 0
+2022-10-26 21:44:30 INFO EventDAOImpl: all events were found.
+2022-10-26 21:44:30 INFO EventServiceImpl: all events in past for page 1 were obtained successfully.
+2022-10-26 21:44:30 INFO EventServiceImpl: get max page.
+2022-10-26 21:44:30 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:30 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:30 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:30 INFO EventDAOImpl: count events.
+2022-10-26 21:44:30 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:30 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-26 21:44:30 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:30 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:34 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:34 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-26 21:44:34 INFO EventListServlet: doGet method.
+2022-10-26 21:44:34 INFO EventServiceImpl: find needed sort.
+2022-10-26 21:44:34 INFO EventServiceImpl: find all in the past on page 2.
+2022-10-26 21:44:34 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:34 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:34 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:34 INFO EventDAOImpl: count events.
+2022-10-26 21:44:34 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:34 INFO EventServiceImpl: get max page.
+2022-10-26 21:44:34 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:34 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:34 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:34 INFO EventDAOImpl: count events.
+2022-10-26 21:44:34 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:34 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:34 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:34 INFO EventDAOImpl: obtaining past events with offset 3
+2022-10-26 21:44:34 INFO EventDAOImpl: all events were found.
+2022-10-26 21:44:34 INFO EventServiceImpl: all events in past for page 2 were obtained successfully.
+2022-10-26 21:44:34 INFO EventServiceImpl: get max page.
+2022-10-26 21:44:34 INFO EventServiceImpl: counting rows.
+2022-10-26 21:44:34 INFO Tomcat Pool Connection: get connection
+2022-10-26 21:44:34 INFO Tomcat Pool Connection: get datasource
+2022-10-26 21:44:34 INFO EventDAOImpl: count events.
+2022-10-26 21:44:34 INFO EventDAOImpl: all events were calculated.
+2022-10-26 21:44:34 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-26 21:44:34 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-26 21:44:34 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:18:54 INFO ContextListener: Servlet Context initialized.
+2022-10-27 14:18:54 INFO ContextListener: creating services.
+2022-10-27 14:18:54 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 14:18:54 INFO ValidationFilter: validation filter init
+2022-10-27 14:18:54 INFO EmailValidatorFilter: validation filter init
+2022-10-27 14:18:55 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:18:55 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:18:57 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:18:57 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:18:58 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:18:58 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:18:58 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:18:58 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:18:58 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:18:58 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:22:18 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:22:18 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:22:18 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:22:18 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:22:20 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:22:20 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:22:20 INFO EventListServlet: doGet method.
+2022-10-27 14:22:20 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 14:22:20 INFO EventServiceImpl: counting rows.
+2022-10-27 14:22:20 INFO Tomcat Pool Connection: get connection
+2022-10-27 14:22:20 INFO Tomcat Pool Connection: get datasource
+2022-10-27 14:22:22 INFO EventDAOImpl: count events.
+2022-10-27 14:22:22 INFO EventDAOImpl: all events were calculated.
+2022-10-27 14:22:22 INFO EventServiceImpl: get max page.
+2022-10-27 14:22:22 INFO EventServiceImpl: counting rows.
+2022-10-27 14:22:22 INFO Tomcat Pool Connection: get connection
+2022-10-27 14:22:22 INFO Tomcat Pool Connection: get datasource
+2022-10-27 14:22:22 INFO EventDAOImpl: count events.
+2022-10-27 14:22:22 INFO EventDAOImpl: all events were calculated.
+2022-10-27 14:22:22 INFO Tomcat Pool Connection: get connection
+2022-10-27 14:22:22 INFO Tomcat Pool Connection: get datasource
+2022-10-27 14:22:23 INFO EventDAOImpl: find all events by page.
+2022-10-27 14:22:23 INFO EventDAOImpl: all events were found.
+2022-10-27 14:22:23 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 14:22:23 INFO EventServiceImpl: get max page.
+2022-10-27 14:22:23 INFO EventServiceImpl: counting rows.
+2022-10-27 14:22:23 INFO Tomcat Pool Connection: get connection
+2022-10-27 14:22:23 INFO Tomcat Pool Connection: get datasource
+2022-10-27 14:22:23 INFO EventDAOImpl: count events.
+2022-10-27 14:22:23 INFO EventDAOImpl: all events were calculated.
+2022-10-27 14:22:23 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 14:22:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:22:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:22:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:22:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:22:34 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 14:22:34 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 14:22:42 INFO EventCardServlet: doGet method.
+2022-10-27 14:22:45 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 14:22:45 INFO Tomcat Pool Connection: get connection
+2022-10-27 14:22:45 INFO Tomcat Pool Connection: get datasource
+2022-10-27 14:22:46 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 14:22:46 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 15:12:12 INFO ContextListener: Servlet Context initialized.
+2022-10-27 15:12:13 INFO ContextListener: creating services.
+2022-10-27 15:12:13 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 15:12:13 INFO ValidationFilter: validation filter init
+2022-10-27 15:12:13 INFO EmailValidatorFilter: validation filter init
+2022-10-27 15:12:13 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:12:13 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:12:15 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:12:15 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:12:15 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:12:15 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:12:15 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:12:15 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:12:15 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:12:15 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:36:18 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:36:18 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:36:18 INFO EventListServlet: doGet method.
+2022-10-27 15:36:18 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 15:36:18 INFO EventServiceImpl: counting rows.
+2022-10-27 15:36:18 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:36:18 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:36:24 INFO EventDAOImpl: count events.
+2022-10-27 15:36:24 INFO EventDAOImpl: all events were calculated.
+2022-10-27 15:36:24 INFO EventServiceImpl: get max page.
+2022-10-27 15:36:24 INFO EventServiceImpl: counting rows.
+2022-10-27 15:36:24 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:36:24 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:36:24 INFO EventDAOImpl: count events.
+2022-10-27 15:36:24 INFO EventDAOImpl: all events were calculated.
+2022-10-27 15:36:24 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:36:24 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:36:25 INFO EventDAOImpl: find all events by page.
+2022-10-27 15:36:25 INFO EventDAOImpl: all events were found.
+2022-10-27 15:36:25 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 15:36:25 INFO EventServiceImpl: get max page.
+2022-10-27 15:36:25 INFO EventServiceImpl: counting rows.
+2022-10-27 15:36:25 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:36:25 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:36:25 INFO EventDAOImpl: count events.
+2022-10-27 15:36:25 INFO EventDAOImpl: all events were calculated.
+2022-10-27 15:36:25 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 15:36:26 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:36:26 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:36:26 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:36:26 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:36:31 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:36:31 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:36:31 INFO EventCardServlet: doGet method.
+2022-10-27 15:36:31 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 15:36:31 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:36:31 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:36:31 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 15:36:31 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 15:36:45 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 15:36:53 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:36:53 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:36:54 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 15:36:54 INFO EventDAOImpl: all reports were found.
+2022-10-27 15:39:27 INFO ContextListener: Servlet Context initialized.
+2022-10-27 15:39:27 INFO ContextListener: creating services.
+2022-10-27 15:39:27 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 15:39:27 INFO ValidationFilter: validation filter init
+2022-10-27 15:39:27 INFO EmailValidatorFilter: validation filter init
+2022-10-27 15:39:27 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:39:28 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:39:29 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:39:29 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:39:29 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:39:29 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:39:30 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:39:30 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:39:36 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:39:36 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:39:36 INFO EventListServlet: doGet method.
+2022-10-27 15:39:36 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 15:39:36 INFO EventServiceImpl: counting rows.
+2022-10-27 15:39:36 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:39:36 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:39:37 INFO EventDAOImpl: count events.
+2022-10-27 15:39:37 INFO EventDAOImpl: all events were calculated.
+2022-10-27 15:39:37 INFO EventServiceImpl: get max page.
+2022-10-27 15:39:37 INFO EventServiceImpl: counting rows.
+2022-10-27 15:39:37 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:39:37 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:39:37 INFO EventDAOImpl: count events.
+2022-10-27 15:39:37 INFO EventDAOImpl: all events were calculated.
+2022-10-27 15:39:37 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:39:37 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:39:38 INFO EventDAOImpl: find all events by page.
+2022-10-27 15:39:38 INFO EventDAOImpl: all events were found.
+2022-10-27 15:39:38 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 15:39:38 INFO EventServiceImpl: get max page.
+2022-10-27 15:39:38 INFO EventServiceImpl: counting rows.
+2022-10-27 15:39:38 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:39:38 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:39:38 INFO EventDAOImpl: count events.
+2022-10-27 15:39:38 INFO EventDAOImpl: all events were calculated.
+2022-10-27 15:39:38 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 15:39:39 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:39:39 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:39:44 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 15:39:44 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 15:39:44 INFO EventCardServlet: doGet method.
+2022-10-27 15:39:44 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 15:39:44 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:39:44 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:39:44 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 15:39:44 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 15:39:49 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 15:39:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 15:39:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 15:39:50 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 15:39:50 INFO EventDAOImpl: all reports were found.
+2022-10-27 15:39:57 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:00:05 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:00:06 INFO ContextListener: creating services.
+2022-10-27 16:00:06 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:00:06 INFO ValidationFilter: validation filter init
+2022-10-27 16:00:06 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:00:06 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:06 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:07 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:07 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:08 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:08 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:08 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:08 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:11 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:11 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:11 INFO EventListServlet: doGet method.
+2022-10-27 16:00:11 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:00:11 INFO EventServiceImpl: counting rows.
+2022-10-27 16:00:11 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:00:11 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:00:12 INFO EventDAOImpl: count events.
+2022-10-27 16:00:12 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:00:12 INFO EventServiceImpl: get max page.
+2022-10-27 16:00:12 INFO EventServiceImpl: counting rows.
+2022-10-27 16:00:12 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:00:12 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:00:12 INFO EventDAOImpl: count events.
+2022-10-27 16:00:12 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:00:12 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:00:12 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:00:13 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:00:13 INFO EventDAOImpl: all events were found.
+2022-10-27 16:00:13 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:00:13 INFO EventServiceImpl: get max page.
+2022-10-27 16:00:13 INFO EventServiceImpl: counting rows.
+2022-10-27 16:00:13 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:00:13 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:00:13 INFO EventDAOImpl: count events.
+2022-10-27 16:00:13 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:00:13 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:00:14 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:14 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:17 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:17 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:17 INFO EventCardServlet: doGet method.
+2022-10-27 16:00:17 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:00:17 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:00:17 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:00:17 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:00:17 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:00:17 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:00:17 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:00:17 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:00:17 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:00:18 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:18 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:00:24 INFO EventCardServlet: doGet method.
+2022-10-27 16:00:24 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:00:24 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:00:24 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:00:24 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:00:24 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:00:24 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:00:24 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:00:24 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:00:24 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:00:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:00:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:01:06 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:01:06 INFO ContextListener: creating services.
+2022-10-27 16:01:06 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:01:06 INFO ValidationFilter: validation filter init
+2022-10-27 16:01:06 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:01:06 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:01:06 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:01:08 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:01:08 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:01:08 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:01:08 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:01:09 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:01:09 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:01:14 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:01:14 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:01:14 INFO EventListServlet: doGet method.
+2022-10-27 16:01:14 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:01:14 INFO EventServiceImpl: counting rows.
+2022-10-27 16:01:14 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:01:14 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:01:14 INFO EventDAOImpl: count events.
+2022-10-27 16:01:14 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:01:14 INFO EventServiceImpl: get max page.
+2022-10-27 16:01:14 INFO EventServiceImpl: counting rows.
+2022-10-27 16:01:14 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:01:14 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:01:15 INFO EventDAOImpl: count events.
+2022-10-27 16:01:15 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:01:15 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:01:15 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:01:15 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:01:15 INFO EventDAOImpl: all events were found.
+2022-10-27 16:01:15 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:01:15 INFO EventServiceImpl: get max page.
+2022-10-27 16:01:15 INFO EventServiceImpl: counting rows.
+2022-10-27 16:01:15 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:01:15 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:01:15 INFO EventDAOImpl: count events.
+2022-10-27 16:01:15 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:01:15 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:01:15 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:01:15 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:01:23 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:01:23 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:01:23 INFO EventCardServlet: doGet method.
+2022-10-27 16:01:23 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:01:23 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:01:23 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:01:23 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:01:23 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:01:27 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:01:27 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:01:27 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:01:28 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:01:28 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:01:33 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:01:34 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:01:34 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:04:42 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:04:42 INFO ContextListener: creating services.
+2022-10-27 16:04:42 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:04:42 INFO ValidationFilter: validation filter init
+2022-10-27 16:04:42 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:04:42 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:04:42 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:04:43 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:04:43 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:04:44 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:04:44 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:04:44 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:04:44 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:04:46 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:04:46 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:04:46 INFO EventListServlet: doGet method.
+2022-10-27 16:04:46 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:04:46 INFO EventServiceImpl: counting rows.
+2022-10-27 16:04:46 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:04:46 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:04:46 INFO EventDAOImpl: count events.
+2022-10-27 16:04:46 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:04:46 INFO EventServiceImpl: get max page.
+2022-10-27 16:04:46 INFO EventServiceImpl: counting rows.
+2022-10-27 16:04:46 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:04:46 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:04:46 INFO EventDAOImpl: count events.
+2022-10-27 16:04:46 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:04:46 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:04:46 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:04:46 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:04:46 INFO EventDAOImpl: all events were found.
+2022-10-27 16:04:46 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:04:46 INFO EventServiceImpl: get max page.
+2022-10-27 16:04:46 INFO EventServiceImpl: counting rows.
+2022-10-27 16:04:46 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:04:46 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:04:46 INFO EventDAOImpl: count events.
+2022-10-27 16:04:46 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:04:46 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:04:47 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:04:47 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:04:52 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:04:52 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:04:52 INFO EventCardServlet: doGet method.
+2022-10-27 16:04:52 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:04:52 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:04:52 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:04:52 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:04:52 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:04:52 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:04:52 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:04:52 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:04:52 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:04:52 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:04:52 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:04:53 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:04:53 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:09:12 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:09:12 INFO ContextListener: creating services.
+2022-10-27 16:09:12 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:09:12 INFO ValidationFilter: validation filter init
+2022-10-27 16:09:12 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:09:12 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:09:12 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:09:13 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:09:13 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:09:14 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:09:14 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:09:14 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:09:14 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:09:28 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:09:28 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:09:28 INFO EventListServlet: doGet method.
+2022-10-27 16:09:28 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:09:28 INFO EventServiceImpl: counting rows.
+2022-10-27 16:09:28 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:09:28 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:09:29 INFO EventDAOImpl: count events.
+2022-10-27 16:09:29 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:09:29 INFO EventServiceImpl: get max page.
+2022-10-27 16:09:29 INFO EventServiceImpl: counting rows.
+2022-10-27 16:09:29 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:09:29 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:09:29 INFO EventDAOImpl: count events.
+2022-10-27 16:09:30 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:09:30 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:09:30 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:09:30 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:09:30 INFO EventDAOImpl: all events were found.
+2022-10-27 16:09:30 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:09:30 INFO EventServiceImpl: get max page.
+2022-10-27 16:09:30 INFO EventServiceImpl: counting rows.
+2022-10-27 16:09:30 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:09:30 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:09:30 INFO EventDAOImpl: count events.
+2022-10-27 16:09:30 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:09:30 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:09:30 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:09:30 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:09:32 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:09:32 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:09:32 INFO EventCardServlet: doGet method.
+2022-10-27 16:09:32 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:09:32 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:09:32 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:09:32 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:09:32 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:09:32 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:09:32 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:09:32 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:09:32 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:09:32 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:09:32 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:09:32 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:09:32 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:13:45 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:13:45 INFO ContextListener: creating services.
+2022-10-27 16:13:45 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:13:45 INFO ValidationFilter: validation filter init
+2022-10-27 16:13:45 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:13:45 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:13:45 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:13:47 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:13:47 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:13:47 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:13:47 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:13:47 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:13:47 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:13:49 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:13:49 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:13:49 INFO EventListServlet: doGet method.
+2022-10-27 16:13:49 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:13:49 INFO EventServiceImpl: counting rows.
+2022-10-27 16:13:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:13:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:13:50 INFO EventDAOImpl: count events.
+2022-10-27 16:13:50 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:13:50 INFO EventServiceImpl: get max page.
+2022-10-27 16:13:50 INFO EventServiceImpl: counting rows.
+2022-10-27 16:13:50 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:13:50 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:13:50 INFO EventDAOImpl: count events.
+2022-10-27 16:13:50 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:13:50 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:13:50 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:13:50 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:13:50 INFO EventDAOImpl: all events were found.
+2022-10-27 16:13:50 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:13:50 INFO EventServiceImpl: get max page.
+2022-10-27 16:13:50 INFO EventServiceImpl: counting rows.
+2022-10-27 16:13:50 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:13:50 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:13:50 INFO EventDAOImpl: count events.
+2022-10-27 16:13:50 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:13:50 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:13:51 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:13:51 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:13:53 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:13:53 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:13:53 INFO EventCardServlet: doGet method.
+2022-10-27 16:13:53 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:13:53 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:13:53 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:13:53 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:13:53 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:13:53 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:13:53 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:13:53 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:13:53 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:13:53 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:13:53 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:13:54 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:13:54 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:14:53 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:14:53 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:14:53 INFO EventCardServlet: doGet method.
+2022-10-27 16:14:53 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:14:53 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:14:53 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:14:53 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:14:53 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:14:53 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:14:53 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:14:53 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:14:53 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:14:53 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:14:53 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:14:54 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:14:54 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:15:19 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:15:19 INFO ContextListener: creating services.
+2022-10-27 16:15:19 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:15:19 INFO ValidationFilter: validation filter init
+2022-10-27 16:15:19 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:15:20 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:15:20 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:15:22 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:15:22 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:15:22 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:15:22 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:15:25 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:15:25 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:16:49 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:16:49 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:16:49 INFO EventListServlet: doGet method.
+2022-10-27 16:16:49 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:16:49 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:49 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:16:49 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:16:49 INFO EventListServlet: doGet method.
+2022-10-27 16:16:49 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:16:49 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:49 INFO EventDAOImpl: count events.
+2022-10-27 16:16:49 INFO EventDAOImpl: count events.
+2022-10-27 16:16:49 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:49 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:49 INFO EventServiceImpl: get max page.
+2022-10-27 16:16:49 INFO EventServiceImpl: get max page.
+2022-10-27 16:16:49 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:49 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:49 INFO EventDAOImpl: count events.
+2022-10-27 16:16:49 INFO EventDAOImpl: count events.
+2022-10-27 16:16:49 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:49 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:49 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:16:49 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:16:49 INFO EventListServlet: doGet method.
+2022-10-27 16:16:49 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:16:49 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:49 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:49 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:16:49 INFO EventDAOImpl: count events.
+2022-10-27 16:16:50 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:50 INFO EventServiceImpl: get max page.
+2022-10-27 16:16:50 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:50 INFO EventDAOImpl: all events were found.
+2022-10-27 16:16:50 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:16:50 INFO EventServiceImpl: get max page.
+2022-10-27 16:16:50 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:50 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:16:50 INFO EventDAOImpl: all events were found.
+2022-10-27 16:16:50 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:16:50 INFO EventServiceImpl: get max page.
+2022-10-27 16:16:50 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:50 INFO EventDAOImpl: count events.
+2022-10-27 16:16:50 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:50 INFO EventDAOImpl: count events.
+2022-10-27 16:16:50 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:16:50 INFO EventDAOImpl: count events.
+2022-10-27 16:16:50 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:50 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:16:50 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:50 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:16:50 INFO EventDAOImpl: all events were found.
+2022-10-27 16:16:50 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:16:50 INFO EventServiceImpl: get max page.
+2022-10-27 16:16:50 INFO EventServiceImpl: counting rows.
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:50 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:50 INFO EventDAOImpl: count events.
+2022-10-27 16:16:50 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:16:50 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:16:51 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:16:51 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:16:53 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:16:53 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:16:53 INFO EventCardServlet: doGet method.
+2022-10-27 16:16:53 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:16:53 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:53 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:53 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:16:53 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:16:53 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:16:53 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:16:53 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:16:53 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:16:53 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:16:53 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:16:53 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:16:53 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:17:18 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:17:18 INFO ContextListener: creating services.
+2022-10-27 16:17:18 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:17:18 INFO ValidationFilter: validation filter init
+2022-10-27 16:17:18 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:17:59 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:17:59 INFO ContextListener: creating services.
+2022-10-27 16:17:59 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:17:59 INFO ValidationFilter: validation filter init
+2022-10-27 16:17:59 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:17:59 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:18:00 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:18:01 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:18:01 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:18:01 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:18:01 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:18:01 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:18:01 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:18:03 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:18:03 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:18:03 INFO EventListServlet: doGet method.
+2022-10-27 16:18:03 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:18:03 INFO EventServiceImpl: counting rows.
+2022-10-27 16:18:03 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:18:03 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:18:03 INFO EventDAOImpl: count events.
+2022-10-27 16:18:03 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:18:03 INFO EventServiceImpl: get max page.
+2022-10-27 16:18:03 INFO EventServiceImpl: counting rows.
+2022-10-27 16:18:03 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:18:03 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:18:03 INFO EventDAOImpl: count events.
+2022-10-27 16:18:03 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:18:03 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:18:03 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:18:03 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:18:03 INFO EventDAOImpl: all events were found.
+2022-10-27 16:18:03 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:18:03 INFO EventServiceImpl: get max page.
+2022-10-27 16:18:03 INFO EventServiceImpl: counting rows.
+2022-10-27 16:18:03 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:18:03 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:18:03 INFO EventDAOImpl: count events.
+2022-10-27 16:18:03 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:18:03 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:18:04 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:18:04 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:18:05 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:18:05 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:18:05 INFO EventCardServlet: doGet method.
+2022-10-27 16:18:05 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:18:05 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:18:05 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:18:06 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:18:06 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:18:06 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:18:06 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:18:06 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:18:06 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:18:06 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:18:06 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:18:06 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:18:06 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:23:24 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:23:24 INFO ContextListener: creating services.
+2022-10-27 16:23:24 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:23:24 INFO ValidationFilter: validation filter init
+2022-10-27 16:23:24 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:23:25 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:23:25 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:23:26 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:23:26 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:23:26 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:23:26 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:23:26 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:23:26 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:23:30 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:23:30 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:23:30 INFO EventListServlet: doGet method.
+2022-10-27 16:23:30 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:23:30 INFO EventServiceImpl: counting rows.
+2022-10-27 16:23:30 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:23:30 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:23:30 INFO EventDAOImpl: count events.
+2022-10-27 16:23:30 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:23:30 INFO EventServiceImpl: get max page.
+2022-10-27 16:23:30 INFO EventServiceImpl: counting rows.
+2022-10-27 16:23:30 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:23:30 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:23:30 INFO EventDAOImpl: count events.
+2022-10-27 16:23:30 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:23:30 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:23:30 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:23:30 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:23:30 INFO EventDAOImpl: all events were found.
+2022-10-27 16:23:30 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:23:30 INFO EventServiceImpl: get max page.
+2022-10-27 16:23:30 INFO EventServiceImpl: counting rows.
+2022-10-27 16:23:30 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:23:30 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:23:30 INFO EventDAOImpl: count events.
+2022-10-27 16:23:30 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:23:30 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:23:31 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:23:31 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:23:34 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:23:34 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:23:34 INFO EventCardServlet: doGet method.
+2022-10-27 16:23:34 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:23:34 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:23:34 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:23:34 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:23:34 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:23:34 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:23:34 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:23:34 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:23:34 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:23:34 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:23:34 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:23:35 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:23:35 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:30:33 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:30:33 INFO ContextListener: creating services.
+2022-10-27 16:30:33 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:30:33 INFO ValidationFilter: validation filter init
+2022-10-27 16:30:33 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:30:34 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:30:34 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:30:35 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:30:35 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:30:35 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:30:35 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:30:35 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:30:35 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:30:37 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:30:37 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:30:37 INFO EventListServlet: doGet method.
+2022-10-27 16:30:37 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:30:37 INFO EventServiceImpl: counting rows.
+2022-10-27 16:30:37 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:30:37 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:30:37 INFO EventDAOImpl: count events.
+2022-10-27 16:30:37 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:30:37 INFO EventServiceImpl: get max page.
+2022-10-27 16:30:37 INFO EventServiceImpl: counting rows.
+2022-10-27 16:30:37 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:30:37 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:30:37 INFO EventDAOImpl: count events.
+2022-10-27 16:30:37 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:30:37 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:30:37 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:30:37 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:30:37 INFO EventDAOImpl: all events were found.
+2022-10-27 16:30:37 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:30:37 INFO EventServiceImpl: get max page.
+2022-10-27 16:30:37 INFO EventServiceImpl: counting rows.
+2022-10-27 16:30:37 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:30:37 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:30:37 INFO EventDAOImpl: count events.
+2022-10-27 16:30:37 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:30:37 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:30:38 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:30:38 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:30:39 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:30:39 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:30:39 INFO EventCardServlet: doGet method.
+2022-10-27 16:30:39 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:30:39 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:30:39 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:30:39 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:30:39 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:30:39 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:30:39 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:30:39 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:30:40 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:30:40 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:30:40 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:30:40 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:30:40 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:39:49 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:39:49 INFO ContextListener: creating services.
+2022-10-27 16:39:49 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:39:49 INFO ValidationFilter: validation filter init
+2022-10-27 16:39:49 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:39:49 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:39:49 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:39:51 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:39:51 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:39:52 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:39:52 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:39:52 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:39:52 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:39:54 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:39:54 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:39:54 INFO EventListServlet: doGet method.
+2022-10-27 16:39:54 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:39:54 INFO EventServiceImpl: counting rows.
+2022-10-27 16:39:54 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:39:54 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:39:56 INFO EventDAOImpl: count events.
+2022-10-27 16:39:56 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:39:56 INFO EventServiceImpl: get max page.
+2022-10-27 16:39:56 INFO EventServiceImpl: counting rows.
+2022-10-27 16:39:56 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:39:56 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:39:56 INFO EventDAOImpl: count events.
+2022-10-27 16:39:56 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:39:56 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:39:56 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:39:56 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:39:56 INFO EventDAOImpl: all events were found.
+2022-10-27 16:39:56 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:39:56 INFO EventServiceImpl: get max page.
+2022-10-27 16:39:56 INFO EventServiceImpl: counting rows.
+2022-10-27 16:39:56 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:39:56 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:39:56 INFO EventDAOImpl: count events.
+2022-10-27 16:39:56 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:39:56 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:39:57 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:39:57 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:39:59 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:39:59 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:39:59 INFO EventCardServlet: doGet method.
+2022-10-27 16:39:59 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:39:59 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:39:59 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:40:00 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:40:00 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:40:00 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:40:00 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:40:00 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:40:00 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:40:00 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:40:00 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:40:00 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:40:00 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:11 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:45:11 INFO ContextListener: creating services.
+2022-10-27 16:45:11 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:45:11 INFO ValidationFilter: validation filter init
+2022-10-27 16:45:11 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:45:11 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:11 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:12 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:12 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:12 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:12 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:12 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:12 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:14 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:14 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:14 INFO EventListServlet: doGet method.
+2022-10-27 16:45:14 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:45:14 INFO EventServiceImpl: counting rows.
+2022-10-27 16:45:14 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:14 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:15 INFO EventDAOImpl: count events.
+2022-10-27 16:45:15 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:45:15 INFO EventServiceImpl: get max page.
+2022-10-27 16:45:15 INFO EventServiceImpl: counting rows.
+2022-10-27 16:45:15 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:15 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:15 INFO EventDAOImpl: count events.
+2022-10-27 16:45:15 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:45:15 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:15 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:15 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:45:15 INFO EventDAOImpl: all events were found.
+2022-10-27 16:45:15 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:45:15 INFO EventServiceImpl: get max page.
+2022-10-27 16:45:15 INFO EventServiceImpl: counting rows.
+2022-10-27 16:45:15 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:15 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:15 INFO EventDAOImpl: count events.
+2022-10-27 16:45:15 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:45:15 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:45:15 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:15 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:17 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:17 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:17 INFO EventCardServlet: doGet method.
+2022-10-27 16:45:17 INFO EventServiceImpl: get event by id = 1.
+2022-10-27 16:45:17 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:17 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:17 INFO EventDAOImpl: obtaining event by id=1
+2022-10-27 16:45:17 INFO EventDAOImpl: event with id=1 was get successfully.
+2022-10-27 16:45:17 INFO ReportServiceImpl: getting all events of conference with id 1.
+2022-10-27 16:45:17 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:17 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:17 INFO ReportDAOImpl: find all reports for event with id = 1.
+2022-10-27 16:45:17 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:45:17 INFO ReportServiceImpl: all reports of conference with id 1 were obtained successfully.
+2022-10-27 16:45:18 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:18 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:23 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:23 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:23 INFO EventListServlet: doGet method.
+2022-10-27 16:45:23 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:45:23 INFO EventServiceImpl: counting rows.
+2022-10-27 16:45:23 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:23 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:23 INFO EventDAOImpl: count events.
+2022-10-27 16:45:23 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:45:23 INFO EventServiceImpl: get max page.
+2022-10-27 16:45:23 INFO EventServiceImpl: counting rows.
+2022-10-27 16:45:23 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:23 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:24 INFO EventDAOImpl: count events.
+2022-10-27 16:45:24 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:45:24 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:24 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:24 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:45:24 INFO EventDAOImpl: all events were found.
+2022-10-27 16:45:24 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:45:24 INFO EventServiceImpl: get max page.
+2022-10-27 16:45:24 INFO EventServiceImpl: counting rows.
+2022-10-27 16:45:24 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:24 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:24 INFO EventDAOImpl: count events.
+2022-10-27 16:45:24 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:45:24 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:45:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:25 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:25 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:45:25 INFO EventCardServlet: doGet method.
+2022-10-27 16:45:25 INFO EventServiceImpl: get event by id = 3.
+2022-10-27 16:45:25 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:25 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:25 INFO EventDAOImpl: obtaining event by id=3
+2022-10-27 16:45:25 INFO EventDAOImpl: event with id=3 was get successfully.
+2022-10-27 16:45:25 INFO ReportServiceImpl: getting all events of conference with id 3.
+2022-10-27 16:45:25 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:45:25 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:45:25 INFO ReportDAOImpl: find all reports for event with id = 3.
+2022-10-27 16:45:25 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:45:25 INFO ReportServiceImpl: all reports of conference with id 3 were obtained successfully.
+2022-10-27 16:45:25 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:45:25 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:22 INFO ContextListener: Servlet Context initialized.
+2022-10-27 16:47:22 INFO ContextListener: creating services.
+2022-10-27 16:47:22 INFO JSPEncodingFilter: encoding Filter init.
+2022-10-27 16:47:22 INFO ValidationFilter: validation filter init
+2022-10-27 16:47:22 INFO EmailValidatorFilter: validation filter init
+2022-10-27 16:47:23 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:23 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:24 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:24 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:27 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:27 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:27 INFO EventListServlet: doGet method.
+2022-10-27 16:47:27 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:47:27 INFO EventServiceImpl: counting rows.
+2022-10-27 16:47:27 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:27 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:27 INFO EventDAOImpl: count events.
+2022-10-27 16:47:27 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:47:27 INFO EventServiceImpl: get max page.
+2022-10-27 16:47:27 INFO EventServiceImpl: counting rows.
+2022-10-27 16:47:27 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:27 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:27 INFO EventDAOImpl: count events.
+2022-10-27 16:47:27 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:47:27 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:27 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:27 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:47:27 INFO EventDAOImpl: all events were found.
+2022-10-27 16:47:27 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:47:27 INFO EventServiceImpl: get max page.
+2022-10-27 16:47:27 INFO EventServiceImpl: counting rows.
+2022-10-27 16:47:27 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:27 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:27 INFO EventDAOImpl: count events.
+2022-10-27 16:47:27 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:47:27 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:47:28 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:28 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:29 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:29 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:29 INFO EventCardServlet: doGet method.
+2022-10-27 16:47:29 INFO EventServiceImpl: get event by id = 3.
+2022-10-27 16:47:29 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:29 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:29 INFO EventDAOImpl: obtaining event by id=3
+2022-10-27 16:47:29 INFO EventDAOImpl: event with id=3 was get successfully.
+2022-10-27 16:47:29 INFO ReportServiceImpl: getting all events of conference with id 3.
+2022-10-27 16:47:29 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:29 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:29 INFO ReportDAOImpl: find all reports for event with id = 3.
+2022-10-27 16:47:29 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:47:29 INFO ReportServiceImpl: all reports of conference with id 3 were obtained successfully.
+2022-10-27 16:47:30 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:30 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:33 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:33 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:33 INFO EventListServlet: doGet method.
+2022-10-27 16:47:33 INFO EventServiceImpl: getting all events for 1.
+2022-10-27 16:47:33 INFO EventServiceImpl: counting rows.
+2022-10-27 16:47:33 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:33 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:33 INFO EventDAOImpl: count events.
+2022-10-27 16:47:33 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:47:33 INFO EventServiceImpl: get max page.
+2022-10-27 16:47:33 INFO EventServiceImpl: counting rows.
+2022-10-27 16:47:33 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:33 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:33 INFO EventDAOImpl: count events.
+2022-10-27 16:47:33 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:47:33 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:33 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:33 INFO EventDAOImpl: find all events by page.
+2022-10-27 16:47:33 INFO EventDAOImpl: all events were found.
+2022-10-27 16:47:33 INFO EventServiceImpl: all events for page 1 were obtained successfully.
+2022-10-27 16:47:33 INFO EventServiceImpl: get max page.
+2022-10-27 16:47:33 INFO EventServiceImpl: counting rows.
+2022-10-27 16:47:33 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:33 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:33 INFO EventDAOImpl: count events.
+2022-10-27 16:47:33 INFO EventDAOImpl: all events were calculated.
+2022-10-27 16:47:33 INFO EventListServlet: forwarding to registerForEvent.jsp
+2022-10-27 16:47:33 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:33 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:34 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:34 INFO JSPEncodingFilter: set encoding UTF-8 for request.
+2022-10-27 16:47:34 INFO EventCardServlet: doGet method.
+2022-10-27 16:47:34 INFO EventServiceImpl: get event by id = 2.
+2022-10-27 16:47:34 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:34 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:34 INFO EventDAOImpl: obtaining event by id=2
+2022-10-27 16:47:34 INFO EventDAOImpl: event with id=2 was get successfully.
+2022-10-27 16:47:34 INFO ReportServiceImpl: getting all events of conference with id 2.
+2022-10-27 16:47:34 INFO Tomcat Pool Connection: get connection
+2022-10-27 16:47:34 INFO Tomcat Pool Connection: get datasource
+2022-10-27 16:47:34 INFO ReportDAOImpl: find all reports for event with id = 2.
+2022-10-27 16:47:34 INFO EventDAOImpl: all reports were found.
+2022-10-27 16:47:34 INFO ReportServiceImpl: all reports of conference with id 2 were obtained successfully.
+2022-10-27 16:47:34 INFO JSPEncodingFilter: encoding filter start working.
+2022-10-27 16:47:34 INFO JSPEncodingFilter: set encoding UTF-8 for request.

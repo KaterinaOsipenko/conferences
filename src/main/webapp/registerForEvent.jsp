@@ -37,12 +37,12 @@
             <div class="btn-register">
                 <a class="btn btn-primary"
                    href="${pageContext.request.contextPath}/eventListServlet?sort=reports"
-                   role="button">Show past events</a>
+                   role="button">Sort by quantity of reports</a>
             </div>
             <div class="btn-register">
                 <a class="btn btn-primary"
                    href="${pageContext.request.contextPath}/eventListServlet?sort=users"
-                   role="button">Show past events</a>
+                   role="button">Sort by quantity of registered users</a>
             </div>
         </div>
         <div class="container" style="display: flex; align-items: center;">

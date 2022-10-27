@@ -105,7 +105,7 @@ public class EventServiceImpl implements EventService, SortService {
         try {
             event = eventDAO.findById(DAOFactory.getConnection(), id);
         } catch (DBException | NamingException | SQLException e) {
-            logger.error("EventServiceImpl: exception during counting all events.");
+            logger.error("EventServiceImpl: exception during obtaining event with id = {}.", id);
             throw new ServiceException(e);
         }
         return event.orElse(null);
