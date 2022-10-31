@@ -1,5 +1,6 @@
 package com.epam.conferences.controller;
 
+import com.epam.conferences.exception.NoElementsException;
 import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.service.EventService;
@@ -33,6 +34,7 @@ public class EventListServlet extends HttpServlet {
         logger.info("EventListServlet: doGet method.");
         int page;
         String sort;
+        String address;
         if (request.getParameter("page") == null || request.getParameter("page").equals("")) {
             page = 1;
             request.setAttribute("currentPage", 1);
@@ -49,14 +51,21 @@ public class EventListServlet extends HttpServlet {
                 request.setAttribute("sort", sort);
                 eventList = eventService.findEventsSorted(page, sort);
             }
+            if (eventList.isEmpty()) {
+                logger.error("EventListServlet: there are no events.");
+                throw new NoElementsException("There are no events.");
+            }
             request.setAttribute("maxPage", eventService.maxPage());
             request.setAttribute("eventList", eventList);
-        } catch (ServiceException e) {
+            address = PathUtil.EVENT_LIST_PAGE;
+        } catch (ServiceException | NoElementsException e) {
             logger.error("EventListServlet: exception ({}) during finding events for page {}", e.getMessage(), page);
             request.setAttribute("ex", e.getMessage());
+            request.setAttribute("address", "/");
+            address = PathUtil.ERROR_PAGE;
         }
         logger.info("EventListServlet: forwarding to {}", PathUtil.EVENT_LIST_PAGE);
-        request.getRequestDispatcher(PathUtil.EVENT_LIST_PAGE).forward(request, response);
+        request.getRequestDispatcher(address).forward(request, response);
     }
 
 }

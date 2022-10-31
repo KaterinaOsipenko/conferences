@@ -1202,3 +1202,27 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2022-10-27 16:00:24 ERROR ReportDAOImpl: exception (java.sql.SQLException: Column 'id_speaker' not found.) during obtaining all reports for event with id 2
 2022-10-27 16:00:24 ERROR ReportServiceImpl: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_speaker' not found.) during getting all reports of conference with id 2.
 2022-10-27 16:00:24 ERROR EventCardServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_speaker' not found.) during find event with id=2
+2022-10-28 14:37:31 ERROR ReportServiceImpl: list of reports is NULL.
+2022-10-28 14:37:31 ERROR ReportsListServlet: exception (ReportServiceImpl: list of reports is NULL.) during find reports for event with id=3
+2022-10-28 14:53:56 ERROR ReportsListServlet: there are no reports for this event.
+2022-10-28 14:53:56 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=3
+2022-10-28 15:14:19 ERROR ReportsListServlet: there are no reports for this event.
+2022-10-28 15:14:19 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=3
+2022-10-28 16:21:24 ERROR javax.mail.AuthenticationFailedException: 454 4.7.0 Too many login attempts, please try again later. c11-20020a50d64b000000b00458dc7e8ecasm2674703edj.72 - gsmtp
+
+2022-10-28 16:25:25 ERROR javax.mail.AuthenticationFailedException: 454 4.7.0 Too many login attempts, please try again later. c7-20020a17090603c700b007ad86f86b4fsm2270361eja.69 - gsmtp
+
+2022-10-28 16:27:19 ERROR javax.mail.AuthenticationFailedException: 534-5.7.9 Application-specific password required. Learn more at
+534 5.7.9  https://support.google.com/mail/?p=InvalidSecondFactor bt20-20020a0564020a5400b004614fd33789sm2680387edb.18 - gsmtp
+
+2022-10-28 16:33:08 ERROR javax.mail.AuthenticationFailedException: 534-5.7.9 Application-specific password required. Learn more at
+534 5.7.9  https://support.google.com/mail/?p=InvalidSecondFactor j18-20020a17090623f200b00782539a02absm2180571ejg.194 - gsmtp
+
+2022-10-28 17:49:41 ERROR EmailServiceImpl: exception 534-5.7.9 Application-specific password required. Learn more at
+534 5.7.9  https://support.google.com/mail/?p=InvalidSecondFactor kz11-20020a17090777cb00b0077b523d309asm2239193ejc.185 - gsmtp
+
+2022-10-31 12:24:46 ERROR RegisterCommand: there is user with this email. 
+2022-10-31 13:12:27 ERROR RegisterCommand: there is user with this email. 
+2022-10-31 13:15:40 ERROR RegisterCommand: there is user with this email. 
+2022-10-31 13:16:50 ERROR RegisterCommand: there is user with this email. 
+2022-10-31 13:49:01 ERROR EmailServiceImpl: exception failed to connect, no password specified?

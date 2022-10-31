@@ -57,7 +57,6 @@ public class RegistrationServlet extends HttpServlet {
                 userService.updateUser(user);
                 session.setAttribute("user", user);
                 address = PathUtil.PROFILE_PAGE;
-
             } else {
                 String firstname = req.getParameter("firstname");
                 String lastname = req.getParameter("lastname");

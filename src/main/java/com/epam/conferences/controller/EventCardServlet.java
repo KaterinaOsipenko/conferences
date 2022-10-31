@@ -3,7 +3,6 @@ package com.epam.conferences.controller;
 import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.service.EventService;
-import com.epam.conferences.service.ReportService;
 import com.epam.conferences.util.PathUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,13 +20,10 @@ public class EventCardServlet extends HttpServlet {
     private static final Logger logger = LogManager.getLogger(EventCardServlet.class);
     private EventService eventService;
 
-    private ReportService reportService;
-
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         eventService = (EventService) config.getServletContext().getAttribute("eventService");
-        reportService = (ReportService) config.getServletContext().getAttribute("reportService");
     }
 
     @Override
@@ -38,15 +34,8 @@ public class EventCardServlet extends HttpServlet {
         String address;
         try {
             event = eventService.findEvent(eventId);
-            if (event == null) {
-                logger.error("EventCardServlet: event with id={} null", eventId);
-                request.setAttribute("ex", "There is no this event.");
-                address = PathUtil.EVENT_LIST_PAGE;
-            } else {
-                request.setAttribute("reports", reportService.getReportsByEventId(event));
-                request.setAttribute("event", event);
-                address = PathUtil.EVENT_CARD_PAGE;
-            }
+            request.setAttribute("event", event);
+            address = PathUtil.EVENT_CARD_PAGE;
         } catch (ServiceException e) {
             logger.error("EventCardServlet: exception ({}) during find event with id={}", e.getMessage(), eventId);
             request.setAttribute("ex", e.getMessage());

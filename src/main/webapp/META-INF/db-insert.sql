@@ -21,12 +21,12 @@ INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`,
 VALUES ('Катя', 'Brown', 'megan.brown@gmail.com', '123456789', '1');
 INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`, `id_role`)
 VALUES ('Lily', 'Holms', 'lily.holms123@gmail.com', '4567890', '2');
-INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`, `id_role`)
-VALUES ('Bob', 'Backer', 'bob.baker@gmail.com', '67890', '3');
+INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`)
+VALUES ('Bob', 'Backer', 'bob.baker@gmail.com', '67890');
 INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`, `id_role`)
 VALUES ('Mile', 'Addison', 'mike.addison345@gmail.com', '567890', '2');
-INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`, `id_role`)
-VALUES ('Luke', 'Sloan', 'luke.sloan68@gmail.com', '5678', '3');
+INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`)
+VALUES ('Luke', 'Sloan', 'luke.sloan68@gmail.com', '5678');
 
 INSERT INTO `conferences`.`topics` (`name`)
 VALUES ('Medicine Facts');
@@ -71,3 +71,5 @@ INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
 VALUES ('1', '4', '3');
 INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
 VALUES ('2', '2', '4');
+INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
+VALUES ('5', '5', '5');

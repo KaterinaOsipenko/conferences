@@ -12,6 +12,8 @@ public class PathUtil {
     public final static String EVENT_LIST_PAGE = "registerForEvent.jsp";
     public final static String EVENT_CARD_PAGE = "cardEvent.jsp";
 
+    public final static String REPORTS_LIST_PAGE = "reportsList.jsp";
+
     private PathUtil() {
     }
 

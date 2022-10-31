@@ -4,7 +4,6 @@ import com.epam.conferences.dao.DAOFactory;
 import com.epam.conferences.dao.ReportDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.exception.ServiceException;
-import com.epam.conferences.model.Event;
 import com.epam.conferences.model.Report;
 import com.epam.conferences.service.ReportService;
 import org.apache.logging.log4j.LogManager;
@@ -25,20 +24,20 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public List<Report> getReportsByEventId(Event event) throws ServiceException {
-        logger.info("ReportServiceImpl: getting all events of conference with id {}.", event.getId());
+    public List<Report> getReportsByEventId(int eventId) throws ServiceException {
+        logger.info("ReportServiceImpl: getting all events of conference with id {}.", eventId);
         List<Report> reports;
         try {
-            reports = reportDAO.findAllByEventId(DAOFactory.getConnection(), event.getId());
+            reports = reportDAO.findAllByEventId(DAOFactory.getConnection(), eventId);
             if (reports == null) {
                 logger.error("ReportServiceImpl: list of reports is NULL.");
                 throw new ServiceException("ReportServiceImpl: list of reports is NULL.");
             }
         } catch (DBException | NamingException | SQLException e) {
-            logger.error("ReportServiceImpl: exception ({}) during getting all reports of conference with id {}.", e, event.getId());
+            logger.error("ReportServiceImpl: exception ({}) during getting all reports of conference with id {}.", e, eventId);
             throw new ServiceException(e);
         }
-        logger.info("ReportServiceImpl: all reports of conference with id {} were obtained successfully.", event.getId());
+        logger.info("ReportServiceImpl: all reports of conference with id {} were obtained successfully.", eventId);
         return reports;
     }
 }

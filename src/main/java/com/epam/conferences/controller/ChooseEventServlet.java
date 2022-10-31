@@ -40,17 +40,12 @@ public class ChooseEventServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         try {
             event = eventService.findEvent(id);
-            if (event == null) {
-                logger.error("ChooseEventServlet: event with id={} null", id);
-                request.setAttribute("ex", "There is no this event.");
-                address = PathUtil.EVENT_LIST_PAGE;
-            } else {
-                request.setAttribute("event", event);
-                address = PathUtil.CHOOSE_EVENT_PAGE;
-            }
+            request.setAttribute("event", event);
+            address = PathUtil.CHOOSE_EVENT_PAGE;
         } catch (ServiceException e) {
             logger.error("ChooseEventServlet: exception ({}) during find event with id={}", e.getMessage(), id);
             request.setAttribute("ex", "Sorry, you can`t choose this event(");
+            request.setAttribute("address", "eventListServlet");
             address = PathUtil.ERROR_PAGE;
         }
         request.getRequestDispatcher(address).forward(request, response);
@@ -71,17 +66,20 @@ public class ChooseEventServlet extends HttpServlet {
                     request.getSession().setAttribute("address", "eventListServlet");
                     address = PathUtil.ERROR_PAGE;
                 } else {
+                    event = eventService.findEvent(eventId);
                     eventService.registerUserToEvent(event, user);
                     address = PathUtil.SUCCESS_PAGE;
                 }
             } else {
                 user = new User();
                 user.setEmail(email);
+                event = eventService.findEvent(eventId);
                 userService.registerUserToEvent(event, user);
                 address = PathUtil.SUCCESS_PAGE;
             }
         } catch (ServiceException e) {
             request.getSession().setAttribute("ex", e);
+            request.getSession().setAttribute("address", "eventListServlet");
             address = PathUtil.ERROR_PAGE;
         }
         response.sendRedirect(address);

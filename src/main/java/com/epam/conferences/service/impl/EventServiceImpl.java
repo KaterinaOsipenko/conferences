@@ -104,11 +104,15 @@ public class EventServiceImpl implements EventService, SortService {
         Optional<Event> event;
         try {
             event = eventDAO.findById(DAOFactory.getConnection(), id);
+            if (event.isEmpty()) {
+                logger.error("EventServiceImpl: there is no event with this id = {}.", id);
+                throw new ServiceException("EventServiceImpl: there is no this event.");
+            }
         } catch (DBException | NamingException | SQLException e) {
             logger.error("EventServiceImpl: exception during obtaining event with id = {}.", id);
             throw new ServiceException(e);
         }
-        return event.orElse(null);
+        return event.get();
     }
 
     @Override

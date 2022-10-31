@@ -43,25 +43,11 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </p>
-                                <c:if test="${not empty reports}">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                            <th>Topic</th>
-                                            <th>Speaker</th>
-                                            </thead>
-                                            <c:forEach var="report" items="${reports}">
-                                                <tr>
-                                                    <td>${report.topic.name}</td>
-                                                    <td>${report.speaker.firstName} ${report.speaker.lastName}</td>
-                                                </tr>
-                                            </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </c:if>
                                 <div class="ftr">
                                     <div class="btn-register">
+                                        <a class="btn btn-dark"
+                                           href="${pageContext.request.contextPath}/reports?id=${event.id}"
+                                           role="button">See reports</a>
                                         <a class="btn btn-light"
                                            href="${pageContext.request.contextPath}/chooseEvent?id=${event.id}"
                                            role="button">Choose event</a>
