@@ -23,6 +23,8 @@ public class ReportDAOImpl implements ReportDAO {
             "users.lastName, topics.id AS id_topic, topics.name FROM reports JOIN users " +
             "ON reports.id_speaker = users.id JOIN topics ON reports.id_topic = topics.id WHERE id_event = ?";
 
+    private final static String COUNT_REPORTS_BY_EVENT = "SELECT COUNT(*) FROM reports WHERE id_event = ?";
+
     @Override
     public List<Report> findAllByEventId(Connection connection, long eventId) throws DBException {
         logger.info("ReportDAOImpl: find all reports for event with id = {}.", eventId);
@@ -35,8 +37,24 @@ public class ReportDAOImpl implements ReportDAO {
             logger.error("ReportDAOImpl: exception ({}) during obtaining all reports for event with id {}", e, eventId);
             throw new DBException(e);
         }
-        logger.info("EventDAOImpl: all reports were found.");
+        logger.info("ReportDAOImpl: all reports were found.");
         return reports;
+    }
+
+    @Override
+    public Integer countReportsByEventId(Connection connection, long eventId) throws DBException {
+        logger.info("ReportDAOImpl: count reports for event with id = {}.", eventId);
+        int count;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(COUNT_REPORTS_BY_EVENT)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            count = resultSet.getInt(1);
+        } catch (SQLException e) {
+            logger.error("ReportDAOImpl: exception ({}) during counting all reports for event with id {}", e, eventId);
+            throw new DBException(e);
+        }
+        logger.info("ReportDAOImpl: all reports were counted.");
+        return count;
     }
 
     private List<Report> extractReportList(ResultSet resultSet) throws SQLException {

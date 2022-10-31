@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface EventService {
 
-    List<Event> findAll() throws ServiceException;
-
     List<Event> findEvents(int page) throws ServiceException;
 
     Integer countEvents() throws ServiceException;

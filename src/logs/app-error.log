@@ -1226,3 +1226,32 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2022-10-31 13:15:40 ERROR RegisterCommand: there is user with this email. 
 2022-10-31 13:16:50 ERROR RegisterCommand: there is user with this email. 
 2022-10-31 13:49:01 ERROR EmailServiceImpl: exception failed to connect, no password specified?
+2022-10-31 14:04:57 ERROR ReportsListServlet: there are no reports for this event.
+2022-10-31 14:04:57 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=4
+2022-10-31 15:26:36 ERROR EventDAOImpl: exception (java.sql.SQLException: No value specified for parameter 1) during counting all reports for event with id 1
+2022-10-31 15:26:36 ERROR EventServiceImpl: exception during getting all events.
+2022-10-31 15:26:36 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: com.epam.conferences.exception.DBException: java.sql.SQLException: No value specified for parameter 1) during finding events for page 1
+2022-10-31 16:56:46 ERROR EventServiceImpl: exception during getting all events.
+2022-10-31 16:56:46 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_address' not found.) during finding events for page 1
+2022-10-31 16:58:39 ERROR EventServiceImpl: exception during getting all events.
+2022-10-31 16:58:39 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'country' not found.) during finding events for page 1
+2022-10-31 17:06:57 ERROR EventServiceImpl: exception during getting all events.
+2022-10-31 17:06:57 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'country' not found.) during finding events for page 1
+2022-10-31 17:08:18 ERROR EventListServlet: there are no events.
+2022-10-31 17:08:18 ERROR EventListServlet: exception (There are no events.) during finding events for page 1
+2022-10-31 21:58:56 ERROR EventDAOImpl: exception during obtaining events sorted by count of reports with offset 0.
+2022-10-31 21:58:56 ERROR EventServiceImpl: exception during getting all events.
+2022-10-31 21:58:56 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).) during finding events for page 1
+2022-10-31 22:02:08 ERROR EventDAOImpl: exception during obtaining events sorted by date with offset 0.
+2022-10-31 22:02:08 ERROR EventServiceImpl: exception during getting all events.
+2022-10-31 22:02:08 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Duplicate column name 'id') during finding events for page 1
+2022-10-31 22:05:48 ERROR EventServiceImpl: exception during getting all events.
+2022-10-31 22:05:48 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_address' not found.) during finding events for page 1
+2022-10-31 22:05:56 ERROR EventServiceImpl: exception during getting all events in the future.
+2022-10-31 22:05:56 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_address' not found.) during finding events for page 1
+2022-10-31 22:06:00 ERROR EventDAOImpl: exception during obtaining past events with offset 0.
+2022-10-31 22:06:00 ERROR EventServiceImpl: exception during getting all events in the past.
+2022-10-31 22:06:00 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Duplicate column name 'id') during finding events for page 1
+2022-10-31 22:09:18 ERROR EventDAOImpl: exception during obtaining events sorted by date with offset 0.
+2022-10-31 22:09:18 ERROR EventServiceImpl: exception during getting all events.
+2022-10-31 22:09:18 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Duplicate column name 'id') during finding events for page 1

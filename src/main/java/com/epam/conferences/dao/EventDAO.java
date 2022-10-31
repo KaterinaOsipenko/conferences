@@ -10,7 +10,9 @@ import java.util.Optional;
 
 public interface EventDAO {
 
-    List<Event> findAll(Connection connection) throws DBException;
+    Integer countReportsByEventId(Connection connection, long eventId) throws DBException;
+
+    Integer countRegisteredUsersByEventId(Connection connection, long eventId) throws DBException;
 
     List<Event> findAll(Connection connection, int offset, int count) throws DBException;
 
@@ -19,6 +21,10 @@ public interface EventDAO {
     List<Event> findAllFutureEvents(Connection connection, int offset, int count) throws DBException;
 
     List<Event> findAllPastEvents(Connection connection, int offset, int count) throws DBException;
+
+    List<Event> sortByCountUsers(Connection connection, int offset, int count) throws DBException;
+
+    List<Event> sortByCountReports(Connection connection, int offset, int count) throws DBException;
 
     Integer countEvents(Connection connection) throws DBException;
 

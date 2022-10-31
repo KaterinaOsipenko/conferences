@@ -14,7 +14,6 @@ import org.apache.logging.log4j.Logger;
 
 import javax.naming.NamingException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,24 +35,6 @@ public class EventServiceImpl implements EventService, SortService {
         }
         this.eventDAO = eventDao;
         this.notificationManager = notificationManager;
-    }
-
-    @Override
-    public List<Event> findAll() throws ServiceException {
-        logger.info("EventServiceImpl: getting all events.");
-        List<Event> eventList;
-        try {
-            eventList = eventDAO.findAll(DAOFactory.getConnection());
-            if (eventList == null) {
-                logger.error("EventServiceImpl: list of events is NULL.");
-                throw new ServiceException("EventServiceImpl: list of events is NULL.");
-            }
-        } catch (DBException | NamingException | SQLException e) {
-            logger.error("EventServiceImpl: find all exception. ");
-            throw new ServiceException("EventServiceImpl: find all exception. ");
-        }
-        logger.info("EventServiceImpl: all events were obtained successfully.");
-        return eventList;
     }
 
     @Override
@@ -155,15 +136,39 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
-    public List<Event> sortByUsers(int page) {
-        logger.info("EventServiceImpl: sort by users on page {}.", page);
-        List<Event> eventList = new ArrayList<>();
+    public List<Event> sortByUsers(int page) throws ServiceException {
+        logger.info("EventServiceImpl: sort by registrated users on page {}.", page);
+        List<Event> eventList;
+        try {
+            int count = getCountForPage(page);
+            eventList = eventDAO.sortByCountUsers(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            if (eventList == null) {
+                logger.error("EventServiceImpl: list of events is NULL.");
+                throw new ServiceException("EventServiceImpl: list of events is NULL.");
+            }
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("EventServiceImpl: exception during getting all events.");
+            throw new ServiceException(e);
+        }
+        logger.info("EventServiceImpl: all events sorted by date for page {} were obtained successfully.", page);
         return eventList;
     }
 
-    public List<Event> sortByReports(int page) {
+    public List<Event> sortByReports(int page) throws ServiceException {
         logger.info("EventServiceImpl: sort by reports on page {}.", page);
-        List<Event> eventList = new ArrayList<>();
+        List<Event> eventList;
+        try {
+            int count = getCountForPage(page);
+            eventList = eventDAO.sortByCountReports(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            if (eventList == null) {
+                logger.error("EventServiceImpl: list of events is NULL.");
+                throw new ServiceException("EventServiceImpl: list of events is NULL.");
+            }
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("EventServiceImpl: exception during getting all events.");
+            throw new ServiceException(e);
+        }
+        logger.info("EventServiceImpl: all events sorted by reports for page {} were obtained successfully.", page);
         return eventList;
     }
 

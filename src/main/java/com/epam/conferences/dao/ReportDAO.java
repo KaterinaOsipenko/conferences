@@ -9,4 +9,6 @@ import java.util.List;
 public interface ReportDAO {
 
     List<Report> findAllByEventId(Connection connection, long eventId) throws DBException;
+
+    Integer countReportsByEventId(Connection connection, long eventId) throws DBException;
 }

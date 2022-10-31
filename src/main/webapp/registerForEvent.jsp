@@ -70,9 +70,34 @@
                 <c:forEach var="event" items="${eventList}">
                     <div class="col-md-4">
                         <div class="blog-card blog-card-blog">
-                            <div class="blog-table">
-                                <h6 class="blog-category blog-text-success"><i
+                            <div class="blog-table" style="padding: 10px 10px;">
+                                <c:if test="${event.reports > 0}">
+                                    <c:choose>
+                                        <c:when test="${event.reports == 1}">
+                                            <p class="blog-category blog-text-success"
+                                               style="display: inline"> ${event.reports} report | </p>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p class="blog-category blog-text-success"
+                                               style="display: inline"> ${event.reports} reports | </p>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:if>
+                                <h6 style="display: inline" class="blog-category blog-text-success"><i
                                         class="far fa-newspaper"></i> ${event.address.country}</h6>
+                                <c:if test="${event.registerUsers > 0}">
+                                    <c:choose>
+                                        <c:when test="${event.registerUsers == 1}">
+                                            <p class="blog-category blog-text-success"
+                                               style="display: inline"> | ${event.registerUsers} user</p>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <p class="blog-category blog-text-success"
+                                               style="display: inline"> | ${event.registerUsers} users</p>
+                                        </c:otherwise>
+                                    </c:choose>
+
+                                </c:if>
                                 <h4 class="blog-card-caption">
                                     <a href="${pageContext.request.contextPath}/eventCardServlet?id=${event.id}">${event.name}</a>
                                 </h4>

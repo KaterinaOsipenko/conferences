@@ -34,6 +34,7 @@ public class EventListServlet extends HttpServlet {
         logger.info("EventListServlet: doGet method.");
         int page;
         String sort;
+        int countReports;
         String address;
         if (request.getParameter("page") == null || request.getParameter("page").equals("")) {
             page = 1;

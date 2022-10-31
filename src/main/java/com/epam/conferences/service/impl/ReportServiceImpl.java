@@ -40,4 +40,18 @@ public class ReportServiceImpl implements ReportService {
         logger.info("ReportServiceImpl: all reports of conference with id {} were obtained successfully.", eventId);
         return reports;
     }
+
+    @Override
+    public Integer countReportsByEventId(int eventId) throws ServiceException {
+        logger.info("ReportServiceImpl: getting count of reports of event with id {}.", eventId);
+        int count;
+        try {
+            count = reportDAO.countReportsByEventId(DAOFactory.getConnection(), eventId);
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("ReportServiceImpl: exception ({}) during getting count of reports of event with id {}.", e, eventId);
+            throw new ServiceException(e);
+        }
+        logger.info("ReportServiceImpl: getting count of reports of event with id {} was successfully. Count is {}", eventId, count);
+        return count;
+    }
 }
