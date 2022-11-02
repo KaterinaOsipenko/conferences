@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface EventService {
 
-    List<Event> findEvents(int page) throws ServiceException;
+    List<Event> findEvents(int page, int pageSize) throws ServiceException;
 
     Integer countEvents() throws ServiceException;
 
-    Integer maxPage() throws ServiceException;
+    Integer maxPage(int pageSize) throws ServiceException;
 
     Event findEvent(int id) throws ServiceException;
 
@@ -20,5 +20,5 @@ public interface EventService {
 
     boolean isUserRegisteredToEvent(Event event, User user) throws ServiceException;
 
-    List<Event> findEventsSorted(int page, String sort) throws ServiceException;
+    List<Event> findEventsSorted(int page, int pageSize, String sort) throws ServiceException;
 }

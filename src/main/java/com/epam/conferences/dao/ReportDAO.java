@@ -11,4 +11,6 @@ public interface ReportDAO {
     List<Report> findAllByEventId(Connection connection, long eventId) throws DBException;
 
     Integer countReportsByEventId(Connection connection, long eventId) throws DBException;
+
+    void deleteReport(Connection connection, int reportId) throws DBException;
 }

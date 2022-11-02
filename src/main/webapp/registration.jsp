@@ -1,21 +1,18 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Дом
-  Date: 24.09.2022
-  Time: 15:02
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="header.jsp" %>
+<%@include file="include/header.jsp" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/Cabin.css">
     <link rel="stylesheet" href="fonts/Lora.css">
     <link rel="stylesheet" href="css/Login-Form-Basic-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="css/Responsive-UI-Card.css">
     <title>Registration</title>
 </head>
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
@@ -58,12 +55,12 @@
                                 <p id="passwordErrorMsg" class="text-danger" style="display:none;">Paragraph</p>
                             </div>
                             <div class="row"
-                                 style="height: 37px;margin: 0px -12px 16px;padding-bottom: 4px;margin-bottom: 63px;margin-left: 0px;margin-right: 2px;">
-                                <div class="col" style="padding-left: 0px;padding-right: 0px;"><select
+                                 style="height: 37px; padding-bottom: 4px;margin: 0 2px 63px 0;">
+                                <div class="col" style="padding-left: 0;padding-right: 0;"><select
                                         class="form-select" name="role" required="" value="Role"
                                         style="margin-top: -14px;">
                                     <option value="SPEAKER">Speaker</option>
-                                    <option value="13">Moderator</option>
+                                    <option value="MODERATOR">Moderator</option>
                                 </select></div>
                             </div>
                             <button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit"
@@ -80,26 +77,6 @@
         </div>
     </div>
 </header>
-<%--<p>Registration</p>--%>
-<%--<c:out value="${ex}"/>--%>
-<%--<form action="registration" method="post" accept-charset="UTF-8">--%>
-<%--    <label for="firstname">Name: </label>--%>
-<%--    <input type="text" name="firstname" id="firstname" pattern="^[a-zA-Z].{1,45}$" minlength="1" maxlength="45"--%>
-<%--    />--%>
-<%--    <label for="lastname">lastname</label>--%>
-<%--    <input type="text" name="lastname" id="lastname" pattern="^[a-zA-Z].{1,45}$" minlength="1" maxlength="45" required/>--%>
-<%--    <label for="email">email</label>--%>
-<%--    <input type="email" name="email" id="email" required/>--%>
-<%--    <label for="password">Password</label>--%>
-<%--    <input type="password" name="password" id="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,12}$"--%>
-<%--           minlength="5" maxlength="12" required/>--%>
-<%--    <label for="role">role</label>--%>
-<%--    <select name="role" id="role" required>--%>
-<%--        <option value="MODERATOR">Moderator</option>--%>
-<%--        <option value="SPEAKER">Speaker</option>--%>
-<%--    </select>--%>
-<%--    <button type="submit" value="registration">Registration</button>--%>
-<%--</form>--%>
+<%@include file="include/footer.jsp" %>
 </body>
-<%@include file="footer.jsp" %>
 </html>

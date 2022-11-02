@@ -20,7 +20,6 @@ import java.util.Optional;
 public class EventServiceImpl implements EventService, SortService {
 
     private static final Logger logger = LogManager.getLogger(EventServiceImpl.class);
-    private static final int PAGE_SIZE = 3;
     private final EventDAO eventDAO;
 
     private final NotificationManager notificationManager;
@@ -38,12 +37,12 @@ public class EventServiceImpl implements EventService, SortService {
     }
 
     @Override
-    public List<Event> findEvents(int page) throws ServiceException {
+    public List<Event> findEvents(int page, int pageSize) throws ServiceException {
         logger.info("EventServiceImpl: getting all events for {}.", page);
         List<Event> eventList;
         try {
-            int count = getCountForPage(page);
-            eventList = eventDAO.findAll(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            int count = getCountForPage(page, pageSize);
+            eventList = eventDAO.findAll(DAOFactory.getConnection(), (page * pageSize - pageSize), count);
             if (eventList == null) {
                 logger.error("EventServiceImpl: list of events is NULL.");
                 throw new ServiceException("EventServiceImpl: list of events is NULL.");
@@ -69,10 +68,10 @@ public class EventServiceImpl implements EventService, SortService {
         return count;
     }
 
-    public Integer maxPage() throws ServiceException {
+    public Integer maxPage(int pageSize) throws ServiceException {
         logger.info("EventServiceImpl: get max page.");
         int countEvents = countEvents();
-        int maxPage = countEvents / 3 + countEvents % 3;
+        int maxPage = countEvents / pageSize + countEvents % pageSize;
         if (maxPage == 0) {
             maxPage = 1;
         }
@@ -110,24 +109,24 @@ public class EventServiceImpl implements EventService, SortService {
     }
 
     @Override
-    public List<Event> findEventsSorted(int page, String sort) throws ServiceException {
+    public List<Event> findEventsSorted(int page, int pageSize, String sort) throws ServiceException {
         logger.info("EventServiceImpl: find needed sort.");
         List<Event> eventList;
         switch (sort) {
             case "date":
-                eventList = sortByDate(page);
+                eventList = sortByDate(page, pageSize);
                 break;
             case "future":
-                eventList = findFutureEvents(page);
+                eventList = findFutureEvents(page, pageSize);
                 break;
             case "past":
-                eventList = findPastEvents(page);
+                eventList = findPastEvents(page, pageSize);
                 break;
             case "reports":
-                eventList = sortByReports(page);
+                eventList = sortByReports(page, pageSize);
                 break;
             case "users":
-                eventList = sortByUsers(page);
+                eventList = sortByUsers(page, pageSize);
                 break;
             default:
                 logger.error("EventServiceImpl: this sort {} is not supported.", sort);
@@ -136,12 +135,12 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
-    public List<Event> sortByUsers(int page) throws ServiceException {
-        logger.info("EventServiceImpl: sort by registrated users on page {}.", page);
+    public List<Event> sortByUsers(int page, int pageSize) throws ServiceException {
+        logger.info("EventServiceImpl: sort by regUsers on page {}.", page);
         List<Event> eventList;
         try {
-            int count = getCountForPage(page);
-            eventList = eventDAO.sortByCountUsers(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            int count = getCountForPage(page, pageSize);
+            eventList = eventDAO.sortByCountUsers(DAOFactory.getConnection(), (page * pageSize - pageSize), count);
             if (eventList == null) {
                 logger.error("EventServiceImpl: list of events is NULL.");
                 throw new ServiceException("EventServiceImpl: list of events is NULL.");
@@ -154,12 +153,12 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
-    public List<Event> sortByReports(int page) throws ServiceException {
+    public List<Event> sortByReports(int page, int pageSize) throws ServiceException {
         logger.info("EventServiceImpl: sort by reports on page {}.", page);
         List<Event> eventList;
         try {
-            int count = getCountForPage(page);
-            eventList = eventDAO.sortByCountReports(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            int count = getCountForPage(page, pageSize);
+            eventList = eventDAO.sortByCountReports(DAOFactory.getConnection(), (page * pageSize - page), count);
             if (eventList == null) {
                 logger.error("EventServiceImpl: list of events is NULL.");
                 throw new ServiceException("EventServiceImpl: list of events is NULL.");
@@ -172,12 +171,12 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
-    public List<Event> findPastEvents(int page) throws ServiceException {
+    public List<Event> findPastEvents(int page, int pageSize) throws ServiceException {
         logger.info("EventServiceImpl: find all in the past on page {}.", page);
         List<Event> eventList;
         try {
-            int count = getCountForPage(page);
-            eventList = eventDAO.findAllPastEvents(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            int count = getCountForPage(page, pageSize);
+            eventList = eventDAO.findAllPastEvents(DAOFactory.getConnection(), (page * pageSize - pageSize), count);
             if (eventList == null) {
                 logger.error("EventServiceImpl: list of events is NULL.");
                 throw new ServiceException("EventServiceImpl: list of events is NULL.");
@@ -190,12 +189,12 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
-    public List<Event> findFutureEvents(int page) throws ServiceException {
+    public List<Event> findFutureEvents(int page, int pageSize) throws ServiceException {
         logger.info("EventServiceImpl: find all in the future on page {}.", page);
         List<Event> eventList;
         try {
-            int count = getCountForPage(page);
-            eventList = eventDAO.findAllFutureEvents(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            int count = getCountForPage(page, pageSize);
+            eventList = eventDAO.findAllFutureEvents(DAOFactory.getConnection(), (page * pageSize - pageSize), count);
             if (eventList == null) {
                 logger.error("EventServiceImpl: list of events is NULL.");
                 throw new ServiceException("EventServiceImpl: list of events is NULL.");
@@ -208,12 +207,12 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
-    public List<Event> sortByDate(int page) throws ServiceException {
+    public List<Event> sortByDate(int page, int pageSize) throws ServiceException {
         logger.info("EventServiceImpl: sort by date on page {}.", page);
         List<Event> eventList;
         try {
-            int count = getCountForPage(page);
-            eventList = eventDAO.sortByDate(DAOFactory.getConnection(), (page * PAGE_SIZE - PAGE_SIZE), count);
+            int count = getCountForPage(page, pageSize);
+            eventList = eventDAO.sortByDate(DAOFactory.getConnection(), (page * page - page), count);
             if (eventList == null) {
                 logger.error("EventServiceImpl: list of events is NULL.");
                 throw new ServiceException("EventServiceImpl: list of events is NULL.");
@@ -226,9 +225,9 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
-    private int getCountForPage(int page) throws ServiceException {
+    private int getCountForPage(int page, int pageSize) throws ServiceException {
         int countEvents = countEvents();
-        return countEvents % PAGE_SIZE != 0 && page == maxPage() ? page * PAGE_SIZE - countEvents == 1 ? 2 : 1 : PAGE_SIZE;
+        return countEvents % pageSize != 0 && page == maxPage(pageSize) ? page * pageSize - countEvents == 1 ? 2 : 1 : pageSize;
     }
 
     @Override

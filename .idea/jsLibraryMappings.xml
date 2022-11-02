@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{all, baguettebox.js, font-awesome, jquery.tablesorter, jqueryui}" />
+    <file url="file://$PROJECT_DIR$" libraries="{@popperjs/core, all, baguettebox.js, dataTables.bootstrap, font-awesome, jquery-1.11.3, jquery.dataTables, jquery.tablesorter, jqueryui, popper.js}" />
   </component>
 </project>

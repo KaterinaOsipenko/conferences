@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="header.jsp" %>
+<%@ include file="include/header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/Cabin.css">
     <link rel="stylesheet" href="fonts/Lora.css">
     <link rel="stylesheet" href="css/Login-Form-Basic-icons.css">
@@ -21,27 +21,27 @@
         <div class="ftr" style="display:flex; gap:0.1rem; justify-content: center">
             <div class="btn-register">
                 <a class="btn btn-primary"
-                   href="${pageContext.request.contextPath}/eventListServlet?sort=date"
+                   href="${pageContext.request.contextPath}/eventList?sort=date"
                    role="button">Sort by Date</a>
             </div>
             <div class="btn-register">
                 <a class="btn btn-primary"
-                   href="${pageContext.request.contextPath}/eventListServlet?sort=future"
+                   href="${pageContext.request.contextPath}/eventList?sort=future"
                    role="button">Show future events</a>
             </div>
             <div class="btn-register">
                 <a class="btn btn-primary"
-                   href="${pageContext.request.contextPath}/eventListServlet?sort=past"
+                   href="${pageContext.request.contextPath}/eventList?sort=past"
                    role="button">Show past events</a>
             </div>
             <div class="btn-register">
                 <a class="btn btn-primary"
-                   href="${pageContext.request.contextPath}/eventListServlet?sort=reports"
+                   href="${pageContext.request.contextPath}/eventList?sort=reports"
                    role="button">Sort by quantity of reports</a>
             </div>
             <div class="btn-register">
                 <a class="btn btn-primary"
-                   href="${pageContext.request.contextPath}/eventListServlet?sort=users"
+                   href="${pageContext.request.contextPath}/eventList?sort=users"
                    role="button">Sort by quantity of registered users</a>
             </div>
         </div>
@@ -52,13 +52,13 @@
                     <c:choose>
                         <c:when test="${not empty sort}">
                             <a aria-label="Previous"
-                               href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}&sort=${sort}">
+                               href="${pageContext.request.contextPath}/eventList?page=${currentPage - 1}&sort=${sort}">
                                 <span style="font-size: 50px; padding-right: 10px;">«</span>
                             </a>
                         </c:when>
                         <c:otherwise>
                             <a aria-label="Previous"
-                               href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}">
+                               href="${pageContext.request.contextPath}/eventList?page=${currentPage - 1}">
                                 <span style="font-size: 50px; padding-right: 10px;">«</span>
                             </a>
                         </c:otherwise>
@@ -99,7 +99,7 @@
 
                                 </c:if>
                                 <h4 class="blog-card-caption">
-                                    <a href="${pageContext.request.contextPath}/eventCardServlet?id=${event.id}">${event.name}</a>
+                                    <a href="${pageContext.request.contextPath}/eventCard?id=${event.id}">${event.name}</a>
                                 </h4>
                                 <p class="blog-card-description">${event.address}</p>
                                 <p class="blog-card-description">
@@ -132,13 +132,13 @@
                     <c:choose>
                         <c:when test="${not empty sort}">
                             <a aria-label="Next"
-                               href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}&sort=${sort}">
+                               href="${pageContext.request.contextPath}/eventList?page=${currentPage + 1}&sort=${sort}">
                                 <span style="font-size: 50px; padding-right: 10px;">»</span>
                             </a>
                         </c:when>
                         <c:otherwise>
                             <a aria-label="Next"
-                               href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}">
+                               href="${pageContext.request.contextPath}/eventList?page=${currentPage + 1}">
                                 <span style="font-size: 50px; padding-right: 10px;">»</span>
                             </a>
                         </c:otherwise>
@@ -155,14 +155,14 @@
                             <c:when test="${not empty sort}">
                                 <a class="page-link" style="background: transparent; border: none;"
                                    aria-label="Previous"
-                                   href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}&sort=${sort}">
+                                   href="${pageContext.request.contextPath}/eventList?page=${currentPage - 1}&sort=${sort}">
                                     <span aria-hidden="true">«</span>
                                 </a>
                             </c:when>
                             <c:otherwise>
                                 <a class="page-link" style="background: transparent; border: none;"
                                    aria-label="Previous"
-                                   href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage - 1}">
+                                   href="${pageContext.request.contextPath}/eventList?page=${currentPage - 1}">
                                     <span aria-hidden="true">«</span>
                                 </a>
                             </c:otherwise>
@@ -176,28 +176,28 @@
                             <c:when test="${i == 1}">
                                 <li class="page-item"><a class="page-link"
                                                          style="background: transparent; border: none;"
-                                                         href="${pageContext.request.contextPath}/eventListServlet?page=${i}">${i}</a>
+                                                         href="${pageContext.request.contextPath}/eventList?page=${i}">${i}</a>
                                 </li>
                                 <c:if test="${currentPage != maxPage}">
                                     <li class="page-item"><a class="page-link"
                                                              style="background: transparent; border: none;"
-                                                             href="${pageContext.request.contextPath}/eventListServlet?page=${i + 1}">${i + 1}</a>
+                                                             href="${pageContext.request.contextPath}/eventList?page=${i + 1}">${i + 1}</a>
                                     </li>
                                 </c:if>
                             </c:when>
                             <c:otherwise>
                                 <li class="page-item"><a class="page-link"
                                                          style="background: transparent; border: none;"
-                                                         href="${pageContext.request.contextPath}/eventListServlet?page=${i - 1}">${i - 1}</a>
+                                                         href="${pageContext.request.contextPath}/eventList?page=${i - 1}">${i - 1}</a>
                                 </li>
                                 <li class="page-item"><a class="page-link"
                                                          style="background: transparent; border: none;"
-                                                         href="${pageContext.request.contextPath}/eventListServlet?page=${i}">${i}</a>
+                                                         href="${pageContext.request.contextPath}/eventList?page=${i}">${i}</a>
                                 </li>
                                 <c:if test="${currentPage != maxPage}">
                                     <li class="page-item"><a class="page-link"
                                                              style="background: transparent; border: none;"
-                                                             href="${pageContext.request.contextPath}/eventListServlet?page=${i + 1}">${i + 1}</a>
+                                                             href="${pageContext.request.contextPath}/eventList?page=${i + 1}">${i + 1}</a>
                                     </li>
                                 </c:if>
                             </c:otherwise>
@@ -209,13 +209,13 @@
                         <c:choose>
                             <c:when test="${not empty sort}">
                                 <a class="page-link" style="background: transparent; border: none;" aria-label="Next"
-                                   href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}&sort=${sort}">
+                                   href="${pageContext.request.contextPath}/eventList?page=${currentPage + 1}&sort=${sort}">
                                     <span aria-hidden="true">»</span>
                                 </a>
                             </c:when>
                             <c:otherwise>
                                 <a class="page-link" style="background: transparent; border: none;" aria-label="Next"
-                                   href="${pageContext.request.contextPath}/eventListServlet?page=${currentPage + 1}">
+                                   href="${pageContext.request.contextPath}/eventList?page=${currentPage + 1}">
                                     <span aria-hidden="true">»</span>
                                 </a>
                             </c:otherwise>
@@ -226,6 +226,6 @@
         </nav>
     </div>
 </header>
-<%@include file="footer.jsp" %>
+<%@include file="include/footer.jsp" %>
 </body>
 </html>

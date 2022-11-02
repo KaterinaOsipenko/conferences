@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@include file="header.jsp" %>
+<%@include file="include/header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Conference</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/Cabin.css">
     <link rel="stylesheet" href="css/Login-Form-Basic-icons.css">
     <link rel="stylesheet" href="css/Responsive-UI-Card.css">
@@ -24,10 +24,9 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/eventListServlet">Choose
-            event</a>
+        <a class="btn btn-primary" role="button" href="${pageContext.request.contextPath}/eventList">Choose event</a>
     </div>
 </header>
 </body>
-<%@include file="footer.jsp" %>
+<%@include file="include/footer.jsp" %>
 </html>

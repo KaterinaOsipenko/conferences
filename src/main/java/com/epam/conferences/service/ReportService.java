@@ -10,4 +10,6 @@ public interface ReportService {
     List<Report> getReportsByEventId(int eventId) throws ServiceException;
 
     Integer countReportsByEventId(int eventId) throws ServiceException;
+
+    void deleteReport(int reportId) throws ServiceException;
 }

@@ -1255,3 +1255,83 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2022-10-31 22:09:18 ERROR EventDAOImpl: exception during obtaining events sorted by date with offset 0.
 2022-10-31 22:09:18 ERROR EventServiceImpl: exception during getting all events.
 2022-10-31 22:09:18 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Duplicate column name 'id') during finding events for page 1
+2022-11-02 14:15:00 ERROR UserServiceImpl: exception Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.) during checking existing of user
+2022-11-02 14:15:00 ERROR LoginServlet: exception while login command was in work java.sql.SQLException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2022-11-02 14:51:20 ERROR EventListServlet: there are no events.
+2022-11-02 14:51:20 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 14:56:19 ERROR EventListServlet: there are no events.
+2022-11-02 14:56:19 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:01:13 ERROR EventListServlet: there are no events.
+2022-11-02 15:01:13 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:03:41 ERROR EventListServlet: there are no events.
+2022-11-02 15:03:41 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:14:25 ERROR LoginServlet: invalid password exception.
+2022-11-02 15:29:20 ERROR EventListServlet: there are no events.
+2022-11-02 15:29:20 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:35:58 ERROR EventListServlet: there are no events.
+2022-11-02 15:35:58 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:41:26 ERROR EventListServlet: there are no events.
+2022-11-02 15:41:26 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:43:26 ERROR EventListServlet: there are no events.
+2022-11-02 15:43:26 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:46:57 ERROR LoginServlet: invalid password exception.
+2022-11-02 15:47:08 ERROR EventListServlet: there are no events.
+2022-11-02 15:47:08 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:48:57 ERROR EventListServlet: there are no events.
+2022-11-02 15:48:57 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:53:09 ERROR EventListServlet: there are no events.
+2022-11-02 15:53:09 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:54:23 ERROR LoginServlet: invalid password exception.
+2022-11-02 15:54:30 ERROR LoginServlet: invalid password exception.
+2022-11-02 15:54:43 ERROR EventListServlet: there are no events.
+2022-11-02 15:54:43 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:56:13 ERROR EventListServlet: there are no events.
+2022-11-02 15:56:13 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 15:57:10 ERROR EventListServlet: there are no events.
+2022-11-02 15:57:10 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-02 16:03:51 ERROR LoginServlet: invalid password exception.
+2022-11-02 16:03:55 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:04:28 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:05:55 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:06:02 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:07:57 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:08:50 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:09:30 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:10:10 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:12:33 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:16:09 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:17:22 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-02 16:36:18 ERROR LoginServlet: invalid password exception.
+2022-11-02 16:37:04 ERROR EventListServlet: there are no events.
+2022-11-02 16:37:04 ERROR ViewEventsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 16:37:54 ERROR EventListServlet: there are no events.
+2022-11-02 16:37:54 ERROR ViewEventsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 16:44:14 ERROR EventListServlet: there are no events.
+2022-11-02 16:44:14 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 20:51:41 ERROR LoginServlet: invalid password exception.
+2022-11-02 20:53:03 ERROR EventListServlet: there are no events.
+2022-11-02 20:53:03 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 21:29:04 ERROR LoginServlet: invalid password exception.
+2022-11-02 21:29:09 ERROR LoginServlet: invalid password exception.
+2022-11-02 21:29:43 ERROR EventListServlet: there are no events.
+2022-11-02 21:29:43 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 21:29:45 ERROR EventListServlet: there are no events.
+2022-11-02 21:29:45 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 21:29:51 ERROR EventListServlet: there are no events.
+2022-11-02 21:29:51 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 21:29:53 ERROR EventListServlet: there are no events.
+2022-11-02 21:29:53 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 23:02:35 ERROR EventListServlet: there are no events.
+2022-11-02 23:02:35 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 23:02:50 ERROR EventListServlet: there are no events.
+2022-11-02 23:02:50 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 23:02:58 ERROR EventListServlet: there are no events.
+2022-11-02 23:02:58 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 23:29:30 ERROR EventListServlet: there are no events.
+2022-11-02 23:29:30 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 23:29:36 ERROR EventListServlet: there are no events.
+2022-11-02 23:29:36 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.

@@ -1,4 +1,4 @@
-package com.epam.conferences.controller;
+package com.epam.conferences.controller.admin;
 
 import com.epam.conferences.exception.NoElementsException;
 import com.epam.conferences.exception.ServiceException;
@@ -17,9 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ReportsListServlet", value = "/reports")
-public class ReportsListServlet extends HttpServlet {
-    private static final Logger logger = LogManager.getLogger(ReportsListServlet.class);
+@WebServlet(name = "GetReportsServlet", value = "/admin/getReports")
+public class GetReportsServlet extends HttpServlet {
+
+    private static final Logger logger = LogManager.getLogger(GetReportsServlet.class);
     private ReportService reportService;
 
     @Override
@@ -30,26 +31,25 @@ public class ReportsListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        logger.info("ReportsListServlet: doGet method.");
+        logger.info("GetReportsServlet: doGet method.");
         int eventId = Integer.parseInt(request.getParameter("id"));
         String address;
         try {
-            List<Report> reportList = reportService.getReportsByEventId(eventId);
-            if (reportList.isEmpty()) {
-                logger.error("ReportsListServlet: there are no reports for this event.");
-                throw new NoElementsException("There are no reports for this event");
-            } else {
-                request.setAttribute("reports", reportList);
-                address = PathUtil.REPORTS_LIST_PAGE;
+            List<Report> reports = reportService.getReportsByEventId(eventId);
+            if (reports.isEmpty()) {
+                logger.error("EventListServlet: there are no events.");
+                throw new NoElementsException("There are no reports for this event.");
             }
+            request.setAttribute("reports", reports);
+            request.setAttribute("eventId", eventId);
+            address = PathUtil.ADMIN_VIEW_EVENT_REPORTS_PAGE;
         } catch (ServiceException | NoElementsException e) {
-            request.setAttribute("ex", e instanceof NoElementsException ? "Sorry, we have some troubles. Our specialists have already tried to copy with this." : e.getMessage());
-            logger.error("ReportsListServlet: exception ({}) during find reports for event with id={}", e.getMessage(), eventId);
-            request.setAttribute("address", "eventCardServlet");
-            address = PathUtil.ERROR_PAGE;
+            logger.error("GetReportsServlet: exception ({}) during finding reports.", e.getMessage());
+            request.setAttribute("ex", e instanceof NoElementsException ? e.getMessage() :
+                    "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
+            request.setAttribute("address", "admin/viewEvents");
+            address = PathUtil.ADMIN_ERROR_PAGE;
         }
-        request.setAttribute("id", eventId);
-        logger.info("ReportsListServlet: get reports for event with id {}.", eventId);
         request.getRequestDispatcher(address).forward(request, response);
     }
 }

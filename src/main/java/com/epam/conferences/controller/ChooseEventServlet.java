@@ -63,7 +63,7 @@ public class ChooseEventServlet extends HttpServlet {
             if (user != null) {
                 if (eventService.isUserRegisteredToEvent(event, user)) {
                     request.getSession().setAttribute("ex", "You have taken place in this event.");
-                    request.getSession().setAttribute("address", "eventListServlet");
+                    request.getSession().setAttribute("address", "eventList");
                     address = PathUtil.ERROR_PAGE;
                 } else {
                     event = eventService.findEvent(eventId);
@@ -78,8 +78,8 @@ public class ChooseEventServlet extends HttpServlet {
                 address = PathUtil.SUCCESS_PAGE;
             }
         } catch (ServiceException e) {
-            request.getSession().setAttribute("ex", e);
-            request.getSession().setAttribute("address", "eventListServlet");
+            request.getSession().setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
+            request.getSession().setAttribute("address", "eventList");
             address = PathUtil.ERROR_PAGE;
         }
         response.sendRedirect(address);

@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="header.jsp" %>
+<%@ include file="include/header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/Cabin.css">
     <link rel="stylesheet" href="fonts/Lora.css">
     <link rel="stylesheet" href="css/Login-Form-Basic-icons.css">
@@ -38,6 +38,6 @@
     </div>
 </header>
 
-<%@include file="footer.jsp" %>
+<%@include file="include/footer.jsp" %>
 </body>
 </html>

@@ -6,6 +6,7 @@ import com.epam.conferences.model.User;
 import com.epam.conferences.security.PasswordEncoder;
 import com.epam.conferences.service.UserService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,6 +29,16 @@ public class RegistrationServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         userService = (UserService) config.getServletContext().getAttribute("userService");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        logger.info("RegistrationServlet: doGet method.");
+        HttpSession session = req.getSession();
+        if (session.getAttribute("ex") != null) {
+            session.removeAttribute("ex");
+        }
+        req.getRequestDispatcher(PathUtil.REGISTRATION_PAGE).forward(req, resp);
     }
 
     @Override
@@ -72,12 +83,11 @@ public class RegistrationServlet extends HttpServlet {
                 newUser.setRoleId(roleId);
 
                 userService.saveUser(newUser);
-                session.setAttribute("user", newUser);
-                address = PathUtil.PROFILE_PAGE;
+                address = URLUtil.LOGIN_URL;
             }
         } catch (ServiceException e) {
             logger.error("RegisterCommand: exception while registration command was in work " + e.getMessage());
-            req.getSession().setAttribute("ex", e);
+            req.getSession().setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
             address = PathUtil.ERROR_PAGE;
         }
         logger.info("RegisterCommand: registration command finished.");

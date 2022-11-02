@@ -54,4 +54,16 @@ public class ReportServiceImpl implements ReportService {
         logger.info("ReportServiceImpl: getting count of reports of event with id {} was successfully. Count is {}", eventId, count);
         return count;
     }
+
+    @Override
+    public void deleteReport(int reportId) throws ServiceException {
+        logger.info("ReportServiceImpl: deleting report with id {}.", reportId);
+        try {
+            reportDAO.deleteReport(DAOFactory.getConnection(), reportId);
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("ReportServiceImpl: exception ({}) during deleting report with id {}.", e, reportId);
+            throw new ServiceException(e);
+        }
+        logger.info("ReportServiceImpl: removing report was successful!");
+    }
 }

@@ -25,6 +25,8 @@ public class ReportDAOImpl implements ReportDAO {
 
     private final static String COUNT_REPORTS_BY_EVENT = "SELECT COUNT(*) FROM reports WHERE id_event = ?";
 
+    private final static String DELETE_REPORT = "DELETE FROM reports WHERE id = ?";
+
     @Override
     public List<Report> findAllByEventId(Connection connection, long eventId) throws DBException {
         logger.info("ReportDAOImpl: find all reports for event with id = {}.", eventId);
@@ -55,6 +57,19 @@ public class ReportDAOImpl implements ReportDAO {
         }
         logger.info("ReportDAOImpl: all reports were counted.");
         return count;
+    }
+
+    @Override
+    public void deleteReport(Connection connection, int reportId) throws DBException {
+        logger.info("ReportDAOImpl: delete report  with id = {}.", reportId);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE_REPORT)) {
+            preparedStatement.setLong(1, reportId);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            logger.error("ReportDAOImpl: exception ({}) during deleting report with id {}", e, reportId);
+            throw new DBException(e);
+        }
+        logger.info("ReportDAOImpl: report was removed successfully.");
     }
 
     private List<Report> extractReportList(ResultSet resultSet) throws SQLException {

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EventCardServlet", value = "/eventCardServlet")
+@WebServlet(name = "EventCardServlet", value = "/eventCard")
 public class EventCardServlet extends HttpServlet {
     private static final Logger logger = LogManager.getLogger(EventCardServlet.class);
     private EventService eventService;
@@ -38,7 +38,7 @@ public class EventCardServlet extends HttpServlet {
             address = PathUtil.EVENT_CARD_PAGE;
         } catch (ServiceException e) {
             logger.error("EventCardServlet: exception ({}) during find event with id={}", e.getMessage(), eventId);
-            request.setAttribute("ex", e.getMessage());
+            request.setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
             address = PathUtil.EVENT_LIST_PAGE;
         }
         request.getRequestDispatcher(address).forward(request, response);

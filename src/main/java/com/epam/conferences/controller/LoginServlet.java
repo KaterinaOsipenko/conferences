@@ -31,6 +31,16 @@ public class LoginServlet extends HttpServlet {
     }
 
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        logger.info("LoginServlet: doGet method.");
+        HttpSession session = req.getSession();
+        if (session.getAttribute("ex") != null) {
+            session.removeAttribute("ex");
+        }
+        req.getRequestDispatcher(PathUtil.LOGIN_PAGE).forward(req, resp);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         logger.info("LoginServlet: doPost method.");
         String email = request.getParameter("email");
@@ -43,7 +53,11 @@ public class LoginServlet extends HttpServlet {
                 if (Arrays.equals(user.getPassword(), PasswordEncoder.encryptPassword(password))) {
                     session.setAttribute("user", user);
                     logger.info("LoginServlet: user with id {} and email {} wad logged in.", user.getId(), user.getEmail());
-                    address = PathUtil.PROFILE_PAGE;
+                    if (user.getRoleId() == 1) {
+                        address = PathUtil.ADMIN_HOME_PAGE;
+                    } else {
+                        address = PathUtil.PROFILE_PAGE;
+                    }
                 } else {
                     logger.error("LoginServlet: invalid password exception.");
                     session.setAttribute("ex", "Invalid password!");
@@ -55,7 +69,7 @@ public class LoginServlet extends HttpServlet {
             }
         } catch (ServiceException e) {
             logger.error("LoginServlet: exception while login command was in work " + e.getMessage());
-            session.setAttribute("ex", e);
+            session.setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
             address = PathUtil.ERROR_PAGE;
         }
         response.sendRedirect(address);

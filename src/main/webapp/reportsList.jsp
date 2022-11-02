@@ -1,16 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="header.jsp" %>
+<%@ include file="include/header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="fonts/Cabin.css">
     <link rel="stylesheet" href="fonts/Lora.css">
     <link rel="stylesheet" href="css/Login-Form-Basic-icons.css">
-    <link rel="stylesheet" href="css/Lu-dens---1-Dark-mode-Index-Table-with-Search-Filters.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
@@ -44,10 +43,10 @@
                         </table>
                     </div>
                     <div class="my-3">
-                        <a class="btn btn-primary btn-lg me-2" role="button" href="/eventCardServlet?id=${id}">Go
+                        <a class="btn btn-primary btn-lg me-2" role="button"
+                           href="${pageContext.request.contextPath}/eventCard?id=${id}">Go
                             to
                             Event</a>
-                        <%--                        <a class="btn btn-light btn-lg" role="button" href="#">Button</a>--%>
                     </div>
                 </div>
             </div>
@@ -55,5 +54,5 @@
     </div>
 </header>
 </body>
-<%@include file="footer.jsp" %>
+<%@include file="include/footer.jsp" %>
 </html>
