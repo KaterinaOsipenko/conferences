@@ -13,4 +13,6 @@ public interface ReportDAO {
     Integer countReportsByEventId(Connection connection, long eventId) throws DBException;
 
     void deleteReport(Connection connection, int reportId) throws DBException;
+
+    void changeReportTopic(Connection connection, int topicId, String name) throws DBException;
 }

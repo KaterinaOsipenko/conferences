@@ -33,10 +33,6 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("LoginServlet: doGet method.");
-        HttpSession session = req.getSession();
-        if (session.getAttribute("ex") != null) {
-            session.removeAttribute("ex");
-        }
         req.getRequestDispatcher(PathUtil.LOGIN_PAGE).forward(req, resp);
     }
 
@@ -60,11 +56,11 @@ public class LoginServlet extends HttpServlet {
                     }
                 } else {
                     logger.error("LoginServlet: invalid password exception.");
-                    session.setAttribute("ex", "Invalid password!");
+                    session.setAttribute("exLogin", "Invalid password!");
                     address = PathUtil.LOGIN_PAGE;
                 }
             } else {
-                session.setAttribute("ex", "There is no user with this email. PLease, create account.");
+                session.setAttribute("exLogin", "There is no user with this email. PLease, create account.");
                 address = PathUtil.REGISTRATION_PAGE;
             }
         } catch (ServiceException e) {

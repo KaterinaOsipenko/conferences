@@ -1,6 +1,7 @@
 package com.epam.conferences.service;
 
 import com.epam.conferences.exception.ServiceException;
+import com.epam.conferences.model.Address;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.model.User;
 
@@ -20,5 +21,11 @@ public interface EventService {
 
     boolean isUserRegisteredToEvent(Event event, User user) throws ServiceException;
 
+    boolean isPastEvent(int id) throws ServiceException;
+
     List<Event> findEventsSorted(int page, int pageSize, String sort) throws ServiceException;
+
+    void updateEvent(int id, Event event) throws ServiceException;
+
+    void changeAddressEvent(int addressId, Address address) throws ServiceException;
 }

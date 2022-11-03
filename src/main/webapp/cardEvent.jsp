@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="ct" uri="/WEB-INF/customTag" %>
 <%@ include file="include/header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,14 +35,7 @@
                                     Date: ${event.date.dayOfMonth}-${event.date.monthValue}-${event.date.year}
                                 </p>
                                 <p class="mb-4">
-                                    <c:choose>
-                                        <c:when test="${event.date.minute == 0}">
-                                            <c:out value="Time: ${event.date.hour}:${event.date.minute}0"/>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <c:out value="Time: ${event.date.hour}:${event.date.minute}"/>
-                                        </c:otherwise>
-                                    </c:choose>
+                                    <ct:localTimeTag time="${event.date}"/>
                                 </p>
                                 <div class="ftr">
                                     <div class="btn-register">

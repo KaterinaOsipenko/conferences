@@ -28,9 +28,9 @@
                         <div class="text-center">
                             <h4 class="text-white mb-4">Create an Account!</h4>
                         </div>
-                        <c:if test="${sessionScope.ex != null}">
+                        <c:if test="${not empty exLogin}">
                             <p class="text-danger fs-6" role="alert">
-                                <c:out value="${ex}"/>
+                                <c:out value="${exLogin}"/>
                             </p>
                         </c:if>
                         <form class="text-white text-bg-dark user" action="registration" method="post"

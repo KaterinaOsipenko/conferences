@@ -12,4 +12,6 @@ public interface ReportService {
     Integer countReportsByEventId(int eventId) throws ServiceException;
 
     void deleteReport(int reportId) throws ServiceException;
+
+    void changeReportTopic(int topicId, String name) throws ServiceException;
 }

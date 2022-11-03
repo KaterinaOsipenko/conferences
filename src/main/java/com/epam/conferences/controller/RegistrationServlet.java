@@ -6,7 +6,6 @@ import com.epam.conferences.model.User;
 import com.epam.conferences.security.PasswordEncoder;
 import com.epam.conferences.service.UserService;
 import com.epam.conferences.util.PathUtil;
-import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -83,7 +82,7 @@ public class RegistrationServlet extends HttpServlet {
                 newUser.setRoleId(roleId);
 
                 userService.saveUser(newUser);
-                address = URLUtil.LOGIN_URL;
+                address = PathUtil.LOGIN_PAGE;
             }
         } catch (ServiceException e) {
             logger.error("RegisterCommand: exception while registration command was in work " + e.getMessage());

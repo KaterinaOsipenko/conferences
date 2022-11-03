@@ -66,4 +66,16 @@ public class ReportServiceImpl implements ReportService {
         }
         logger.info("ReportServiceImpl: removing report was successful!");
     }
+
+    @Override
+    public void changeReportTopic(int topicId, String name) throws ServiceException {
+        logger.info("ReportServiceImpl: setting new name {} to topic with id={} ", name, topicId);
+        try {
+            reportDAO.changeReportTopic(DAOFactory.getConnection(), topicId, name);
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("ReportServiceImpl: exception ({}) during updating name of topic with id={}.", e, topicId);
+            throw new ServiceException(e);
+        }
+        logger.info("ReportServiceImpl: updating name of topic was successful!");
+    }
 }

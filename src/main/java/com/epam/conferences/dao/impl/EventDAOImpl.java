@@ -8,10 +8,7 @@ import com.epam.conferences.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -47,6 +44,11 @@ public class EventDAOImpl implements EventDAO {
             "AS tmp ORDER BY id LIMIT ? OFFSET ?";
     private final static String COUNT_REPORTS_BY_EVENT = "SELECT COUNT(*) FROM reports WHERE id_event = ?";
     private final static String COUNT_USERS_BY_EVENT = "SELECT COUNT(*) FROM user_event_presence WHERE id_event = ?";
+
+    private final static String UPDATE_EVENT = "UPDATE events SET name = ?, description = ?, date = ? WHERE id = ?";
+
+    private final static String UPDATE_ADDRESS = "UPDATE addresses SET country = ?, city = ?, street = ?, numberBuilding = ?, " +
+            "numberApartment = ? WHERE id = ?;";
 
     @Override
     public List<Event> sortByCountReports(Connection connection, int offset, int count) throws DBException {
@@ -140,6 +142,39 @@ public class EventDAOImpl implements EventDAO {
             logger.error("EventDAOImpl: exception ({}) during insertion user with id={} and event with id={}", e.getMessage(), user.getId(), event.getId());
             throw new DBException(e);
         }
+    }
+
+    @Override
+    public void updateEvent(Connection connection, int id, Event event) throws DBException {
+        logger.info("EventDAOImpl: updating event with id={}", id);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EVENT)) {
+            preparedStatement.setString(1, event.getName());
+            preparedStatement.setString(2, event.getDescription());
+            preparedStatement.setTimestamp(3, Timestamp.valueOf(event.getDate()));
+            preparedStatement.setLong(4, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception {} during updating event with id={}.", e.getMessage(), id);
+            throw new DBException(e);
+        }
+    }
+
+    @Override
+    public void updateAddress(Connection connection, int id, Address address) throws DBException {
+        logger.info("EventDAOImpl: updating address with id={}", id);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_ADDRESS)) {
+            preparedStatement.setString(1, address.getCountry());
+            preparedStatement.setString(2, address.getCity());
+            preparedStatement.setString(3, address.getStreet());
+            preparedStatement.setInt(4, address.getHouse());
+            preparedStatement.setInt(5, address.getApartment());
+            preparedStatement.setLong(6, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception {} during updating adress with id={}.", e.getMessage(), id);
+            throw new DBException(e);
+        }
+        logger.info("EventDAOImpl: address with id={} was updated successfully.", id);
     }
 
     @Override

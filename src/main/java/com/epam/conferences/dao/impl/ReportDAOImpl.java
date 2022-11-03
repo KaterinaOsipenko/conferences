@@ -27,6 +27,8 @@ public class ReportDAOImpl implements ReportDAO {
 
     private final static String DELETE_REPORT = "DELETE FROM reports WHERE id = ?";
 
+    private final static String UPDATE_TOPIC_NAME = "UPDATE topics SET name = ? WHERE id = ?";
+
     @Override
     public List<Report> findAllByEventId(Connection connection, long eventId) throws DBException {
         logger.info("ReportDAOImpl: find all reports for event with id = {}.", eventId);
@@ -70,6 +72,20 @@ public class ReportDAOImpl implements ReportDAO {
             throw new DBException(e);
         }
         logger.info("ReportDAOImpl: report was removed successfully.");
+    }
+
+    @Override
+    public void changeReportTopic(Connection connection, int topicId, String name) throws DBException {
+        logger.info("ReportDAOImpl: setting new name {} to the topic with id = {}.", name, topicId);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TOPIC_NAME)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.setLong(2, topicId);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            logger.error("ReportDAOImpl: exception ({}) during updating name of topic with id {}", e, topicId);
+            throw new DBException(e);
+        }
+        logger.info("ReportDAOImpl: name of topic was updated successfully.");
     }
 
     private List<Report> extractReportList(ResultSet resultSet) throws SQLException {

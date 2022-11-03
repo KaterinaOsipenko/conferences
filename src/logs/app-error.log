@@ -1335,3 +1335,75 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2022-11-02 23:29:30 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
 2022-11-02 23:29:36 ERROR EventListServlet: there are no events.
 2022-11-02 23:29:36 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 23:30:30 ERROR EventListServlet: there are no events.
+2022-11-02 23:30:30 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-02 23:30:37 ERROR EventListServlet: there are no events.
+2022-11-02 23:30:37 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 12:53:17 ERROR EventListServlet: there are no events.
+2022-11-03 12:53:17 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 12:53:20 ERROR EventListServlet: there are no events.
+2022-11-03 12:53:20 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 12:53:23 ERROR EventListServlet: there are no events.
+2022-11-03 12:53:23 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 12:53:25 ERROR EventListServlet: there are no events.
+2022-11-03 12:53:25 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 12:53:27 ERROR EventListServlet: there are no events.
+2022-11-03 12:53:27 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 12:53:30 ERROR EventListServlet: there are no events.
+2022-11-03 12:53:30 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 12:53:32 ERROR EventListServlet: there are no events.
+2022-11-03 12:53:32 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 12:54:51 ERROR LoginServlet: invalid password exception.
+2022-11-03 13:27:07 ERROR LoginServlet: invalid password exception.
+2022-11-03 13:59:51 ERROR EventListServlet: there are no events.
+2022-11-03 13:59:51 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-03 14:03:29 ERROR EventListServlet: there are no events.
+2022-11-03 14:03:29 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 1
+2022-11-03 14:05:03 ERROR EventListServlet: there are no events.
+2022-11-03 14:05:03 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 1
+2022-11-03 14:05:39 ERROR EventListServlet: there are no events.
+2022-11-03 14:05:39 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 1
+2022-11-03 14:08:04 ERROR EventListServlet: there are no events.
+2022-11-03 14:08:04 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 1
+2022-11-03 14:11:30 ERROR LoginServlet: invalid password exception.
+2022-11-03 15:01:01 ERROR LoginServlet: invalid password exception.
+2022-11-03 15:01:07 ERROR LoginServlet: invalid password exception.
+2022-11-03 15:08:50 ERROR EventListServlet: there are no events.
+2022-11-03 15:08:50 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-03 17:08:15 ERROR LoginServlet: invalid password exception.
+2022-11-03 17:08:15 ERROR LoginServlet: invalid password exception.
+2022-11-03 17:39:25 ERROR LoginServlet: invalid password exception.
+2022-11-03 19:49:10 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-03 19:49:17 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-03 19:49:30 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-03 19:49:46 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-03 20:05:20 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-03 21:43:11 ERROR LoginServlet: invalid password exception.
+2022-11-03 21:43:38 ERROR ValidationFilter: exception during validation user input. Empty field.
+2022-11-03 21:48:31 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 21:50:24 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 21:52:52 ERROR LoginServlet: invalid password exception.
+2022-11-03 21:53:27 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 21:56:59 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 22:00:22 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 22:03:32 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 22:09:00 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 22:11:44 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 23:37:18 ERROR LoginServlet: invalid password exception.
+2022-11-03 23:46:28 ERROR LoginServlet: invalid password exception.
+2022-11-03 23:47:18 ERROR LoginServlet: invalid password exception.
+2022-11-03 23:47:23 ERROR LoginServlet: invalid password exception.
+2022-11-03 23:47:33 ERROR LoginServlet: invalid password exception.
+2022-11-03 23:48:06 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 23:49:20 ERROR LoginServlet: invalid password exception.
+2022-11-03 23:49:35 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 23:58:52 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-03 23:59:35 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-04 00:01:32 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-04 00:02:57 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-04 00:07:28 ERROR LoginServlet: invalid password exception.
+2022-11-04 00:11:43 ERROR LoginServlet: invalid password exception.
+2022-11-04 00:12:04 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-04 00:41:48 ERROR EventDAOImpl: exception Unknown column 'house' in 'field list' during updating adress with id=4.
+2022-11-04 00:41:48 ERROR EventServiceImpl: exception java.sql.SQLSyntaxErrorException: Unknown column 'house' in 'field list' during updating address.
+2022-11-04 00:41:48 ERROR ChangeAddressServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Unknown column 'house' in 'field list') during changing address with id=4

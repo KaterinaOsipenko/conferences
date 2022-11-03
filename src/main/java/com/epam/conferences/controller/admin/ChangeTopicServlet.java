@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteReportServlet", value = "/admin/deleteReport")
-public class DeleteReportServlet extends HttpServlet {
+@WebServlet(name = "ChangeTopicServlet", value = "/admin/changeTopic")
+public class ChangeTopicServlet extends HttpServlet {
 
-    private static final Logger logger = LogManager.getLogger(DeleteReportServlet.class);
+    private static final Logger logger = LogManager.getLogger(ChangeTopicServlet.class);
     private ReportService reportService;
 
     @Override
@@ -28,21 +28,20 @@ public class DeleteReportServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        logger.info("DeleteReportServlet: doPost method.");
-        int reportId = Integer.parseInt(request.getParameter("reportId"));
+        logger.info("ChangeTopicServlet: doPost method.");
+        int topicId = Integer.parseInt(request.getParameter("topicId"));
         int eventId = Integer.parseInt(request.getParameter("eventId"));
+        String topicNewName = request.getParameter("nameTopic");
         String address;
         try {
-            reportService.deleteReport(reportId);
+            reportService.changeReportTopic(topicId, topicNewName);
             address = "/admin/getReports?id=" + eventId;
         } catch (ServiceException e) {
-            logger.error("DeleteReportServlet: exception ({}) during removing report with id={}", e.getMessage(), reportId);
+            logger.error("ChangeTopicServlet: exception ({}) during changing topic name with id={}", e.getMessage(), topicId);
             request.getSession().setAttribute("address", "admin/getReports?id=" + eventId);
             request.getSession().setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
             address = PathUtil.ADMIN_ERROR_PAGE;
         }
         response.sendRedirect(address);
     }
-
-
 }

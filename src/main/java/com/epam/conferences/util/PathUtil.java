@@ -23,6 +23,9 @@ public class PathUtil {
     public final static String ADMIN_ERROR_PAGE = "/admin/adminError.jsp";
 
     public final static String ADMIN_VIEW_EVENT_REPORTS_PAGE = "/admin/viewEventReports.jsp";
+    public final static String ADMIN_EDIT_EVENT_PAGE = "/admin/adminEditEvent.jsp";
+
+    public final static String ADMIN_CARD_EVENT_PAGE = "/admin/adminCardEvent.jsp";
 
     public final static String SPEAKER_HOME_PAGE = "/speaker/speakerHome.jsp";
 

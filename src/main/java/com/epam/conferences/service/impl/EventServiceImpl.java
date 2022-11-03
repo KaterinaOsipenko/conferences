@@ -4,6 +4,7 @@ import com.epam.conferences.dao.DAOFactory;
 import com.epam.conferences.dao.EventDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.exception.ServiceException;
+import com.epam.conferences.model.Address;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.model.User;
 import com.epam.conferences.service.EventService;
@@ -14,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.naming.NamingException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -109,6 +111,12 @@ public class EventServiceImpl implements EventService, SortService {
     }
 
     @Override
+    public boolean isPastEvent(int id) throws ServiceException {
+        Event event = findEvent(id);
+        return event.getDate().isBefore(LocalDateTime.now());
+    }
+
+    @Override
     public List<Event> findEventsSorted(int page, int pageSize, String sort) throws ServiceException {
         logger.info("EventServiceImpl: find needed sort.");
         List<Event> eventList;
@@ -135,6 +143,29 @@ public class EventServiceImpl implements EventService, SortService {
         return eventList;
     }
 
+    @Override
+    public void updateEvent(int id, Event event) throws ServiceException {
+        logger.info("EventServiceImpl: updating event with id={}.", id);
+        try {
+            eventDAO.updateEvent(DAOFactory.getConnection(), id, event);
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("EventServiceImpl: exception {} during updating event with id={}.", e.getMessage(), id);
+            throw new ServiceException(e);
+        }
+    }
+
+    @Override
+    public void changeAddressEvent(int addressId, Address address) throws ServiceException {
+        logger.info("EventServiceImpl: changing address with id={}.", addressId);
+        try {
+            eventDAO.updateAddress(DAOFactory.getConnection(), addressId, address);
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("EventServiceImpl: exception {} during updating address.", e.getMessage());
+            throw new ServiceException(e);
+        }
+        logger.info("EventServiceImpl: address with id={} was updated successfully..", addressId);
+    }
+
     public List<Event> sortByUsers(int page, int pageSize) throws ServiceException {
         logger.info("EventServiceImpl: sort by regUsers on page {}.", page);
         List<Event> eventList;
@@ -158,7 +189,7 @@ public class EventServiceImpl implements EventService, SortService {
         List<Event> eventList;
         try {
             int count = getCountForPage(page, pageSize);
-            eventList = eventDAO.sortByCountReports(DAOFactory.getConnection(), (page * pageSize - page), count);
+            eventList = eventDAO.sortByCountReports(DAOFactory.getConnection(), (page * pageSize - pageSize), count);
             if (eventList == null) {
                 logger.error("EventServiceImpl: list of events is NULL.");
                 throw new ServiceException("EventServiceImpl: list of events is NULL.");

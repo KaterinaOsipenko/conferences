@@ -3,6 +3,7 @@ package com.epam.conferences.controller.admin;
 import com.epam.conferences.exception.NoElementsException;
 import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.model.Report;
+import com.epam.conferences.service.EventService;
 import com.epam.conferences.service.ReportService;
 import com.epam.conferences.util.PathUtil;
 import org.apache.logging.log4j.LogManager;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,11 +24,13 @@ public class GetReportsServlet extends HttpServlet {
 
     private static final Logger logger = LogManager.getLogger(GetReportsServlet.class);
     private ReportService reportService;
+    private EventService eventService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         reportService = (ReportService) config.getServletContext().getAttribute("reportService");
+        eventService = (EventService) config.getServletContext().getAttribute("eventService");
     }
 
     @Override
@@ -34,11 +38,21 @@ public class GetReportsServlet extends HttpServlet {
         logger.info("GetReportsServlet: doGet method.");
         int eventId = Integer.parseInt(request.getParameter("id"));
         String address;
+
+        HttpSession session = request.getSession();
+        if (session.getAttribute("ex") != null) session.removeAttribute("ex");
+        else if (session.getAttribute("address") != null) {
+            session.removeAttribute("address");
+        }
+
         try {
             List<Report> reports = reportService.getReportsByEventId(eventId);
             if (reports.isEmpty()) {
                 logger.error("EventListServlet: there are no events.");
                 throw new NoElementsException("There are no reports for this event.");
+            }
+            if (eventService.isPastEvent(eventId)) {
+                request.setAttribute("past", "past");
             }
             request.setAttribute("reports", reports);
             request.setAttribute("eventId", eventId);

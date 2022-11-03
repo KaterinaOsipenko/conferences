@@ -1,6 +1,7 @@
 package com.epam.conferences.dao;
 
 import com.epam.conferences.exception.DBException;
+import com.epam.conferences.model.Address;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.model.User;
 
@@ -33,6 +34,10 @@ public interface EventDAO {
     void insertUserToPresence(Connection connection, Event event, User user) throws DBException;
 
     boolean isUserRegisteredToEvent(Connection connection, Event event, User user) throws DBException;
+
+    void updateEvent(Connection connection, int id, Event event) throws DBException;
+
+    void updateAddress(Connection connection, int id, Address address) throws DBException;
 
 
 }

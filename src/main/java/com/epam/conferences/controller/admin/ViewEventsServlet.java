@@ -34,6 +34,7 @@ public class ViewEventsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("ViewEventsServlet: doGet method.");
         String address;
+        String sort = request.getParameter("sort");
         int page;
         List<Event> eventList;
         if (request.getParameter("page") == null || request.getParameter("page").equals("")) {
@@ -44,11 +45,19 @@ public class ViewEventsServlet extends HttpServlet {
             request.setAttribute("currentPage", page);
         }
         try {
-            eventList = eventService.findEvents(page, PAGE_SIZE);
+            if (sort == null) {
+                sort = "future";
+                eventList = eventService.findEventsSorted(page, PAGE_SIZE, sort);
+            } else if (sort.equals("all")) {
+                eventList = eventService.findEvents(page, PAGE_SIZE);
+            } else {
+                eventList = eventService.findEventsSorted(page, PAGE_SIZE, sort);
+            }
             if (eventList.isEmpty()) {
                 logger.error("EventListServlet: there are no events.");
                 throw new NoElementsException("There are no events.");
             }
+            if (sort.equals("past")) request.setAttribute("past", "past");
             request.setAttribute("maxPage", eventService.maxPage(PAGE_SIZE));
             request.setAttribute("eventList", eventList);
             address = PathUtil.ADMIN_VIEW_EVENTS_PAGE;
@@ -56,7 +65,7 @@ public class ViewEventsServlet extends HttpServlet {
             logger.error("ViewEventsServlet: exception ({}) during finding events for admin page {}", e.getMessage(), page);
             request.setAttribute("ex", e instanceof NoElementsException ? e.getMessage() :
                     "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
-            request.setAttribute("address", "/");
+            request.setAttribute("address", "admin/viewEvents");
             address = PathUtil.ADMIN_ERROR_PAGE;
         }
         logger.info("ViewEventsServlet: forward to view events page = {}", page);

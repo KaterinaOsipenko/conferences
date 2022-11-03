@@ -21,6 +21,33 @@
         <section class="py-4 py-xl-5">
             <div class="container">
                 <div class="text-white bg-dark border rounded border-0 p-4 p-md-5">
+                    <div style="display: flex; padding-bottom: 2rem; gap: 2rem; justify-content: center;">
+                        <div>
+                            <a role="button" href="${pageContext.request.contextPath}/admin/viewEvents?sort=past">View
+                                past
+                                events</a>
+                        </div>
+                        <div>
+                            <a role="button" href="${pageContext.request.contextPath}/admin/viewEvents?sort=users">Sort
+                                events
+                                by Registered Users</a>
+                        </div>
+                        <div>
+                            <a role="button" href="${pageContext.request.contextPath}/admin/viewEvents?sort=reports">Sort
+                                events
+                                by count of reports</a>
+                        </div>
+                        <div>
+                            <a role="button" href="${pageContext.request.contextPath}/admin/viewEvents?sort=all">View
+                                all
+                                events</a>
+                        </div>
+                        <div>
+                            <a role="button" href="${pageContext.request.contextPath}/admin/viewEvents?sort=future">View
+                                future
+                                events</a>
+                        </div>
+                    </div>
                     <div class="table-responsive">
                         <table class="table" style="color: white;">
                             <thead>
@@ -29,12 +56,19 @@
                                 <th>address</th>
                                 <th>date</th>
                                 <th>time</th>
+                                <th>count reports</th>
+                                <th>count registered users</th>
+                                <c:if test="${not empty past}">
+                                    <th>count guests</th>
+                                </c:if>
                             </tr>
                             </thead>
                             <tbody>
                             <c:forEach var="event" items="${eventList}">
                                 <tr>
-                                    <td>${event.name}</td>
+                                    <td><a role="button"
+                                           href="${pageContext.request.contextPath}/admin/cardEvent?id=${event.id}">${event.name}</a>
+                                    </td>
                                     <td>${event.address}</td>
                                     <td>${event.date.dayOfMonth}-${event.date.monthValue}-${event.date.year}</td>
                                     <td>
@@ -47,12 +81,21 @@
                                             </c:otherwise>
                                         </c:choose>
                                     </td>
-                                    <td><a role="button" class="btn btn-primary btn-sm me-2"
-                                           href="${pageContext.request.contextPath}/admin/editEvent?id=${event.id}">Edit</a>
-                                    </td>
-                                    <td><a role="button" class="btn btn-light btn-sm me-2"
+                                    <td>${event.reports}</td>
+                                    <td>${event.registerUsers}</td>
+                                    <c:if test="${not empty past}">
+                                        <td>${event.registerUsers}</td>
+                                    </c:if>
+                                    <c:if test="${empty past}">
+                                        <td>
+                                            <a role="button" class="btn btn-primary btn-sm me-2"
+                                               href="${pageContext.request.contextPath}/admin/editEvent?id=${event.id}">Edit</a>
+                                        </td>
+                                    </c:if>
+                                    <td>
+                                        <a role="button" class="btn btn-light btn-sm me-2"
                                            href="${pageContext.request.contextPath}/admin/getReports?id=${event.id}">See
-                                        Reports</a>
+                                            Reports</a>
                                     </td>
                                 </tr>
                             </c:forEach>

@@ -1,6 +1,9 @@
 package com.epam.conferences.filter;
 
+import com.epam.conferences.model.Role;
 import com.epam.conferences.model.User;
+import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,17 +22,25 @@ public class AuthenticationFilter implements Filter {
         logger.info("AuthenticationFilter: init");
     }
 
+    // TODO: check work
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         logger.info("AuthenticationFilter: doFilter");
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         if (req.getSession().getAttribute("user") == null) {
-            resp.sendRedirect("/login");
+            resp.sendRedirect(URLUtil.LOGIN_URL);
         } else {
             User user = (User) req.getSession().getAttribute("user");
-
-            chain.doFilter(request, response);
+            String url = String.valueOf(req.getRequestURL());
+            if (url.contains("admin") && user.getRoleId() == Role.MODERATOR.id) {
+                chain.doFilter(request, response);
+            } else if (url.contains("speaker") && user.getRoleId() == Role.SPEAKER.id) {
+                chain.doFilter(request, response);
+            } else {
+                req.getSession().setAttribute("ex", "Error 403: forbidden access.");
+                resp.sendRedirect(PathUtil.LOGIN_PAGE);
+            }
         }
     }
 }

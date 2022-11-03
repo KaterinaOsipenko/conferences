@@ -42,18 +42,21 @@
                                 <tr>
                                     <td>${report.topic.name}</td>
                                     <td>${report.speaker.firstName} ${report.speaker.lastName}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary"
-                                                data-toggle="modal" data-target="#exampleModal">
-                                            Delete
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <a role="button" class="class=btn btn-primary btn-sm me-2"
-                                           href="${pageContext.request.contextPath}/admin/changeTopic?id=${report.topic.id}">Change
-                                            the topic</a>
-                                    </td>
-                                    <div class="modal fade" id="exampleModal">
+                                    <c:if test="${empty past}">
+                                        <td>
+                                            <button type="button" class="btn btn-primary"
+                                                    data-toggle="modal" data-target="#deleteModal">
+                                                Delete
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary"
+                                                    data-toggle="modal" data-target="#changeTopicModal">
+                                                Change topic
+                                            </button>
+                                        </td>
+                                    </c:if>
+                                    <div class="modal fade" id="deleteModal">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -77,9 +80,41 @@
                                                           method="post">
                                                         <input type="hidden" name="reportId" value="${report.id}"/>
                                                         <input type="hidden" name="eventId" value="${eventId}"/>
-                                                        <button class="btn btn-secondary" type="submit">Delete</button>
+                                                        <button class="btn btn-primary" type="submit">Delete</button>
                                                     </form>
-
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="changeTopicModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" style="color:black;">
+                                                        Change topic of report
+                                                    </h5>
+                                                    <button type="button" class="close"
+                                                            data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body" style="color: black">
+                                                    <p>Do you want to change topic name ${report.topic.name}?</p>
+                                                    <form name="changeTopic"
+                                                          action="${pageContext.request.contextPath}/admin/changeTopic"
+                                                          method="post">
+                                                        <input type="hidden" name="eventId" value="${eventId}">
+                                                        <input type="hidden" name="topicId" value="${report.topic.id}">
+                                                        <label for="nameTopic">Enter new name: </label>
+                                                        <input id="nameTopic" type="text" name="nameTopic" required
+                                                               maxlength="45"
+                                                               placeholder="name" pattern="^[a-zA-Z].{1,45}$"/>
+                                                        <button class="btn btn-primary" type="submit">Change</button>
+                                                    </form>
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">
+                                                        Cancel
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
