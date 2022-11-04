@@ -3,13 +3,11 @@ package com.epam.conferences.listener;
 import com.epam.conferences.dao.EventDAO;
 import com.epam.conferences.dao.ReportDAO;
 import com.epam.conferences.dao.UserDAO;
+import com.epam.conferences.dao.UserEventDAO;
 import com.epam.conferences.dao.impl.DAOFactoryImpl;
 import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.service.*;
-import com.epam.conferences.service.impl.EmailServiceImpl;
-import com.epam.conferences.service.impl.EventServiceImpl;
-import com.epam.conferences.service.impl.ReportServiceImpl;
-import com.epam.conferences.service.impl.UserServiceImpl;
+import com.epam.conferences.service.impl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -39,24 +37,29 @@ public class ContextListener implements ServletContextListener {
         UserDAO userDAO = DAOFactoryImpl.getInstance().getUserDao();
         EventDAO eventDAO = DAOFactoryImpl.getInstance().getEventDao();
         ReportDAO reportDAO = DAOFactoryImpl.getInstance().getReportDao();
+        UserEventDAO userEventDAO = DAOFactoryImpl.getInstance().getUserEventDao();
 
         NotificationManager userManager = new NotificationManager();
         NotificationManager eventManager = new NotificationManager();
+        NotificationManager userEventManager = new NotificationManager();
 
         EmailService emailService = new EmailServiceImpl("587", "smtp.gmail.com");
 
         userManager.addObserver("registration", new RegistrationListener(emailService));
         userManager.addObserver("registrationToEvent", new RegistrationToEventListener(emailService));
-        eventManager.addObserver("registrationToEvent", new RegistrationToEventListener(emailService));
+        eventManager.addObserver("updateEvent", new UpdateEventListener(emailService));
+        userEventManager.addObserver("registrationToEvent", new RegistrationToEventListener(emailService));
 
         UserService userService = new UserServiceImpl(userDAO, userManager);
-        EventService eventService = new EventServiceImpl(eventDAO, eventManager);
+        EventService eventService = new EventServiceImpl(eventDAO, userEventDAO, eventManager);
         ReportService reportService = new ReportServiceImpl(reportDAO);
+        UserEventService userEventService = new UserEventServiceImpl(userEventDAO, userEventManager);
 
 
         servletContext.setAttribute("userService", userService);
         servletContext.setAttribute("eventService", eventService);
         servletContext.setAttribute("reportService", reportService);
+        servletContext.setAttribute("userEventService", userEventService);
     }
 
 

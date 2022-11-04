@@ -1,9 +1,6 @@
 package com.epam.conferences.dao.impl;
 
-import com.epam.conferences.dao.DAOFactory;
-import com.epam.conferences.dao.EventDAO;
-import com.epam.conferences.dao.ReportDAO;
-import com.epam.conferences.dao.UserDAO;
+import com.epam.conferences.dao.*;
 import com.epam.conferences.exception.DBException;
 
 import java.sql.Connection;
@@ -24,6 +21,11 @@ public class DAOFactoryImpl extends DAOFactory {
     @Override
     public ReportDAO getReportDao() {
         return new ReportDAOImpl();
+    }
+
+    @Override
+    public UserEventDAO getUserEventDao() {
+        return new UserEventDAOImpl();
     }
 
     @Override

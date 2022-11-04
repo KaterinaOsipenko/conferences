@@ -4,6 +4,7 @@ import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.model.User;
 import com.epam.conferences.service.EventService;
+import com.epam.conferences.service.UserEventService;
 import com.epam.conferences.service.UserService;
 import com.epam.conferences.util.PathUtil;
 import org.apache.logging.log4j.LogManager;
@@ -25,11 +26,14 @@ public class ChooseEventServlet extends HttpServlet {
 
     private UserService userService;
 
+    private UserEventService userEventService;
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         eventService = (EventService) config.getServletContext().getAttribute("eventService");
         userService = (UserService) config.getServletContext().getAttribute("userService");
+        userEventService = (UserEventService) config.getServletContext().getAttribute("userEventService");
     }
 
     @Override
@@ -52,7 +56,7 @@ public class ChooseEventServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         logger.info("ChooseEventServlet: doPost method.");
         String address;
         String email = request.getParameter("email");
@@ -61,13 +65,13 @@ public class ChooseEventServlet extends HttpServlet {
         try {
             User user = userService.findUserByEmail(email);
             if (user != null) {
-                if (eventService.isUserRegisteredToEvent(event, user)) {
+                if (userEventService.isUserRegisteredToEvent(event, user)) {
                     request.getSession().setAttribute("ex", "You have taken place in this event.");
                     request.getSession().setAttribute("address", "eventList");
                     address = PathUtil.ERROR_PAGE;
                 } else {
                     event = eventService.findEvent(eventId);
-                    eventService.registerUserToEvent(event, user);
+                    userEventService.registerUserToEvent(event, user);
                     address = PathUtil.SUCCESS_PAGE;
                 }
             } else {

@@ -1407,3 +1407,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2022-11-04 00:41:48 ERROR EventDAOImpl: exception Unknown column 'house' in 'field list' during updating adress with id=4.
 2022-11-04 00:41:48 ERROR EventServiceImpl: exception java.sql.SQLSyntaxErrorException: Unknown column 'house' in 'field list' during updating address.
 2022-11-04 00:41:48 ERROR ChangeAddressServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Unknown column 'house' in 'field list') during changing address with id=4
+2022-11-04 13:59:13 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-04 13:59:15 ERROR ValidationFilter: exception Date must be in future. during validation user input.
+2022-11-04 14:35:03 ERROR LoginServlet: invalid password exception.
+2022-11-04 14:35:07 ERROR LoginServlet: invalid password exception.

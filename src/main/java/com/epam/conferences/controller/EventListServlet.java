@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @WebServlet(name = "EventListServlet", value = "/eventList")
@@ -57,6 +58,7 @@ public class EventListServlet extends HttpServlet {
                 throw new NoElementsException("There are no events.");
             }
             request.setAttribute("maxPage", eventService.maxPage(PAGE_SIZE));
+            request.setAttribute("now", LocalDateTime.now());
             request.setAttribute("eventList", eventList);
             address = PathUtil.EVENT_LIST_PAGE;
         } catch (ServiceException | NoElementsException e) {

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @WebServlet(name = "ViewEventsServlet", value = "/admin/viewEvents")
@@ -57,7 +58,7 @@ public class ViewEventsServlet extends HttpServlet {
                 logger.error("EventListServlet: there are no events.");
                 throw new NoElementsException("There are no events.");
             }
-            if (sort.equals("past")) request.setAttribute("past", "past");
+            request.setAttribute("now", LocalDateTime.now());
             request.setAttribute("maxPage", eventService.maxPage(PAGE_SIZE));
             request.setAttribute("eventList", eventList);
             address = PathUtil.ADMIN_VIEW_EVENTS_PAGE;

@@ -4,7 +4,6 @@ import com.epam.conferences.dao.EventDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.model.Address;
 import com.epam.conferences.model.Event;
-import com.epam.conferences.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,9 +16,8 @@ public class EventDAOImpl implements EventDAO {
 
     private static final Logger logger = LogManager.getLogger(EventDAOImpl.class);
     private static final String FIND_ALL_EVENTS_BY_PAGE = "SELECT * FROM events JOIN addresses on addresses.id = events.id_address ORDER BY events.id LIMIT ? OFFSET ?";
-    private static final String INSERT_USER_TO_PRESENCE = "INSERT INTO user_event_presence (id_user, id_event) VALUES (?, ?)";
+
     private static final String COUNT_EVENTS = "SELECT COUNT(*) FROM events";
-    private static final String CHECK_USER_REGISTERED = "SELECT * FROM user_event_presence WHERE id_user = ? AND id_event = ?";
     private static final String FIND_EVENT_BY_ID = "SELECT * FROM events JOIN addresses a on a.id = events.id_address WHERE events.id = ?";
     private static final String SORT_EVENTS_BY_REGISTERED_USERS = "select * from (select events.id, events.id_address, " +
             "events.name, events.description, events.date, count(user_event_presence.id_user) as usersCount " +
@@ -118,33 +116,6 @@ public class EventDAOImpl implements EventDAO {
     }
 
     @Override
-    public void insertUserToPresence(Connection connection, Event event, User user) throws DBException {
-        logger.info("EventDAOImpl: insert user with id={} and event with id={}", user.getId(), event.getId());
-        try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER_TO_PRESENCE)) {
-            preparedStatement.setLong(1, user.getId());
-            preparedStatement.setLong(2, event.getId());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            logger.error("EventDAOImpl: exception ({}) during insertion user with id={} and event with id={}", e.getMessage(), user.getId(), event.getId());
-            throw new DBException(e);
-        }
-    }
-
-    @Override
-    public boolean isUserRegisteredToEvent(Connection connection, Event event, User user) throws DBException {
-        logger.info("EventDAOImpl: check if user with id={} has already registered to event with id={}", user.getId(), event.getId());
-        try (PreparedStatement preparedStatement = connection.prepareStatement(CHECK_USER_REGISTERED)) {
-            preparedStatement.setLong(1, user.getId());
-            preparedStatement.setLong(2, event.getId());
-            ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.next();
-        } catch (SQLException e) {
-            logger.error("EventDAOImpl: exception ({}) during insertion user with id={} and event with id={}", e.getMessage(), user.getId(), event.getId());
-            throw new DBException(e);
-        }
-    }
-
-    @Override
     public void updateEvent(Connection connection, int id, Event event) throws DBException {
         logger.info("EventDAOImpl: updating event with id={}", id);
         try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EVENT)) {
@@ -153,6 +124,7 @@ public class EventDAOImpl implements EventDAO {
             preparedStatement.setTimestamp(3, Timestamp.valueOf(event.getDate()));
             preparedStatement.setLong(4, id);
             preparedStatement.executeUpdate();
+            preparedStatement.execute();
         } catch (SQLException e) {
             logger.error("EventDAOImpl: exception {} during updating event with id={}.", e.getMessage(), id);
             throw new DBException(e);

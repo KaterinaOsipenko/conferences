@@ -46,6 +46,8 @@ public abstract class DAOFactory {
 
     public abstract ReportDAO getReportDao();
 
+    public abstract UserEventDAO getUserEventDao();
+
     public abstract void rollback(Connection connection) throws DBException;
 
 }

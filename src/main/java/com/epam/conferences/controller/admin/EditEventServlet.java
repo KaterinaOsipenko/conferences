@@ -39,6 +39,7 @@ public class EditEventServlet extends HttpServlet {
         try {
             Event event = eventService.findEvent(eventId);
             request.setAttribute("event", event);
+            request.setAttribute("now", LocalDateTime.now());
             address = request.getRequestURI().contains("card") ? PathUtil.ADMIN_CARD_EVENT_PAGE : PathUtil.ADMIN_EDIT_EVENT_PAGE;
         } catch (ServiceException e) {
             logger.error("EditEventServlet: exception ({}) during getting event with id={}", e.getMessage(), eventId);

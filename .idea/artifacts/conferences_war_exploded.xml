@@ -24,7 +24,8 @@
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.5" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
-          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.16.0" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.19.0" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.17.2" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.30" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
         </element>

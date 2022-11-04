@@ -17,4 +17,9 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    <tag>
+        <name>nowDate</name>
+        <tag-class>com.epam.conferences.tag.NowDateTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
 </taglib>

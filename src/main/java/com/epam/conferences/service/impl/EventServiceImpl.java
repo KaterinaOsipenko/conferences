@@ -2,6 +2,7 @@ package com.epam.conferences.service.impl;
 
 import com.epam.conferences.dao.DAOFactory;
 import com.epam.conferences.dao.EventDAO;
+import com.epam.conferences.dao.UserEventDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.model.Address;
@@ -23,18 +24,22 @@ public class EventServiceImpl implements EventService, SortService {
 
     private static final Logger logger = LogManager.getLogger(EventServiceImpl.class);
     private final EventDAO eventDAO;
-
+    private final UserEventDAO userEventDAO;
     private final NotificationManager notificationManager;
 
-    public EventServiceImpl(EventDAO eventDao, NotificationManager notificationManager) {
+    public EventServiceImpl(EventDAO eventDao, UserEventDAO userEventDAO, NotificationManager notificationManager) {
         if (eventDao == null) {
             logger.error("EventServiceImpl: eventDAO reference in constructor is NULL.");
             throw new IllegalArgumentException("EventServiceImpl: eventDAO reference in constructor is NULL.");
+        } else if (userEventDAO == null) {
+            logger.error("EventServiceImpl: userEventDAO reference in constructor is NULL.");
+            throw new IllegalArgumentException("EventServiceImpl: userEventDAO reference in constructor is NULL.");
         } else if (notificationManager == null) {
             logger.error("EventServiceImpl: notificationManager reference in constructor is NULL.");
             throw new IllegalArgumentException("EventServiceImpl: notificationManager reference in constructor is NULL.");
         }
         this.eventDAO = eventDao;
+        this.userEventDAO = userEventDAO;
         this.notificationManager = notificationManager;
     }
 
@@ -98,19 +103,6 @@ public class EventServiceImpl implements EventService, SortService {
     }
 
     @Override
-    public boolean isUserRegisteredToEvent(Event event, User user) throws ServiceException {
-        logger.info("EventServiceImpl: checking if user {} has already registered to event {}", user, event);
-        boolean result;
-        try {
-            result = eventDAO.isUserRegisteredToEvent(DAOFactory.getConnection(), event, user);
-        } catch (DBException | NamingException | SQLException e) {
-            logger.error("EventServiceImpl: exception ({}) during checking if user {} has already registered to event {}", e.getMessage(), user, event);
-            throw new ServiceException(e);
-        }
-        return result;
-    }
-
-    @Override
     public boolean isPastEvent(int id) throws ServiceException {
         Event event = findEvent(id);
         return event.getDate().isBefore(LocalDateTime.now());
@@ -148,6 +140,8 @@ public class EventServiceImpl implements EventService, SortService {
         logger.info("EventServiceImpl: updating event with id={}.", id);
         try {
             eventDAO.updateEvent(DAOFactory.getConnection(), id, event);
+            Event updatedEvent = findEvent(id);
+            notifyAllUsers(id, updatedEvent);
         } catch (DBException | NamingException | SQLException e) {
             logger.error("EventServiceImpl: exception {} during updating event with id={}.", e.getMessage(), id);
             throw new ServiceException(e);
@@ -155,10 +149,12 @@ public class EventServiceImpl implements EventService, SortService {
     }
 
     @Override
-    public void changeAddressEvent(int addressId, Address address) throws ServiceException {
+    public void changeAddressEvent(int addressId, int eventId, Address address) throws ServiceException {
         logger.info("EventServiceImpl: changing address with id={}.", addressId);
         try {
             eventDAO.updateAddress(DAOFactory.getConnection(), addressId, address);
+            Event event = findEvent(eventId);
+            notifyAllUsers(eventId, event);
         } catch (DBException | NamingException | SQLException e) {
             logger.error("EventServiceImpl: exception {} during updating address.", e.getMessage());
             throw new ServiceException(e);
@@ -261,15 +257,11 @@ public class EventServiceImpl implements EventService, SortService {
         return countEvents % pageSize != 0 && page == maxPage(pageSize) ? page * pageSize - countEvents == 1 ? 2 : 1 : pageSize;
     }
 
-    @Override
-    public void registerUserToEvent(Event event, User user) throws ServiceException {
-        logger.info("EventServiceImpl: register user {} to {}.", user, event);
-        try {
-            eventDAO.insertUserToPresence(DAOFactory.getConnection(), event, user);
-            notificationManager.notify("registrationToEvent", user, event);
-        } catch (DBException | NamingException | SQLException e) {
-            logger.error("EventServiceImpl: exception during registration user {} to event {}.", user, event);
-            throw new ServiceException(e);
+    private void notifyAllUsers(int id, Event event) throws ServiceException, SQLException, NamingException, DBException {
+        List<User> users = userEventDAO.findUserRegisteredToEvent(DAOFactory.getConnection(), id);
+        for (User user : users) {
+            notificationManager.notify("updateEvent", user, event);
         }
     }
+
 }

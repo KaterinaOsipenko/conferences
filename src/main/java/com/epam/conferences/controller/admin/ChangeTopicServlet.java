@@ -27,7 +27,7 @@ public class ChangeTopicServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         logger.info("ChangeTopicServlet: doPost method.");
         int topicId = Integer.parseInt(request.getParameter("topicId"));
         int eventId = Integer.parseInt(request.getParameter("eventId"));

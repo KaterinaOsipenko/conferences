@@ -42,9 +42,11 @@
                                         <a class="btn btn-dark"
                                            href="${pageContext.request.contextPath}/reports?id=${event.id}"
                                            role="button">See reports</a>
-                                        <a class="btn btn-light"
-                                           href="${pageContext.request.contextPath}/chooseEvent?id=${event.id}"
-                                           role="button">Choose event</a>
+                                        <c:if test="${event.date gt now}">
+                                            <a class="btn btn-light"
+                                               href="${pageContext.request.contextPath}/chooseEvent?id=${event.id}"
+                                               role="button">Choose event</a>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>

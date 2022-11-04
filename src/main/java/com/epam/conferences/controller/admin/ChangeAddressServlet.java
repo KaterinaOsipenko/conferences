@@ -29,7 +29,7 @@ public class ChangeAddressServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         logger.info("ChangeAddressServlet: doPost method.");
         int addressId = Integer.parseInt(request.getParameter("addressId"));
         int eventId = Integer.parseInt(request.getParameter("eventId"));
@@ -49,7 +49,7 @@ public class ChangeAddressServlet extends HttpServlet {
         String address;
 
         try {
-            eventService.changeAddressEvent(addressId, addressEvent);
+            eventService.changeAddressEvent(addressId, eventId, addressEvent);
             address = URLUtil.ADMIN_CARD_EVENT + "?id=" + eventId;
         } catch (ServiceException e) {
             logger.error("ChangeAddressServlet: exception ({}) during changing address with id={}", e.getMessage(), addressId);

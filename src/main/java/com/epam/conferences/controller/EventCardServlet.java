@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @WebServlet(name = "EventCardServlet", value = "/eventCard")
 public class EventCardServlet extends HttpServlet {
@@ -35,6 +36,7 @@ public class EventCardServlet extends HttpServlet {
         try {
             event = eventService.findEvent(eventId);
             request.setAttribute("event", event);
+            request.setAttribute("now", LocalDateTime.now());
             address = PathUtil.EVENT_CARD_PAGE;
         } catch (ServiceException e) {
             logger.error("EventCardServlet: exception ({}) during find event with id={}", e.getMessage(), eventId);

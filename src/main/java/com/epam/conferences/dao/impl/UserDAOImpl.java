@@ -111,11 +111,11 @@ public class UserDAOImpl implements UserDAO {
             throw new DBException(e);
         }
     }
- 
+
     @Override
     public List<User> findAllUsers(Connection connection) throws DBException {
         logger.info("UserDAOImpl: get list of all users");
-        List<User> listUsers = new ArrayList<>();
+        List<User> listUsers;
         try {
             Statement statement = connection.createStatement();
             ResultSet set = statement.executeQuery(FIND_ALL_USERS);
@@ -131,7 +131,7 @@ public class UserDAOImpl implements UserDAO {
     private List<User> extractUsersList(ResultSet resultSet) throws SQLException {
         List<User> userList = new ArrayList<>();
         while (resultSet.next()) {
-            Optional<User> event = Optional.ofNullable(extractUser(resultSet));
+            Optional<User> event = Optional.of(extractUser(resultSet));
             event.ifPresent(userList::add);
         }
         return userList;

@@ -34,11 +34,6 @@
                     <p style="text-align: left">
                         <a style="color: black;" href="${pageContext.request.contextPath}/admin/viewEvents">Go Back</a>
                     </p>
-                    <c:if test="${not empty ex}">
-                        <p class="text-danger fs-6" role="alert" style="text-align: center">
-                            <c:out value="${ex}"/>
-                        </p>
-                    </c:if>
                     <div class="row h-100">
                         <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
 

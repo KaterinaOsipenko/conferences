@@ -27,7 +27,7 @@ public class DeleteReportServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         logger.info("DeleteReportServlet: doPost method.");
         int reportId = Integer.parseInt(request.getParameter("reportId"));
         int eventId = Integer.parseInt(request.getParameter("eventId"));

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="adminHeader.jsp" %>
+<%@ taglib prefix="ct" uri="/WEB-INF/customTag" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,11 +57,9 @@
                                 <th>address</th>
                                 <th>date</th>
                                 <th>time</th>
-                                <th>count reports</th>
-                                <th>count registered users</th>
-                                <c:if test="${not empty past}">
-                                    <th>count guests</th>
-                                </c:if>
+                                <th>reports</th>
+                                <th>registered users</th>
+                                <th>guests</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -72,31 +71,24 @@
                                     <td>${event.address}</td>
                                     <td>${event.date.dayOfMonth}-${event.date.monthValue}-${event.date.year}</td>
                                     <td>
-                                        <c:choose>
-                                            <c:when test="${event.date.minute == 0}">
-                                                <c:out value="${event.date.hour}:${event.date.minute}0"/>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <c:out value="${event.date.hour}:${event.date.minute}"/>
-                                            </c:otherwise>
-                                        </c:choose>
+                                        <ct:localTimeTag time="${event.date}"/>
                                     </td>
                                     <td>${event.reports}</td>
                                     <td>${event.registerUsers}</td>
-                                    <c:if test="${not empty past}">
+                                    <c:if test="${event.date lt now}">
                                         <td>${event.registerUsers}</td>
-                                    </c:if>
-                                    <c:if test="${empty past}">
-                                        <td>
-                                            <a role="button" class="btn btn-primary btn-sm me-2"
-                                               href="${pageContext.request.contextPath}/admin/editEvent?id=${event.id}">Edit</a>
-                                        </td>
                                     </c:if>
                                     <td>
                                         <a role="button" class="btn btn-light btn-sm me-2"
                                            href="${pageContext.request.contextPath}/admin/getReports?id=${event.id}">See
                                             Reports</a>
                                     </td>
+                                    <c:if test="${event.date gt now}">
+                                        <td>
+                                            <a role="button" class="btn btn-primary btn-sm me-2"
+                                               href="${pageContext.request.contextPath}/admin/editEvent?id=${event.id}">Edit</a>
+                                        </td>
+                                    </c:if>
                                 </tr>
                             </c:forEach>
                             </tbody>
