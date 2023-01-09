@@ -10,9 +10,9 @@ public interface ReportDAO {
 
     List<Report> findAllByEventId(Connection connection, long eventId) throws DBException;
 
-    Integer countReportsByEventId(Connection connection, long eventId) throws DBException;
-
     void deleteReport(Connection connection, int reportId) throws DBException;
 
     void changeReportTopic(Connection connection, int topicId, String name) throws DBException;
+
+    List<Report> getReportsByUser(Connection connection, int userId) throws DBException;
 }

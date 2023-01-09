@@ -43,7 +43,7 @@ public class EditEventServlet extends HttpServlet {
             address = request.getRequestURI().contains("card") ? PathUtil.ADMIN_CARD_EVENT_PAGE : PathUtil.ADMIN_EDIT_EVENT_PAGE;
         } catch (ServiceException e) {
             logger.error("EditEventServlet: exception ({}) during getting event with id={}", e.getMessage(), eventId);
-            request.setAttribute("address", "admin/cardEvent?id=" + eventId);
+            request.setAttribute("address", URLUtil.ADMIN_CARD_EVENT + "?id=" + eventId);
             request.setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
             address = PathUtil.ADMIN_ERROR_PAGE;
         }

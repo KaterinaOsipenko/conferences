@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "HomePageServlet", value = "/index.jsp")
+@WebServlet(name = "HomePageServlet", value = {"/index.jsp", "/admin/index.jsp", "/home"})
 public class HomePageServlet extends HttpServlet {
 
     private static final Logger logger = LogManager.getLogger(HomePageServlet.class);

@@ -28,37 +28,62 @@
                         <div class="text-center">
                             <h4 class="text-white mb-4">Create an Account!</h4>
                         </div>
-                        <c:if test="${not empty exLogin}">
-                            <p class="text-danger fs-6" role="alert">
-                                <c:out value="${exLogin}"/>
-                            </p>
-                        </c:if>
+                        <div class="text-danger">${ex}</div>
                         <form class="text-white text-bg-dark user" action="registration" method="post"
                               enctype="application/x-www-form-urlencoded">
-                            <div class="mb-3"><input class="form-control form-control-user" type="text"
-                                                     placeholder="First Name" required="" name="firstname"
-                                                     autocomplete="on" pattern="^[a-zA-Z].{1,45}$" minlength="1"
-                                                     maxlength="45" style="margin: 17px 0px 0px;"></div>
-                            <input class="form-control form-control-user" type="text" placeholder="Last Name"
-                                   required="" name="lastname" autocomplete="on" minlength="1" maxlength="45"
-                                   pattern="^[a-zA-Z].{1,45}$" style="margin: 17px 0px 0px;padding: 6px 12px;">
-                            <div class="mb-3"><input class="form-control form-control-user" type="email" id="email"
-                                                     placeholder="Email Address" required="" style="margin-top: 17px;"
-                                                     name="email" inputmode="email" autocomplete="on"></div>
-                            <div class="mb-3"><input class="form-control form-control-user" type="password"
-                                                     id="password" placeholder="Password" required=""
-                                                     style="margin: 17px 0px 0px;padding: 6px 12px;" name="password"
-                                                     minlength="5" maxlength="12"
-                                                     pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,12}$"></div>
+                            <div class="mb-3" style="display: flex;align-items: self-end;">
+                                <input class="form-control" type="text" id="firstname"
+                                       placeholder="First Name" required="" name="firstname"
+                                       autocomplete="on" pattern="^[a-zA-Z].{1,45}$" minlength="1"
+                                       maxlength="45"
+                                       style="margin: 17px 0px 0px;transform: translate(26px);"/>
+                                <button onclick="copyPast('firstname')"
+                                        style="display: inline;width: 10rem;"
+                                        class="btn btn-light border rounded-pill border-1" type="button">
+                                    Copy
+                                </button>
+                            </div>
+                            <div class="mb-3" style="display: flex;align-items: self-end;">
+                                <input class="form-control form-control-user" type="text" placeholder="Last Name"
+                                       required="" id="lastname" name="lastname" autocomplete="on" minlength="1"
+                                       maxlength="45"
+                                       pattern="^[a-zA-Z].{1,45}$"
+                                       style="margin: 17px 0px 0px;transform: translate(26px);">
+                                <button onclick="copyPast('lastname')"
+                                        style="display: inline;width: 10rem;"
+                                        class="btn btn-light border rounded-pill border-1" type="button">
+                                    Copy
+                                </button>
+                            </div>
+                            <div class="mb-3" style="display: flex;align-items: self-end;">
+                                <input class="form-control form-control-user" type="email" id="email"
+                                       placeholder="Email Address" required=""
+                                       style="margin: 17px 0px 0px;transform: translate(26px);"
+                                       name="email" inputmode="email" autocomplete="on">
+                                <button onclick="copyPast('email')"
+                                        style="display: inline;width: 10rem;"
+                                        class="btn btn-light border rounded-pill border-1" type="button">
+                                    Copy
+                                </button>
+                            </div>
+                            <div class="mb-3" style="display: flex"><input class="form-control form-control-user"
+                                                                           type="password"
+                                                                           id="password" placeholder="Password"
+                                                                           required=""
+                                                                           style="margin: 17px 0px 0px; width: 94%; transform: translate(26px);"
+                                                                           name="password"
+                                                                           minlength="5" maxlength="12"
+                                                                           pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,12}$">
+                            </div>
                             <div class="row mb-3">
                                 <p id="emailErrorMsg" class="text-danger" style="display:none;">Paragraph</p>
                                 <p id="passwordErrorMsg" class="text-danger" style="display:none;">Paragraph</p>
                             </div>
                             <div class="row"
-                                 style="height: 37px; padding-bottom: 4px;margin: 0 2px 63px 0;">
+                                 style="height: 37px; padding-bottom: 4px;margin: 0 30px 63px 0;">
                                 <div class="col" style="padding-left: 0;padding-right: 0;"><select
                                         class="form-select" name="role" required="" value="Role"
-                                        style="margin-top: -14px;">
+                                        style="margin: 17px 0px 0px;transform: translate(26px);">
                                     <option value="SPEAKER">Speaker</option>
                                     <option value="MODERATOR">Moderator</option>
                                 </select></div>
@@ -78,5 +103,6 @@
     </div>
 </header>
 <%@include file="include/footer.jsp" %>
+<script src="js/copyPast.js"></script>
 </body>
 </html>

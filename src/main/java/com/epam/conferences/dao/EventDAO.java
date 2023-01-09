@@ -30,6 +30,8 @@ public interface EventDAO {
 
     Optional<Event> findById(Connection connection, int id) throws DBException;
 
+    int saveEvent(Connection connection, Event event) throws DBException;
+
     void updateEvent(Connection connection, int id, Event event) throws DBException;
 
     void updateAddress(Connection connection, int id, Address address) throws DBException;

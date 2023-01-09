@@ -1,5 +1,6 @@
 package com.epam.conferences.dao.impl;
 
+import com.epam.conferences.dao.DAOFactory;
 import com.epam.conferences.dao.EventDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.model.Address;
@@ -15,9 +16,14 @@ import java.util.Optional;
 public class EventDAOImpl implements EventDAO {
 
     private static final Logger logger = LogManager.getLogger(EventDAOImpl.class);
+
     private static final String FIND_ALL_EVENTS_BY_PAGE = "SELECT * FROM events JOIN addresses on addresses.id = events.id_address ORDER BY events.id LIMIT ? OFFSET ?";
 
+    private static final String INSERT_EVENT = "INSERT INTO events (name, date, description, id_address) VALUES (?, ?, ?, ?)";
+
+    private static final String INSERT_ADDRESS = "INSERT INTO addresses(country, city, street, numberBuilding) VALUES (?, ?, ?, ?)";
     private static final String COUNT_EVENTS = "SELECT COUNT(*) FROM events";
+
     private static final String FIND_EVENT_BY_ID = "SELECT * FROM events JOIN addresses a on a.id = events.id_address WHERE events.id = ?";
     private static final String SORT_EVENTS_BY_REGISTERED_USERS = "select * from (select events.id, events.id_address, " +
             "events.name, events.description, events.date, count(user_event_presence.id_user) as usersCount " +
@@ -30,23 +36,24 @@ public class EventDAOImpl implements EventDAO {
             "join addresses on tmp.id_address = addresses.id order by reportsCount desc limit ? offset ?";
     private static final String SORT_EVENTS_BY_DATE = "SELECT * FROM " +
             "(SELECT events.id, events.date, events.description, events.name, addresses.id as id_address, addresses.country, addresses.city,\n" +
-            "addresses.street, addresses.numberBuilding, addresses.numberApartment FROM events JOIN addresses on addresses.id = events.id_address) " +
+            "addresses.street, addresses.numberBuilding FROM events JOIN addresses on addresses.id = events.id_address) " +
             "AS tmp ORDER BY date LIMIT ? OFFSET ?";
     private static final String FIND_ALL_FUTURE_EVENTS = "SELECT * FROM " +
             "(SELECT events.id, events.date, events.description, events.name, addresses.id as id_address, addresses.country, addresses.city,\n" +
-            "addresses.street, addresses.numberBuilding, addresses.numberApartment FROM events JOIN addresses on addresses.id = events.id_address WHERE events.date > NOW()) " +
+            "addresses.street, addresses.numberBuilding FROM events JOIN addresses on addresses.id = events.id_address WHERE events.date > NOW()) " +
             "AS tmp ORDER BY id LIMIT ? OFFSET ?";
     private static final String FIND_ALL_PAST_EVENTS = "SELECT * FROM " +
             "(SELECT events.id, events.date, events.description, events.name, addresses.id as id_address, addresses.country, addresses.city,\n" +
-            "addresses.street, addresses.numberBuilding, addresses.numberApartment FROM events JOIN addresses on addresses.id = events.id_address WHERE events.date < NOW()) " +
+            "addresses.street, addresses.numberBuilding FROM events JOIN addresses on addresses.id = events.id_address WHERE events.date < NOW()) " +
             "AS tmp ORDER BY id LIMIT ? OFFSET ?";
+
     private final static String COUNT_REPORTS_BY_EVENT = "SELECT COUNT(*) FROM reports WHERE id_event = ?";
+
     private final static String COUNT_USERS_BY_EVENT = "SELECT COUNT(*) FROM user_event_presence WHERE id_event = ?";
 
     private final static String UPDATE_EVENT = "UPDATE events SET name = ?, description = ?, date = ? WHERE id = ?";
 
-    private final static String UPDATE_ADDRESS = "UPDATE addresses SET country = ?, city = ?, street = ?, numberBuilding = ?, " +
-            "numberApartment = ? WHERE id = ?;";
+    private final static String UPDATE_ADDRESS = "UPDATE addresses SET country = ?, city = ?, street = ?, numberBuilding = ? WHERE id = ?;";
 
     @Override
     public List<Event> sortByCountReports(Connection connection, int offset, int count) throws DBException {
@@ -90,7 +97,7 @@ public class EventDAOImpl implements EventDAO {
             resultSet.next();
             count = resultSet.getInt(1);
         } catch (SQLException e) {
-            logger.error("EventDAOImpl: exception during counting rows.");
+            logger.error("EventDAOImpl: exception {} during counting rows.", e.getMessage());
             throw new DBException(e);
         }
         logger.info("EventDAOImpl: all events were calculated.");
@@ -116,6 +123,37 @@ public class EventDAOImpl implements EventDAO {
     }
 
     @Override
+    public int saveEvent(Connection connection, Event event) throws DBException {
+        logger.info("EventDAOImpl: creating event.");
+        int id;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_EVENT, Statement.RETURN_GENERATED_KEYS);
+             PreparedStatement preparedStatementAddress = connection.prepareStatement(INSERT_ADDRESS, Statement.RETURN_GENERATED_KEYS)) {
+            connection.setAutoCommit(false);
+
+            insertParamAddress(preparedStatementAddress, event.getAddress());
+
+            preparedStatementAddress.executeUpdate();
+            long addressId = getKey(preparedStatementAddress.getGeneratedKeys());
+
+            preparedStatement.setString(1, event.getName());
+            preparedStatement.setTimestamp(2, Timestamp.valueOf(event.getDate()));
+            preparedStatement.setString(3, event.getDescription());
+            preparedStatement.setLong(4, addressId);
+            preparedStatement.executeUpdate();
+            id = (int) getKey(preparedStatement.getGeneratedKeys());
+
+            connection.commit();
+
+        } catch (SQLException e) {
+            logger.error("EventDAOImpl: exception during creating event.");
+            DAOFactory.getInstance().rollback(connection);
+            throw new DBException(e);
+        }
+        logger.info("EventDAOImpl: event with id={} was created successfully.", id);
+        return id;
+    }
+
+    @Override
     public void updateEvent(Connection connection, int id, Event event) throws DBException {
         logger.info("EventDAOImpl: updating event with id={}", id);
         try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EVENT)) {
@@ -135,12 +173,8 @@ public class EventDAOImpl implements EventDAO {
     public void updateAddress(Connection connection, int id, Address address) throws DBException {
         logger.info("EventDAOImpl: updating address with id={}", id);
         try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_ADDRESS)) {
-            preparedStatement.setString(1, address.getCountry());
-            preparedStatement.setString(2, address.getCity());
-            preparedStatement.setString(3, address.getStreet());
-            preparedStatement.setInt(4, address.getHouse());
-            preparedStatement.setInt(5, address.getApartment());
-            preparedStatement.setLong(6, id);
+            insertParamAddress(preparedStatement, address);
+            preparedStatement.setLong(5, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             logger.error("EventDAOImpl: exception {} during updating adress with id={}.", e.getMessage(), id);
@@ -268,7 +302,6 @@ public class EventDAOImpl implements EventDAO {
             address.setCity(resultSet.getString("city"));
             address.setStreet(resultSet.getString("street"));
             address.setHouse(resultSet.getInt("numberBuilding"));
-            address.setApartment(resultSet.getInt("numberApartment"));
 
             return new Event.EventBuilder()
                     .setId(resultSet.getLong("id"))
@@ -282,5 +315,20 @@ public class EventDAOImpl implements EventDAO {
             throw new DBException(e);
         }
 
+    }
+
+    private void insertParamAddress(PreparedStatement preparedStatement, Address address) throws SQLException {
+        preparedStatement.setString(1, address.getCountry());
+        preparedStatement.setString(2, address.getCity());
+        preparedStatement.setString(3, address.getStreet());
+        preparedStatement.setInt(4, address.getHouse());
+    }
+
+    private long getKey(ResultSet resultSet) throws SQLException {
+        long key = 0;
+        if (resultSet.next()) {
+            key = resultSet.getLong(1);
+        }
+        return key;
     }
 }

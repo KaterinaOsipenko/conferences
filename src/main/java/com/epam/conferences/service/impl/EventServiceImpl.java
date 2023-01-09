@@ -63,6 +63,20 @@ public class EventServiceImpl implements EventService, SortService {
     }
 
     @Override
+    public int createEvent(Event event) throws ServiceException {
+        logger.info("EventServiceImpl: creating event.");
+        int id;
+        try {
+            id = eventDAO.saveEvent(DAOFactory.getConnection(), event);
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("EventServiceImpl: exception during creating event.");
+            throw new ServiceException(e);
+        }
+        logger.info("EventServiceImpl: event was created successfully.");
+        return id;
+    }
+
+    @Override
     public Integer countEvents() throws ServiceException {
         logger.info("EventServiceImpl: counting rows.");
         Integer count;

@@ -7,6 +7,7 @@ import com.epam.conferences.service.EventService;
 import com.epam.conferences.service.UserEventService;
 import com.epam.conferences.service.UserService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -83,7 +84,7 @@ public class ChooseEventServlet extends HttpServlet {
             }
         } catch (ServiceException e) {
             request.getSession().setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
-            request.getSession().setAttribute("address", "eventList");
+            request.getSession().setAttribute("address", URLUtil.EVENT_LIST);
             address = PathUtil.ERROR_PAGE;
         }
         response.sendRedirect(address);

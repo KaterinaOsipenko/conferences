@@ -6,9 +6,12 @@
                 value="Menu"><i class="fa fa-bars"></i></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item nav-link"><a class="nav-link active" href="#">About</a></li>
-                <li class="nav-item nav-link"><a class="nav-link active"
-                                                 href="${pageContext.request.contextPath}/admin/viewEvents">Events</a>
+                <li class="nav-item nav-link">
+                    <a class="nav-link active" href="${pageContext.request.contextPath}/admin/createEvent">
+                        Create Event</a>
+                </li>
+                <li class="nav-item nav-link">
+                    <a class="nav-link active" href="${pageContext.request.contextPath}/admin/viewEvents">Events</a>
                 </li>
                 <li class="nav-item nav-link">
                     <a class="nav-link active"

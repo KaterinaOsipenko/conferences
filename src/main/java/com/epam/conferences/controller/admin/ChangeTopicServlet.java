@@ -3,6 +3,7 @@ package com.epam.conferences.controller.admin;
 import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.service.ReportService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -38,7 +39,7 @@ public class ChangeTopicServlet extends HttpServlet {
             address = "/admin/getReports?id=" + eventId;
         } catch (ServiceException e) {
             logger.error("ChangeTopicServlet: exception ({}) during changing topic name with id={}", e.getMessage(), topicId);
-            request.getSession().setAttribute("address", "admin/getReports?id=" + eventId);
+            request.getSession().setAttribute("address", URLUtil.ADMIN_GET_REPORTS + "?id=" + eventId);
             request.getSession().setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
             address = PathUtil.ADMIN_ERROR_PAGE;
         }

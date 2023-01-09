@@ -5,6 +5,7 @@ import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.service.EventService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -66,7 +67,7 @@ public class ViewEventsServlet extends HttpServlet {
             logger.error("ViewEventsServlet: exception ({}) during finding events for admin page {}", e.getMessage(), page);
             request.setAttribute("ex", e instanceof NoElementsException ? e.getMessage() :
                     "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
-            request.setAttribute("address", "admin/viewEvents");
+            request.setAttribute("address", URLUtil.ADMIN_VIEW_EVENTS);
             address = PathUtil.ADMIN_ERROR_PAGE;
         }
         logger.info("ViewEventsServlet: forward to view events page = {}", page);

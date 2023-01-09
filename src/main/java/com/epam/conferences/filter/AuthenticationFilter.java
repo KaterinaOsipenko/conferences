@@ -22,7 +22,6 @@ public class AuthenticationFilter implements Filter {
         logger.info("AuthenticationFilter: init");
     }
 
-    // TODO: check work
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         logger.info("AuthenticationFilter: doFilter");
@@ -39,7 +38,8 @@ public class AuthenticationFilter implements Filter {
                 chain.doFilter(request, response);
             } else {
                 req.getSession().setAttribute("ex", "Error 403: forbidden access.");
-                resp.sendRedirect(PathUtil.LOGIN_PAGE);
+                req.getSession().setAttribute("address", PathUtil.INDEX_PAGE);
+                req.getRequestDispatcher(PathUtil.ERROR_PAGE).forward(req, resp);
             }
         }
     }

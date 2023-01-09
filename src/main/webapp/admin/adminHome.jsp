@@ -27,9 +27,13 @@
                     <a class="btn btn-light fs-5 py-2 px-4" role="button" type="button"
                        href="${pageContext.request.contextPath}/admin/viewEvents">Get all
                         events</a>
-                    <a class="btn btn-light fs-5 py-2 px-4" role="button" type="button"
+                    <a class="btn btn-primary fs-5 py-2 px-4" role="button" type="button"
                        href="${pageContext.request.contextPath}/admin/createEvent">Create
                         Event</a>
+                    <a class="btn btn-light fs-5 py-2 px-4" role="button" type="button"
+                       href="${pageContext.request.contextPath}/admin/addresses">Get all addresses</a>
+                    <a class="btn btn-primary fs-5 py-2 px-4" role="button" type="button"
+                       href="${pageContext.request.contextPath}/admin/topics">Get all topics</a>
                 </div>
             </div>
         </section>

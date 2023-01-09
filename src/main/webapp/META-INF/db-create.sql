@@ -43,12 +43,11 @@ CREATE TABLE `conferences`.`topics`
 
 CREATE TABLE `conferences`.`addresses`
 (
-    `id`              INT         NOT NULL AUTO_INCREMENT,
-    `country`         VARCHAR(45) NOT NULL,
-    `city`            VARCHAR(45) NOT NULL,
-    `street`          VARCHAR(45) NOT NULL,
-    `numberBuilding`  INT         NULL,
-    `numberApartment` INT         NULL,
+    `id`             INT         NOT NULL AUTO_INCREMENT,
+    `country`        VARCHAR(45) NOT NULL,
+    `city`           VARCHAR(45) NOT NULL,
+    `street`         VARCHAR(45) NOT NULL,
+    `numberBuilding` INT         NULL,
     PRIMARY KEY (`id`)
 );
 

@@ -6,6 +6,7 @@ import com.epam.conferences.model.User;
 import com.epam.conferences.security.PasswordEncoder;
 import com.epam.conferences.service.UserService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -44,6 +45,9 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         logger.info("RegistrationServlet: doPost method.");
         HttpSession session = req.getSession();
+        if (session.getAttribute("ex") != null) {
+            session.removeAttribute("ex");
+        }
         String address;
         try {
             String email = req.getParameter("email");
@@ -51,7 +55,6 @@ public class RegistrationServlet extends HttpServlet {
             if (user != null && user.getRoleId() != 3) {
                 logger.error("RegisterCommand: there is user with this email. ");
                 session.setAttribute("ex", "There is user with this email. Please login.");
-                address = PathUtil.LOGIN_PAGE;
             } else if (user != null && user.getRoleId() == 3) {
                 String firstname = req.getParameter("firstname");
                 String lastname = req.getParameter("lastname");
@@ -66,7 +69,6 @@ public class RegistrationServlet extends HttpServlet {
 
                 userService.updateUser(user);
                 session.setAttribute("user", user);
-                address = PathUtil.PROFILE_PAGE;
             } else {
                 String firstname = req.getParameter("firstname");
                 String lastname = req.getParameter("lastname");
@@ -82,8 +84,8 @@ public class RegistrationServlet extends HttpServlet {
                 newUser.setRoleId(roleId);
 
                 userService.saveUser(newUser);
-                address = PathUtil.LOGIN_PAGE;
             }
+            address = URLUtil.LOGIN_URL;
         } catch (ServiceException e) {
             logger.error("RegisterCommand: exception while registration command was in work " + e.getMessage());
             req.getSession().setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");

@@ -6,6 +6,7 @@ import com.epam.conferences.model.Report;
 import com.epam.conferences.service.EventService;
 import com.epam.conferences.service.ReportService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -61,7 +62,7 @@ public class GetReportsServlet extends HttpServlet {
             logger.error("GetReportsServlet: exception ({}) during finding reports.", e.getMessage());
             request.setAttribute("ex", e instanceof NoElementsException ? e.getMessage() :
                     "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
-            request.setAttribute("address", "admin/viewEvents");
+            request.setAttribute("address", URLUtil.ADMIN_VIEW_EVENTS);
             address = PathUtil.ADMIN_ERROR_PAGE;
         }
         request.getRequestDispatcher(address).forward(request, response);

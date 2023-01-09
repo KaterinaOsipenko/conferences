@@ -25,11 +25,11 @@
                     <c:choose>
                         <c:when test="${empty id}">
                             <a class="btn btn-primary fs-5 border-1 shadow-lg py-2 px-4" role="button"
-                               href="${pageContext.request.contextPath}/${address}">Go back</a>
+                               href="${pageContext.request.contextPath}${address}">Go back</a>
                         </c:when>
                         <c:otherwise>
                             <a class="btn btn-primary fs-5 border-1 shadow-lg py-2 px-4" role="button"
-                               href="${pageContext.request.contextPath}/${address}?id=${id}">Go back</a>
+                               href="${pageContext.request.contextPath}${address}?id=${id}">Go back</a>
                         </c:otherwise>
                     </c:choose>
                 </div>

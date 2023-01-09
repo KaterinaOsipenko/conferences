@@ -5,7 +5,6 @@ import com.epam.conferences.model.Event;
 import com.epam.conferences.model.User;
 
 import java.sql.Connection;
-import java.util.List;
 import java.util.Optional;
 
 public interface UserDAO {
@@ -19,7 +18,5 @@ public interface UserDAO {
     Optional<User> findUserByEmail(Connection connection, String email) throws DBException;
 
     void updateUser(Connection connection, User user) throws DBException;
-
-    List<User> findAllUsers(Connection connection) throws DBException;
 
 }

@@ -111,11 +111,18 @@
                                 </p>
                                 <div class="ftr">
                                     <div class="btn-register">
-                                        <c:if test="${event.date gt now}">
-                                            <a class="btn btn-primary"
-                                               href="${pageContext.request.contextPath}/chooseEvent?id=${event.id}"
-                                               role="button">Choose event</a>
-                                        </c:if>
+                                        <c:choose>
+                                            <c:when test="${event.date gt now}">
+                                                <a class="btn btn-primary"
+                                                   href="${pageContext.request.contextPath}/chooseEvent?id=${event.id}"
+                                                   role="button">Choose event</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a class="btn btn-primary"
+                                                   href="${pageContext.request.contextPath}/eventCard?id=${event.id}"
+                                                   role="button">See event</a>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </div>
                                 </div>
                             </div>

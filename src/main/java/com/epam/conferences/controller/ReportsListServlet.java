@@ -5,6 +5,7 @@ import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.model.Report;
 import com.epam.conferences.service.ReportService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,9 +44,9 @@ public class ReportsListServlet extends HttpServlet {
                 address = PathUtil.REPORTS_LIST_PAGE;
             }
         } catch (ServiceException | NoElementsException e) {
-            request.setAttribute("ex", e instanceof NoElementsException ? "Sorry, we have some troubles. Our specialists have already tried to copy with this." : e.getMessage());
+            request.setAttribute("ex", e instanceof NoElementsException ? "There are no reports for this event." : e.getMessage());
             logger.error("ReportsListServlet: exception ({}) during find reports for event with id={}", e.getMessage(), eventId);
-            request.setAttribute("address", "eventCardServlet");
+            request.setAttribute("address", URLUtil.EVENT_CARD);
             address = PathUtil.ERROR_PAGE;
         }
         request.setAttribute("id", eventId);

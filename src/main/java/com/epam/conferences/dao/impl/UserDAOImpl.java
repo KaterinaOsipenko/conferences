@@ -16,13 +16,11 @@ import java.util.Optional;
 public class UserDAOImpl implements UserDAO {
 
     private static final Logger logger = LogManager.getLogger(UserDAOImpl.class);
-    private static final String FIND_ALL_USERS = "SELECT * FROM users";
     private static final String FIND_USER_BY_ID = "SELECT * FROM users WHERE id = ?";
     private static final String FIND_USER_BY_EMAIL = "SELECT * FROM users WHERE email = ?";
     private static final String INSERT_USER_TO_PRESENCE = "INSERT INTO user_event_presence (id_user, id_event) VALUES (?, ?)";
     private static final String INSERT_USER = "INSERT INTO users (firstName, lastName, email, password, id_role)" + " VALUES (?, ?, ?, ?, ?)";
     private static final String INSERT_REG_USER = "INSERT INTO users (email)" + " VALUES (?)";
-
     private static final String UPDATE_USER = "UPDATE users SET firstName = ?, lastName = ?, email = ?, password = ?, id_role = ? WHERE id = ?";
 
     @Override
@@ -110,22 +108,6 @@ public class UserDAOImpl implements UserDAO {
             logger.error("UserDAOImpl: updating user exception: ", e);
             throw new DBException(e);
         }
-    }
-
-    @Override
-    public List<User> findAllUsers(Connection connection) throws DBException {
-        logger.info("UserDAOImpl: get list of all users");
-        List<User> listUsers;
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet set = statement.executeQuery(FIND_ALL_USERS);
-            listUsers = extractUsersList(set);
-            logger.info("UserDAOImpl: all users were found.");
-        } catch (SQLException e) {
-            logger.error("UserDAOImpl: find all users exception.");
-            throw new DBException(e);
-        }
-        return listUsers;
     }
 
     private List<User> extractUsersList(ResultSet resultSet) throws SQLException {

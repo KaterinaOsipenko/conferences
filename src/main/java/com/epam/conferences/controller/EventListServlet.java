@@ -5,6 +5,7 @@ import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.service.EventService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -63,8 +64,9 @@ public class EventListServlet extends HttpServlet {
             address = PathUtil.EVENT_LIST_PAGE;
         } catch (ServiceException | NoElementsException e) {
             logger.error("EventListServlet: exception ({}) during finding events for page {}", e.getMessage(), page);
-            request.setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
-            request.setAttribute("address", "/");
+            request.setAttribute("ex", e instanceof NoElementsException ? e.getMessage() :
+                    "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
+            request.setAttribute("address", URLUtil.EVENT_LIST);
             address = PathUtil.ERROR_PAGE;
         }
         request.getRequestDispatcher(address).forward(request, response);

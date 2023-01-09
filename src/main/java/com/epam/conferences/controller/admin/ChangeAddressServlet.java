@@ -37,10 +37,8 @@ public class ChangeAddressServlet extends HttpServlet {
         String city = request.getParameter("city");
         String street = request.getParameter("street");
         int house = Integer.parseInt(request.getParameter("house"));
-        int apartment = Integer.parseInt(request.getParameter("apartment"));
 
         Address addressEvent = new Address();
-        addressEvent.setApartment(apartment);
         addressEvent.setHouse(house);
         addressEvent.setCity(city);
         addressEvent.setStreet(street);

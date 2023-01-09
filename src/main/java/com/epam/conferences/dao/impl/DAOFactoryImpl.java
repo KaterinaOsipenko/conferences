@@ -29,6 +29,16 @@ public class DAOFactoryImpl extends DAOFactory {
     }
 
     @Override
+    public AddressDAO getAddressDao() {
+        return new AddressDAOImpl();
+    }
+
+    @Override
+    public TopicDAO getTopicDao() {
+        return new TopicDAOImpl();
+    }
+
+    @Override
     public void rollback(Connection connection) throws DBException {
         try {
             connection.rollback();

@@ -1411,3 +1411,228 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2022-11-04 13:59:15 ERROR ValidationFilter: exception Date must be in future. during validation user input.
 2022-11-04 14:35:03 ERROR LoginServlet: invalid password exception.
 2022-11-04 14:35:07 ERROR LoginServlet: invalid password exception.
+2022-11-04 17:09:47 ERROR EventListServlet: there are no events.
+2022-11-04 17:09:47 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-11-04 17:13:48 ERROR EventDAOImpl: exception during creating event.
+2022-11-04 17:13:48 ERROR EventServiceImpl: exception during creating event.
+2022-11-04 17:13:48 ERROR CreateEventServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: No value specified for parameter 5) during creating event
+2022-11-04 17:14:52 ERROR EventListServlet: there are no events.
+2022-11-04 17:14:52 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-11-04 17:17:11 ERROR EventDAOImpl: exception during creating event.
+2022-11-04 17:17:11 ERROR EventServiceImpl: exception during creating event.
+2022-11-04 17:17:11 ERROR CreateEventServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: No value specified for parameter 5) during creating event
+2022-11-04 17:18:40 ERROR EventDAOImpl: exception during creating event.
+2022-11-04 17:18:40 ERROR EventServiceImpl: exception during creating event.
+2022-11-04 17:18:40 ERROR CreateEventServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: No value specified for parameter 5) during creating event
+2022-11-04 17:46:36 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:45:55 ERROR ReportDAOImpl: exception (Unknown column 'reports.id_user' in 'where clause') during obtaining all reports bu userId =7
+2022-11-04 18:45:55 ERROR ReportServiceImpl: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Unknown column 'reports.id_user' in 'where clause') during getting all reports by user with id 7.
+2022-11-04 18:45:55 ERROR SpeakerEventsServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Unknown column 'reports.id_user' in 'where clause') during finding reports.
+2022-11-04 18:47:12 ERROR SpeakerEventsServlet: there are no events.
+2022-11-04 18:47:12 ERROR SpeakerEventsServlet: exception (You haven`t reports.) during finding reports.
+2022-11-04 18:48:22 ERROR SpeakerEventsServlet: there are no events.
+2022-11-04 18:48:22 ERROR SpeakerEventsServlet: exception (You haven`t reports.) during finding reports.
+2022-11-04 18:49:55 ERROR SpeakerEventsServlet: there are no events.
+2022-11-04 18:49:55 ERROR SpeakerEventsServlet: exception (You haven`t reports.) during finding reports.
+2022-11-04 18:52:19 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:52:28 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:52:39 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:53:03 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:53:18 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:54:03 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:54:24 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:54:30 ERROR LoginServlet: invalid password exception.
+2022-11-04 18:55:31 ERROR LoginServlet: invalid password exception.
+2022-12-06 16:29:20 ERROR EventServiceImpl: exception during counting all events.
+2022-12-06 16:29:20 ERROR EventListServlet: exception (java.sql.SQLException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)) during finding events for page 1
+2022-12-06 16:34:17 ERROR ReportsListServlet: there are no reports for this event.
+2022-12-06 16:34:17 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=8
+2022-12-06 16:38:20 ERROR ReportsListServlet: there are no reports for this event.
+2022-12-06 16:38:20 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=8
+2022-12-06 16:39:32 ERROR RegisterCommand: there is user with this email. 
+2022-12-06 16:39:52 ERROR EventListServlet: there are no events.
+2022-12-06 16:39:52 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-12-06 16:41:50 ERROR EventListServlet: there are no events.
+2022-12-06 16:41:50 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-12-06 16:43:14 ERROR EventListServlet: there are no events.
+2022-12-06 16:43:14 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-12-06 16:43:35 ERROR EventDAOImpl: exception Parameter index out of range (6 > number of parameters, which is 5). during updating adress with id=6.
+2022-12-06 16:43:35 ERROR EventServiceImpl: exception java.sql.SQLException: Parameter index out of range (6 > number of parameters, which is 5). during updating address.
+2022-12-06 16:43:35 ERROR ChangeAddressServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Parameter index out of range (6 > number of parameters, which is 5).) during changing address with id=6
+2022-12-06 17:30:52 ERROR EventDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. creating procedures.
+2022-12-06 17:32:27 ERROR EventDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. creating procedures.
+2022-12-06 17:33:32 ERROR EventDAOImpl: exception You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DELIMITER $$
+CREATE PROCEDURE getPage(IN limitPage INT, IN offsetPage INT)
+BEGIN' at line 1 creating procedures.
+2022-12-06 17:33:55 ERROR EventDAOImpl: exception during getting all events by page.
+2022-12-06 17:33:55 ERROR EventServiceImpl: exception during getting all events.
+2022-12-06 17:33:55 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: PROCEDURE conferences.getPage does not exist) during finding events for page 1
+2022-12-06 17:36:27 ERROR EventDAOImpl: exception You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DELIMITER $$ CREATE PROCEDURE getPage(IN limitPage INT, IN offsetPage INT) BEGIN' at line 1 creating procedures.
+2022-12-06 17:36:43 ERROR EventDAOImpl: exception during getting all events by page.
+2022-12-06 17:36:43 ERROR EventServiceImpl: exception during getting all events.
+2022-12-06 17:36:43 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: PROCEDURE conferences.getPage does not exist) during finding events for page 1
+2022-12-07 15:32:32 ERROR EventDAOImpl: exception PROCEDURE getPage already exists creating procedures.
+2022-12-07 15:32:54 ERROR LoginServlet: invalid password exception.
+2022-12-07 15:33:04 ERROR LoginServlet: invalid password exception.
+2022-12-07 15:34:12 ERROR EventDAOImpl: exception (java.sql.SQLSyntaxErrorException: FUNCTION conferences.countUsersByEvent does not exist) during counting all users for event with id 2
+2022-12-07 15:34:12 ERROR EventServiceImpl: exception during getting all events in the future.
+2022-12-07 15:34:12 ERROR ViewEventsServlet: exception (com.epam.conferences.exception.DBException: com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: FUNCTION conferences.countUsersByEvent does not exist) during finding events for admin page 1
+2022-12-07 15:37:17 ERROR EventDAOImpl: exception Not allowed to return a result set from a function creating procedures.
+2022-12-07 15:37:22 ERROR EventDAOImpl: exception (java.sql.SQLSyntaxErrorException: FUNCTION conferences.countUsersByEvent does not exist) during counting all users for event with id 1
+2022-12-07 15:37:22 ERROR EventServiceImpl: exception during getting all events.
+2022-12-07 15:37:22 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: FUNCTION conferences.countUsersByEvent does not exist) during finding events for page 1
+2022-12-07 15:38:53 ERROR EventDAOImpl: exception Not allowed to return a result set from a function creating procedures.
+2022-12-07 15:39:12 ERROR EventDAOImpl: exception (java.sql.SQLSyntaxErrorException: FUNCTION conferences.countUsersByEvent does not exist) during counting all users for event with id 1
+2022-12-07 15:39:12 ERROR EventServiceImpl: exception during getting all events.
+2022-12-07 15:39:12 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: FUNCTION conferences.countUsersByEvent does not exist) during finding events for page 1
+2022-12-07 15:41:58 ERROR EventDAOImpl: exception Not allowed to return a result set from a function creating procedures.
+2022-12-07 15:42:59 ERROR EventDAOImpl: exception during getting all events by page.
+2022-12-07 15:42:59 ERROR EventServiceImpl: exception during getting all events.
+2022-12-07 15:42:59 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: PROCEDURE conferences.getPage does not exist) during finding events for page 1
+2022-12-07 15:46:06 ERROR EventDAOImpl: exception (java.sql.SQLSyntaxErrorException: FUNCTION conferences.countUsersByEvent does not exist) during counting all users for event with id 1
+2022-12-07 15:46:06 ERROR EventServiceImpl: exception during getting all events.
+2022-12-07 15:46:06 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: FUNCTION conferences.countUsersByEvent does not exist) during finding events for page 1
+2022-12-07 15:46:44 ERROR EventDAOImpl: exception Not allowed to return a result set from a function creating procedures.
+2022-12-07 16:04:29 ERROR EventDAOImpl: exception during counting rows.
+2022-12-07 16:04:30 ERROR EventServiceImpl: exception during counting all events.
+2022-12-07 16:04:30 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT @count' at line 1) during finding events for page 1
+2022-12-07 16:07:45 ERROR EventDAOImpl: exception during counting rows.
+2022-12-07 16:07:45 ERROR EventServiceImpl: exception during counting all events.
+2022-12-07 16:07:45 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT @count' at line 1) during finding events for page 1
+2022-12-07 16:08:58 ERROR EventDAOImpl: exception You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT @count' at line 1 during counting rows.
+2022-12-07 16:08:58 ERROR EventServiceImpl: exception during counting all events.
+2022-12-07 16:08:58 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT @count' at line 1) during finding events for page 1
+2022-12-07 16:27:20 ERROR EventDAOImpl: exception Unknown table 'conferences.pastevents' dropping procedures.
+2022-12-07 16:27:20 ERROR EventDAOImpl: exception You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '? OFFSET ?' at line 1 creating views.
+2022-12-07 16:27:42 ERROR EventDAOImpl: exception during obtaining past events with offset 0.
+2022-12-07 16:27:42 ERROR EventServiceImpl: exception during getting all events in the past.
+2022-12-07 16:27:42 ERROR EventListServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).) during finding events for page 1
+2022-12-07 19:55:55 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-07 19:59:57 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-07 20:01:52 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-07 20:07:54 ERROR AddressServiceImpl: exception java.sql.SQLException: Column 'id_address' not found. during obtaining all addresses.
+2022-12-07 20:07:54 ERROR CreateEventServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLException: Column 'id_address' not found.) during creating event
+2022-12-07 20:09:27 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-07 20:09:39 ERROR LoginServlet: invalid password exception.
+2022-12-07 20:09:53 ERROR LoginServlet: invalid password exception.
+2022-12-07 20:13:45 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 16:29:16 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 16:29:16 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during dropping trigger delete_report_by_topic.
+2022-12-08 16:29:16 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during creating trigger delete_report_by_topic.
+2022-12-08 16:30:24 ERROR EventDAOImpl: exception during obtaining future events with offset 0.
+2022-12-08 16:30:24 ERROR EventServiceImpl: exception during getting all events in the future.
+2022-12-08 16:30:24 ERROR ViewEventsServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Unknown column 'addresses.numberApartment' in 'field list') during finding events for admin page 1
+2022-12-08 16:33:03 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 16:33:03 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during dropping trigger delete_report_by_topic.
+2022-12-08 16:33:03 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during creating trigger delete_report_by_topic.
+2022-12-08 16:33:52 ERROR LoginServlet: invalid password exception.
+2022-12-08 16:34:00 ERROR LoginServlet: invalid password exception.
+2022-12-08 16:41:41 ERROR EventListServlet: there are no events.
+2022-12-08 16:41:41 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-12-08 16:44:19 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 16:44:19 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during dropping trigger delete_report_by_topic.
+2022-12-08 16:44:19 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during creating trigger delete_report_by_topic.
+2022-12-08 16:44:55 ERROR EventListServlet: there are no events.
+2022-12-08 16:44:55 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-12-08 16:45:57 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 16:45:57 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during dropping trigger delete_report_by_topic.
+2022-12-08 16:45:57 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during creating trigger delete_report_by_topic.
+2022-12-08 16:46:25 ERROR EventListServlet: there are no events.
+2022-12-08 16:46:25 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-12-08 16:47:49 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 16:47:49 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during dropping trigger delete_report_by_topic.
+2022-12-08 16:47:49 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during creating trigger delete_report_by_topic.
+2022-12-08 16:52:00 ERROR EventListServlet: there are no events.
+2022-12-08 16:52:00 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2022-12-08 17:01:48 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 17:01:48 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during dropping trigger delete_report_by_topic.
+2022-12-08 17:01:48 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during creating trigger delete_report_by_topic.
+2022-12-08 17:05:45 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 17:05:45 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during dropping trigger delete_report_by_topic.
+2022-12-08 17:05:45 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during creating trigger delete_report_by_topic.
+2022-12-08 17:09:36 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 17:09:36 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during dropping trigger delete_report_by_topic.
+2022-12-08 17:09:36 ERROR TopicDAOImpl: exception(Statement.executeQuery() cannot issue statements that do not produce result sets.) during creating trigger delete_report_by_topic.
+2022-12-08 17:12:53 ERROR AddressDAOImpl: exception Statement.executeQuery() cannot issue statements that do not produce result sets. during creation view.
+2022-12-08 17:13:42 ERROR EventListServlet: there are no events.
+2022-12-08 17:13:42 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2022-12-19 15:27:39 ERROR AddressDAOImpl: exception 'conferences.addresses' is not VIEW during creation view.
+2022-12-19 20:12:34 ERROR AddressDAOImpl: exception 'conferences.addresses' is not VIEW during creation view.
+2022-12-19 20:12:51 ERROR RegisterCommand: there is user with this email. 
+2022-12-22 17:21:39 ERROR ReportsListServlet: there are no reports for this event.
+2022-12-22 17:21:41 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=2
+2022-12-22 17:24:13 ERROR ReportsListServlet: there are no reports for this event.
+2022-12-22 17:24:13 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=2
+2022-12-22 17:45:52 ERROR LoginServlet: invalid password exception.
+2022-12-22 17:47:05 ERROR LoginServlet: invalid password exception.
+2023-01-05 15:09:08 ERROR AddressDAOImpl: exception Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.) during creation view.
+2023-01-05 15:09:08 ERROR TopicDAOImpl: exception(Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)) during dropping trigger delete_report_by_topic.
+2023-01-05 15:09:08 ERROR TopicDAOImpl: exception(Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)) during creating trigger delete_report_by_topic.
+2023-01-05 15:09:43 ERROR EventServiceImpl: exception during counting all events.
+2023-01-05 15:09:43 ERROR EventListServlet: exception (java.sql.SQLException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)) during finding events for page 1
+2023-01-05 15:17:24 ERROR ReportsListServlet: there are no reports for this event.
+2023-01-05 15:17:24 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=2
+2023-01-05 15:18:07 ERROR EventListServlet: there are no events.
+2023-01-05 15:18:07 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-05 15:26:23 ERROR EventListServlet: there are no events.
+2023-01-05 15:26:23 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-05 15:28:09 ERROR EventListServlet: there are no events.
+2023-01-05 15:28:09 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-05 15:33:19 ERROR EventListServlet: there are no events.
+2023-01-05 15:33:19 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-05 15:37:34 ERROR EventListServlet: there are no events.
+2023-01-05 15:37:34 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-05 15:38:50 ERROR EventListServlet: there are no events.
+2023-01-05 15:38:50 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-05 15:39:31 ERROR EventListServlet: there are no events.
+2023-01-05 15:39:31 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-05 15:53:01 ERROR EventListServlet: there are no events.
+2023-01-05 15:53:01 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-05 15:53:49 ERROR EventListServlet: there are no events.
+2023-01-05 15:53:49 ERROR EventListServlet: exception (There are no events.) during finding events for page 2
+2023-01-06 16:25:58 ERROR EventListServlet: there are no events.
+2023-01-06 16:25:58 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2023-01-06 16:29:07 ERROR EventListServlet: there are no events.
+2023-01-06 16:29:07 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2023-01-06 16:31:46 ERROR LoginServlet: invalid password exception.
+2023-01-06 16:32:03 ERROR EventListServlet: there are no events.
+2023-01-06 16:32:03 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2023-01-06 16:32:11 ERROR EventListServlet: there are no events.
+2023-01-06 16:32:11 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2023-01-06 16:32:35 ERROR EventListServlet: there are no events.
+2023-01-06 16:32:35 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2023-01-06 16:33:50 ERROR EventListServlet: there are no events.
+2023-01-06 16:33:50 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2023-01-06 16:35:51 ERROR EventListServlet: there are no events.
+2023-01-06 16:35:51 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2023-01-07 15:22:44 ERROR RegisterCommand: there is user with this email. 
+2023-01-07 15:22:49 ERROR LoginServlet: invalid password exception.
+2023-01-09 12:02:56 ERROR AddressDAOImpl: exception Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.) during creation view.
+2023-01-09 12:02:56 ERROR TopicDAOImpl: exception(Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)) during dropping trigger delete_report_by_topic.
+2023-01-09 12:02:56 ERROR TopicDAOImpl: exception(Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)) during creating trigger delete_report_by_topic.
+2023-01-09 12:03:17 ERROR UserServiceImpl: exception Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.) during checking existing of user
+2023-01-09 12:03:17 ERROR LoginServlet: exception while login command was in work java.sql.SQLException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2023-01-09 12:04:40 ERROR LoginServlet: invalid password exception.
+2023-01-09 12:04:51 ERROR LoginServlet: invalid password exception.
+2023-01-09 12:07:08 ERROR LoginServlet: invalid password exception.
+2023-01-09 16:17:42 ERROR LoginServlet: invalid password exception.

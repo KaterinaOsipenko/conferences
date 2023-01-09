@@ -42,20 +42,6 @@ public class ReportServiceImpl implements ReportService {
     }
 
     @Override
-    public Integer countReportsByEventId(int eventId) throws ServiceException {
-        logger.info("ReportServiceImpl: getting count of reports of event with id {}.", eventId);
-        int count;
-        try {
-            count = reportDAO.countReportsByEventId(DAOFactory.getConnection(), eventId);
-        } catch (DBException | NamingException | SQLException e) {
-            logger.error("ReportServiceImpl: exception ({}) during getting count of reports of event with id {}.", e, eventId);
-            throw new ServiceException(e);
-        }
-        logger.info("ReportServiceImpl: getting count of reports of event with id {} was successfully. Count is {}", eventId, count);
-        return count;
-    }
-
-    @Override
     public void deleteReport(int reportId) throws ServiceException {
         logger.info("ReportServiceImpl: deleting report with id {}.", reportId);
         try {
@@ -77,5 +63,23 @@ public class ReportServiceImpl implements ReportService {
             throw new ServiceException(e);
         }
         logger.info("ReportServiceImpl: updating name of topic was successful!");
+    }
+
+    @Override
+    public List<Report> findReportsByUser(int userId) throws ServiceException {
+        logger.info("ReportServiceImpl: getting all reports by user with id {}.", userId);
+        List<Report> reports;
+        try {
+            reports = reportDAO.getReportsByUser(DAOFactory.getConnection(), userId);
+            if (reports == null) {
+                logger.error("ReportServiceImpl: list of reports is NULL.");
+                throw new ServiceException("ReportServiceImpl: list of reports is NULL.");
+            }
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("ReportServiceImpl: exception ({}) during getting all reports by user with id {}.", e, userId);
+            throw new ServiceException(e);
+        }
+        logger.info("ReportServiceImpl: all reports by userwith id {} were obtained successfully.", userId);
+        return reports;
     }
 }

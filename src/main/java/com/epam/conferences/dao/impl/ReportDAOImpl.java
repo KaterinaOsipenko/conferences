@@ -2,16 +2,14 @@ package com.epam.conferences.dao.impl;
 
 import com.epam.conferences.dao.ReportDAO;
 import com.epam.conferences.exception.DBException;
+import com.epam.conferences.model.Event;
 import com.epam.conferences.model.Report;
 import com.epam.conferences.model.Topic;
 import com.epam.conferences.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,14 +18,16 @@ public class ReportDAOImpl implements ReportDAO {
 
     private static final Logger logger = LogManager.getLogger(ReportDAOImpl.class);
     private final static String FIND_ALL_REPORTS_FOR_EVENT_ID = "SELECT reports.id, users.id AS id_user, users.firstName, " +
-            "users.lastName, topics.id AS id_topic, topics.name FROM reports JOIN users " +
-            "ON reports.id_speaker = users.id JOIN topics ON reports.id_topic = topics.id WHERE id_event = ?";
-
-    private final static String COUNT_REPORTS_BY_EVENT = "SELECT COUNT(*) FROM reports WHERE id_event = ?";
-
+            "users.lastName, topics.id AS id_topic, topics.name AS topic_name, events.id AS id_event,  events.name AS event_name, events.date" +
+            "  FROM reports JOIN users ON reports.id_speaker = users.id JOIN topics ON reports.id_topic = topics.id " +
+            "JOIN events ON reports.id_event = events.id WHERE id_event = ?";
     private final static String DELETE_REPORT = "DELETE FROM reports WHERE id = ?";
-
     private final static String UPDATE_TOPIC_NAME = "UPDATE topics SET name = ? WHERE id = ?";
+    private final static String FIND_REPORTS_BY_USER = "SELECT reports.id, users.id AS id_user, users.firstName, " +
+            "users.lastName, topics.id AS id_topic, topics.name AS topic_name, events.id AS id_event, " +
+            "events.name AS event_name, events.date" +
+            "  FROM reports JOIN users ON reports.id_speaker = users.id JOIN topics ON reports.id_topic = topics.id " +
+            "JOIN events ON reports.id_event = events.id WHERE reports.id_speaker = ?";
 
     @Override
     public List<Report> findAllByEventId(Connection connection, long eventId) throws DBException {
@@ -43,22 +43,6 @@ public class ReportDAOImpl implements ReportDAO {
         }
         logger.info("ReportDAOImpl: all reports were found.");
         return reports;
-    }
-
-    @Override
-    public Integer countReportsByEventId(Connection connection, long eventId) throws DBException {
-        logger.info("ReportDAOImpl: count reports for event with id = {}.", eventId);
-        int count;
-        try (PreparedStatement preparedStatement = connection.prepareStatement(COUNT_REPORTS_BY_EVENT)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            count = resultSet.getInt(1);
-        } catch (SQLException e) {
-            logger.error("ReportDAOImpl: exception ({}) during counting all reports for event with id {}", e, eventId);
-            throw new DBException(e);
-        }
-        logger.info("ReportDAOImpl: all reports were counted.");
-        return count;
     }
 
     @Override
@@ -88,6 +72,22 @@ public class ReportDAOImpl implements ReportDAO {
         logger.info("ReportDAOImpl: name of topic was updated successfully.");
     }
 
+    @Override
+    public List<Report> getReportsByUser(Connection connection, int userId) throws DBException {
+        logger.info("ReportDAOImpl: get reports by user with id = {}.", userId);
+        List<Report> reports;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FIND_REPORTS_BY_USER)) {
+            preparedStatement.setLong(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            reports = extractReportList(resultSet);
+        } catch (SQLException e) {
+            logger.error("ReportDAOImpl: exception ({}) during obtaining all reports bu userId ={}", e.getMessage(), userId);
+            throw new DBException(e);
+        }
+        logger.info("ReportDAOImpl: all reports were found.");
+        return reports;
+    }
+
     private List<Report> extractReportList(ResultSet resultSet) throws SQLException {
         List<Report> reportList = new ArrayList<>();
         while (resultSet.next()) {
@@ -98,9 +98,16 @@ public class ReportDAOImpl implements ReportDAO {
     }
 
     private Report extractReport(ResultSet resultSet) throws SQLException {
+        String nameEvent = resultSet.getString("event_name");
+        Timestamp date = resultSet.getTimestamp("date");
+        long eventId = resultSet.getLong("id_event");
+        Event event = new Event.EventBuilder().setId(eventId)
+                .setDate(date.toLocalDateTime())
+                .setName(nameEvent)
+                .build();
         Topic topic = new Topic();
         topic.setId(resultSet.getInt("id_topic"));
-        topic.setName(resultSet.getString("name"));
+        topic.setName(resultSet.getString("topic_name"));
         User user = new User();
         user.setId(resultSet.getInt("id_user"));
         user.setFirstName(resultSet.getString("firstName"));
@@ -109,6 +116,7 @@ public class ReportDAOImpl implements ReportDAO {
         report.setId(resultSet.getInt("id"));
         report.setTopic(topic);
         report.setSpeaker(user);
+        report.setEvent(event);
         return report;
     }
 }

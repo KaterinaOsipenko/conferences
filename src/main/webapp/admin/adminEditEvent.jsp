@@ -119,9 +119,6 @@
                                                            maxlength="45" pattern="^[a-zA-Z].{1,45}$">
                                                     <input id="house" class="form-control form-control-user"
                                                            type="number" name="house" value="${event.address.house}">
-                                                    <input id="apartment" class="form-control form-control-user"
-                                                           type="number" name="apartment"
-                                                           value="${event.address.apartment}">
                                                     <input type="hidden" name="eventId" value="${event.id}">
                                                     <input type="hidden" name="addressId" value="${event.address.id}">
                                                     <div style="display: flex; justify-content: center; gap: 2rem;">

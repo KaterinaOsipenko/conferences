@@ -41,12 +41,12 @@ VALUES ('Computer Science');
 
 INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`)
 VALUES ('Ukraine', 'Kyiv', 'Khreshatyk', '25');
-INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`, `numberApartment`)
-VALUES ('Ukraine', 'Lviv', 'Square', '13', '2');
-INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`, `numberApartment`)
-VALUES ('Great Britain ', 'London', 'Piccadilly', '24', '56');
-INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`, `numberApartment`)
-VALUES ('USA', 'New Yourk', 'Manhetten', '9', '67');
+INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`)
+VALUES ('Ukraine', 'Lviv', 'Square', '13');
+INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`)
+VALUES ('Great Britain ', 'London', 'Piccadilly', '24');
+INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`)
+VALUES ('USA', 'New Yourk', 'Manhetten', '9');
 
 INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
 VALUES ('Medicine today', '2022-10-25 19:00:00', 'Conference about investigations in medicine nowadays', '1');

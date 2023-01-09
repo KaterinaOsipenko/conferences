@@ -14,8 +14,6 @@ public class Address implements Serializable {
 
     private int house;
 
-    private int apartment;
-
     public long getId() {
         return id;
     }
@@ -56,14 +54,6 @@ public class Address implements Serializable {
         this.house = house;
     }
 
-    public int getApartment() {
-        return apartment;
-    }
-
-    public void setApartment(int apartment) {
-        this.apartment = apartment;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -79,9 +69,6 @@ public class Address implements Serializable {
             return false;
         }
         if (getHouse() != address.getHouse()) {
-            return false;
-        }
-        if (getApartment() != address.getApartment()) {
             return false;
         }
         if (getCountry() != null ? !getCountry().equals(address.getCountry())
@@ -102,16 +89,11 @@ public class Address implements Serializable {
         result = 31 * result + (getCity() != null ? getCity().hashCode() : 0);
         result = 31 * result + (getStreet() != null ? getStreet().hashCode() : 0);
         result = 31 * result + getHouse();
-        result = 31 * result + getApartment();
         return result;
     }
 
     @Override
     public String toString() {
-        StringBuilder address = new StringBuilder(city + ", " + street + ", " + house);
-        if (apartment != 0) {
-            address.append(", ").append(apartment);
-        }
-        return address.toString();
+        return city + ", " + street + ", " + house;
     }
 }

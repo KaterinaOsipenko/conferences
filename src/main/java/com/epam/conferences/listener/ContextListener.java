@@ -1,9 +1,6 @@
 package com.epam.conferences.listener;
 
-import com.epam.conferences.dao.EventDAO;
-import com.epam.conferences.dao.ReportDAO;
-import com.epam.conferences.dao.UserDAO;
-import com.epam.conferences.dao.UserEventDAO;
+import com.epam.conferences.dao.*;
 import com.epam.conferences.dao.impl.DAOFactoryImpl;
 import com.epam.conferences.exception.ServiceException;
 import com.epam.conferences.service.*;
@@ -38,6 +35,8 @@ public class ContextListener implements ServletContextListener {
         EventDAO eventDAO = DAOFactoryImpl.getInstance().getEventDao();
         ReportDAO reportDAO = DAOFactoryImpl.getInstance().getReportDao();
         UserEventDAO userEventDAO = DAOFactoryImpl.getInstance().getUserEventDao();
+        AddressDAO addressDAO = DAOFactoryImpl.getInstance().getAddressDao();
+        TopicDAO topicDAO = DAOFactoryImpl.getInstance().getTopicDao();
 
         NotificationManager userManager = new NotificationManager();
         NotificationManager eventManager = new NotificationManager();
@@ -54,12 +53,15 @@ public class ContextListener implements ServletContextListener {
         EventService eventService = new EventServiceImpl(eventDAO, userEventDAO, eventManager);
         ReportService reportService = new ReportServiceImpl(reportDAO);
         UserEventService userEventService = new UserEventServiceImpl(userEventDAO, userEventManager);
-
+        AddressService addressService = new AddressServiceImpl(addressDAO);
+        TopicService topicService = new TopicServiceImpl(topicDAO);
 
         servletContext.setAttribute("userService", userService);
         servletContext.setAttribute("eventService", eventService);
         servletContext.setAttribute("reportService", reportService);
         servletContext.setAttribute("userEventService", userEventService);
+        servletContext.setAttribute("addressService", addressService);
+        servletContext.setAttribute("topicService", topicService);
     }
 
 

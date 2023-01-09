@@ -5,6 +5,7 @@ import com.epam.conferences.model.User;
 import com.epam.conferences.security.PasswordEncoder;
 import com.epam.conferences.service.UserService;
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,6 +34,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("LoginServlet: doGet method.");
+        if (req.getSession().getAttribute("ex") != null) {
+            req.getSession().removeAttribute("ex");
+        }
         req.getRequestDispatcher(PathUtil.LOGIN_PAGE).forward(req, resp);
     }
 
@@ -42,6 +46,9 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String address;
         HttpSession session = request.getSession();
+        if (session.getAttribute("ex") != null) {
+            session.removeAttribute("ex");
+        }
         try {
             User user = userService.findUserByEmail(email);
             if (user != null) {
@@ -49,18 +56,14 @@ public class LoginServlet extends HttpServlet {
                 if (Arrays.equals(user.getPassword(), PasswordEncoder.encryptPassword(password))) {
                     session.setAttribute("user", user);
                     logger.info("LoginServlet: user with id {} and email {} wad logged in.", user.getId(), user.getEmail());
-                    if (user.getRoleId() == 1) {
-                        address = PathUtil.ADMIN_HOME_PAGE;
-                    } else {
-                        address = PathUtil.PROFILE_PAGE;
-                    }
+                    address = URLUtil.HOME;
                 } else {
                     logger.error("LoginServlet: invalid password exception.");
-                    session.setAttribute("exLogin", "Invalid password!");
+                    session.setAttribute("ex", "Invalid password!");
                     address = PathUtil.LOGIN_PAGE;
                 }
             } else {
-                session.setAttribute("exLogin", "There is no user with this email. PLease, create account.");
+                session.setAttribute("ex", "There is no user with this email. PLease, create account.");
                 address = PathUtil.REGISTRATION_PAGE;
             }
         } catch (ServiceException e) {

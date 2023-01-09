@@ -1,6 +1,7 @@
 package com.epam.conferences.filter;
 
 import com.epam.conferences.util.PathUtil;
+import com.epam.conferences.util.URLUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@WebFilter(filterName = "ValidationFilter", urlPatterns = {"/registration", "/admin/editEvent"})
+@WebFilter(filterName = "ValidationFilter", urlPatterns = {"/registration", "/admin/editEvent", "/admin/createEvent"})
 public class ValidationFilter implements Filter {
 
     private static final Logger logger = LogManager.getLogger(ValidationFilter.class);
@@ -29,9 +30,9 @@ public class ValidationFilter implements Filter {
         if (Objects.equals(req.getMethod(), "GET")) {
             chain.doFilter(request, response);
         } else {
-            boolean valid = false;
-            String address = null;
-            String msg = null;
+            boolean valid;
+            String address;
+            String msg;
             String url = String.valueOf(req.getRequestURL());
             if (url.contains("registration")) {
                 address = PathUtil.REGISTRATION_PAGE;
@@ -40,8 +41,11 @@ public class ValidationFilter implements Filter {
             } else if (url.contains("editEvent")) {
                 valid = isEventValid(req);
                 msg = "Date must be in future.";
-                address = "/admin/editEvent?id=" + req.getParameter("id");
-                logger.info(address);
+                address = URLUtil.ADMIN_EDIT_EVENT + "?id=" + req.getParameter("id");
+            } else {
+                valid = isEventValid(req);
+                msg = "Date must be in future.";
+                address = URLUtil.ADMIN_CREATE_EVENT;
             }
             if (!valid) {
                 logger.error("ValidationFilter: exception {} during validation user input.", msg);

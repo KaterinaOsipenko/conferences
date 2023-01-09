@@ -10,6 +10,8 @@ public interface EventService {
 
     List<Event> findEvents(int page, int pageSize) throws ServiceException;
 
+    int createEvent(Event event) throws ServiceException;
+
     Integer countEvents() throws ServiceException;
 
     Integer maxPage(int pageSize) throws ServiceException;
