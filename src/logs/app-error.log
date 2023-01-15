@@ -470,7 +470,7 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:35) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -512,7 +512,7 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:35) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -554,7 +554,7 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:35) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -596,7 +596,7 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:35) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -638,7 +638,7 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:35) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -681,7 +681,7 @@ java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child 
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:35) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -723,7 +723,7 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:35) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -766,7 +766,7 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenk
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:35) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:55) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:55) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -987,7 +987,7 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenk
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:38) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:60) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:60) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -1033,7 +1033,7 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenk
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.insertUser(UserDAOImpl.java:28) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.saveUser(UserServiceImpl.java:38) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:60) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:60) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -1150,7 +1150,7 @@ java.sql.SQLException: No value specified for parameter 6
 	at org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:135) ~[tomcat-dbcp.jar:9.0.60]
 	at com.epam.conferences.dao.impl.UserDAOImpl.updateUser(UserDAOImpl.java:107) [classes/:?]
 	at com.epam.conferences.service.impl.UserServiceImpl.updateUser(UserServiceImpl.java:60) [classes/:?]
-	at com.epam.conferences.controller.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
+	at com.epam.conferences.controller.admin.RegistrationServlet.doPost(RegistrationServlet.java:57) [classes/:?]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) [servlet-api.jar:4.0.FR]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [servlet-api.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [catalina.jar:9.0.60]
@@ -1636,3 +1636,62 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2023-01-09 12:04:51 ERROR LoginServlet: invalid password exception.
 2023-01-09 12:07:08 ERROR LoginServlet: invalid password exception.
 2023-01-09 16:17:42 ERROR LoginServlet: invalid password exception.
+2023-01-09 16:19:18 ERROR LoginServlet: invalid password exception.
+2023-01-09 16:38:47 ERROR LoginServlet: invalid password exception.
+2023-01-09 16:43:04 ERROR LoginServlet: invalid password exception.
+2023-01-09 16:43:15 ERROR LoginServlet: invalid password exception.
+2023-01-09 16:43:23 ERROR LoginServlet: invalid password exception.
+2023-01-09 16:46:49 ERROR EventListServlet: there are no events.
+2023-01-09 16:46:49 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2023-01-10 11:30:01 ERROR RegisterCommand: there is user with this email. 
+2023-01-10 11:31:40 ERROR RegisterCommand: there is user with this email. 
+2023-01-10 11:51:19 ERROR LoginServlet: invalid password exception.
+2023-01-10 12:09:30 ERROR TopicDAOImpl: exception (Table 'conferences.topics' doesn't exist) during obtaining all topics.
+2023-01-10 12:09:30 ERROR TopicServiceImpl: exception (java.sql.SQLSyntaxErrorException: Table 'conferences.topics' doesn't exist) during obtaining all topics.
+2023-01-10 12:09:30 ERROR GetTopicsServlet: exception (com.epam.conferences.exception.DBException: java.sql.SQLSyntaxErrorException: Table 'conferences.topics' doesn't exist).
+2023-01-10 12:11:27 ERROR EventListServlet: there are no events.
+2023-01-10 12:11:27 ERROR ViewEventsServlet: exception (There are no events.) during finding events for admin page 2
+2023-01-10 12:16:18 ERROR EventListServlet: there are no events.
+2023-01-10 12:16:18 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2023-01-10 12:16:27 ERROR EventListServlet: there are no events.
+2023-01-10 12:16:27 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2023-01-10 12:16:39 ERROR EventListServlet: there are no events.
+2023-01-10 12:16:39 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2023-01-10 17:15:32 ERROR ValidationFilter: exception Fields can`t be empty during validation user input.
+2023-01-10 17:15:53 ERROR ValidationFilter: exception Fields can`t be empty during validation user input.
+2023-01-10 17:19:59 ERROR LoginServlet: invalid password exception.
+2023-01-10 17:20:12 ERROR LoginServlet: invalid password exception.
+2023-01-10 17:20:37 ERROR LoginServlet: invalid password exception.
+2023-01-10 17:21:24 ERROR LoginServlet: invalid password exception.
+2023-01-10 17:21:42 ERROR LoginServlet: invalid password exception.
+2023-01-10 21:03:31 ERROR RegistrationSpeakerServlet: there is moderator with this email. 
+2023-01-10 21:09:28 ERROR LoginServlet: invalid password exception.
+2023-01-10 21:14:07 ERROR RegistrationSpeakerServlet: there is speaker with this email. 
+2023-01-10 21:19:29 ERROR LoginServlet: invalid password exception.
+2023-01-10 21:19:56 ERROR RegistrationSpeakerServlet: there is speaker with this email. 
+2023-01-10 21:21:55 ERROR RegistrationSpeakerServlet: this email use moderator.
+2023-01-10 21:22:22 ERROR RegistrationSpeakerServlet: this email use speaker.
+2023-01-10 21:22:30 ERROR RegistrationSpeakerServlet: there is moderator with this email. 
+2023-01-11 16:33:08 ERROR LoginServlet: invalid password exception.
+2023-01-11 16:33:18 ERROR LoginServlet: invalid password exception.
+2023-01-11 16:33:50 ERROR UserServiceImpl: exception java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenko30@gmail.com' for key 'users.email_UNIQUE' during saving user
+2023-01-11 16:33:50 ERROR RegistrationSpeakerServlet: exception while registration command was in work com.epam.conferences.exception.DBException: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenko30@gmail.com' for key 'users.email_UNIQUE'
+2023-01-11 16:34:57 ERROR LoginServlet: invalid password exception.
+2023-01-11 16:35:09 ERROR UserServiceImpl: exception java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenko30@gmail.com' for key 'users.email_UNIQUE' during saving user
+2023-01-11 16:35:09 ERROR RegistrationSpeakerServlet: exception while registration command was in work com.epam.conferences.exception.DBException: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenko30@gmail.com' for key 'users.email_UNIQUE'
+2023-01-11 16:39:01 ERROR UserServiceImpl: exception java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenko30@gmail.com' for key 'users.email_UNIQUE' during saving user
+2023-01-11 16:39:01 ERROR RegistrationSpeakerServlet: exception while registration command was in work com.epam.conferences.exception.DBException: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenko30@gmail.com' for key 'users.email_UNIQUE'
+2023-01-11 16:40:01 ERROR UserServiceImpl: exception java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenko30@gmail.com' for key 'users.email_UNIQUE' during saving user
+2023-01-11 16:40:01 ERROR RegistrationSpeakerServlet: exception while registration command was in work com.epam.conferences.exception.DBException: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'kate.osipenko30@gmail.com' for key 'users.email_UNIQUE'
+2023-01-12 17:58:48 ERROR LoginServlet: invalid password exception.
+2023-01-13 11:00:03 ERROR LoginServlet: invalid password exception.
+2023-01-13 13:03:12 ERROR ReportsListServlet: there are no reports for this event.
+2023-01-13 13:03:12 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=3
+2023-01-13 13:04:17 ERROR ReportsListServlet: there are no reports for this event.
+2023-01-13 13:04:17 ERROR ReportsListServlet: exception (There are no reports for this event) during find reports for event with id=3
+2023-01-14 13:08:10 ERROR LoginServlet: invalid password exception.
+2023-01-14 13:08:18 ERROR LoginServlet: invalid password exception.
+2023-01-14 13:18:43 ERROR LoginServlet: invalid password exception.
+2023-01-14 14:42:18 ERROR LoginServlet: invalid password exception.
+2023-01-14 16:18:06 ERROR EventListServlet: there are no events.
+2023-01-14 16:18:06 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
