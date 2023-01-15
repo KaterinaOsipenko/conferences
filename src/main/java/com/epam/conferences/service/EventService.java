@@ -16,6 +16,12 @@ public interface EventService {
 
     Integer maxPage(int pageSize) throws ServiceException;
 
+    Integer maxPage(int pageSize, int id) throws ServiceException;
+
+    Integer countEventsByCategory(int id) throws ServiceException;
+
+    List<Event> findEventsByCategory(int page, int pageSize, int id) throws ServiceException;
+
     Event findEvent(int id) throws ServiceException;
 
     boolean isPastEvent(int id) throws ServiceException;

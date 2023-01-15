@@ -28,6 +28,10 @@ public interface EventDAO {
 
     Integer countEvents(Connection connection) throws DBException;
 
+    Integer countEventsByCategory(Connection connection, int id) throws DBException;
+
+    List<Event> findAllEventByCategory(Connection connection, int offset, int count, int id) throws DBException;
+
     Optional<Event> findById(Connection connection, int id) throws DBException;
 
     int saveEvent(Connection connection, Event event) throws DBException;

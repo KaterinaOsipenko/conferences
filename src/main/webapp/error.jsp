@@ -37,7 +37,6 @@
         </section>
     </div>
 </header>
-
 <%@include file="include/footer.jsp" %>
 </body>
 </html>

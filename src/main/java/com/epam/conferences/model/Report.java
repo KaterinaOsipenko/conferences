@@ -6,7 +6,7 @@ public class Report implements Serializable {
 
     private long id;
 
-    private Topic topic;
+    private String topic;
 
     private User speaker;
 
@@ -21,11 +21,11 @@ public class Report implements Serializable {
         this.id = id;
     }
 
-    public Topic getTopic() {
+    public String getTopic() {
         return topic;
     }
 
-    public void setTopic(Topic topic) {
+    public void setTopic(String topic) {
         this.topic = topic;
     }
 
@@ -72,7 +72,7 @@ public class Report implements Serializable {
     public String toString() {
         return "Report{" +
                 "id=" + id +
-                ", topic=" + topic +
+                ", topic='" + topic + '\'' +
                 ", speaker=" + speaker +
                 ", event=" + event +
                 '}';

@@ -37,6 +37,19 @@
                                 <p class="mb-4">
                                     <ct:localTimeTag time="${event.date}"/>
                                 </p>
+                                <div style="display: flex; justify-content: center; gap: 1rem;">
+                                    <c:forEach var="category" items="${event.categories}">
+                                        <form action="${pageContext.request.contextPath}/eventListCategory"
+                                              method="post">
+                                            <input hidden name="name" value="${category.name}">
+                                            <input hidden name="id_category" value="${category.id}">
+                                            <input hidden name="eventId" value="${event.id}">
+                                            <button type="submit"
+                                                    class="mb-4 text-body text-bg-light"
+                                                    style="opacity: 0.7; border: none;">${category.name}</button>
+                                        </form>
+                                    </c:forEach>
+                                </div>
                                 <div class="ftr">
                                     <div class="btn-register">
                                         <a class="btn btn-dark"

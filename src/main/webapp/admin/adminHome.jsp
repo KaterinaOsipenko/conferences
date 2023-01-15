@@ -22,7 +22,7 @@
             <div class="container">
                 <div class="text-center p-4 p-lg-5">
                     <p class="fw-bold text-primary mb-2">Hello, ${user.firstName}</p>
-                    <a class="btn btn-primary fs-5 me-2 py-2 px-4" role="button" type="button" href="/admin/profile">Visit
+                    <a class="btn btn-primary fs-5 py-2 px-4" role="button" type="button" href="/admin/profile">Visit
                         Profile</a>
                     <a class="btn btn-light fs-5 py-2 px-4" role="button" type="button"
                        href="${pageContext.request.contextPath}/admin/viewEvents">Get all
@@ -33,7 +33,7 @@
                     <a class="btn btn-light fs-5 py-2 px-4" role="button" type="button"
                        href="${pageContext.request.contextPath}/admin/addresses">Get all addresses</a>
                     <a class="btn btn-primary fs-5 py-2 px-4" role="button" type="button"
-                       href="${pageContext.request.contextPath}/admin/topics">Get all topics</a>
+                       href="${pageContext.request.contextPath}/admin/registration">Create Speaker Account</a>
                 </div>
             </div>
         </section>

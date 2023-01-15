@@ -1,7 +1,9 @@
 package com.epam.conferences.controller.admin;
 
 import com.epam.conferences.exception.ServiceException;
+import com.epam.conferences.model.Category;
 import com.epam.conferences.model.Event;
+import com.epam.conferences.service.CategoryService;
 import com.epam.conferences.service.EventService;
 import com.epam.conferences.util.PathUtil;
 import com.epam.conferences.util.URLUtil;
@@ -18,6 +20,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 @WebServlet(name = "EditEventServlet", value = {"/admin/editEvent", "/admin/cardEvent"})
 public class EditEventServlet extends HttpServlet {
@@ -25,10 +28,13 @@ public class EditEventServlet extends HttpServlet {
     private static final Logger logger = LogManager.getLogger(EditEventServlet.class);
     private EventService eventService;
 
+    private CategoryService categoryService;
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         eventService = (EventService) config.getServletContext().getAttribute("eventService");
+        categoryService = (CategoryService) config.getServletContext().getAttribute("categoryService");
     }
 
     @Override
@@ -38,9 +44,16 @@ public class EditEventServlet extends HttpServlet {
         int eventId = Integer.parseInt(request.getParameter("id"));
         try {
             Event event = eventService.findEvent(eventId);
+            if (event.getCategories().isEmpty()) {
+                address = PathUtil.ADMIN_EDIT_EVENT_PAGE;
+                request.setAttribute("ex", "Event must have categories.");
+            } else {
+                address = request.getRequestURI().contains("card") ? PathUtil.ADMIN_CARD_EVENT_PAGE : PathUtil.ADMIN_EDIT_EVENT_PAGE;
+            }
             request.setAttribute("event", event);
             request.setAttribute("now", LocalDateTime.now());
-            address = request.getRequestURI().contains("card") ? PathUtil.ADMIN_CARD_EVENT_PAGE : PathUtil.ADMIN_EDIT_EVENT_PAGE;
+            List<Category> categoryList = categoryService.findAll();
+            request.setAttribute("categories", categoryList);
         } catch (ServiceException e) {
             logger.error("EditEventServlet: exception ({}) during getting event with id={}", e.getMessage(), eventId);
             request.setAttribute("address", URLUtil.ADMIN_CARD_EVENT + "?id=" + eventId);
@@ -57,8 +70,7 @@ public class EditEventServlet extends HttpServlet {
         if (request.getSession().getAttribute("ex") != null) {
             request.getSession().removeAttribute("ex");
         }
-
-        int eventId = Integer.parseInt(request.getParameter("id"));
+        int eventId = Integer.parseInt(request.getParameter("id_event"));
         String name = request.getParameter("name");
         String description = request.getParameter("about");
         String date = request.getParameter("date");

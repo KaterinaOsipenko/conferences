@@ -4,6 +4,7 @@ import com.epam.conferences.dao.DAOFactory;
 import com.epam.conferences.dao.EventDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.model.Address;
+import com.epam.conferences.model.Category;
 import com.epam.conferences.model.Event;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,12 +19,15 @@ public class EventDAOImpl implements EventDAO {
     private static final Logger logger = LogManager.getLogger(EventDAOImpl.class);
 
     private static final String FIND_ALL_EVENTS_BY_PAGE = "SELECT * FROM events JOIN addresses on addresses.id = events.id_address ORDER BY events.id LIMIT ? OFFSET ?";
-
     private static final String INSERT_EVENT = "INSERT INTO events (name, date, description, id_address) VALUES (?, ?, ?, ?)";
+    
+    private static final String FIND_EVENTS_BY_CATEGORY = "SELECT * FROM (SELECT * FROM event_category JOIN events ON event_category.id_event = events.id WHERE id_category = ?)" +
+            " AS categoryEvent JOIN addresses ON categoryEvent.id_address = addresses.id ORDER BY categoryEvent.id_event LIMIT ? OFFSET ?;";
+    private static final String COUNT_EVENTS_BY_CATEGORY = "SELECT COUNT(*) FROM event_category WHERE id_category = ?;";
+    private static final String FIND_CATEGORY_BY_EVENT_ID = "SELECT * FROM event_category JOIN category ON event_category.id_category = category.id WHERE id_event = ?";
 
     private static final String INSERT_ADDRESS = "INSERT INTO addresses(country, city, street, numberBuilding) VALUES (?, ?, ?, ?)";
     private static final String COUNT_EVENTS = "SELECT COUNT(*) FROM events";
-
     private static final String FIND_EVENT_BY_ID = "SELECT * FROM events JOIN addresses a on a.id = events.id_address WHERE events.id = ?";
     private static final String SORT_EVENTS_BY_REGISTERED_USERS = "select * from (select events.id, events.id_address, " +
             "events.name, events.description, events.date, count(user_event_presence.id_user) as usersCount " +
@@ -108,20 +112,30 @@ public class EventDAOImpl implements EventDAO {
     public Optional<Event> findById(Connection connection, int id) throws DBException {
         logger.info("EventDAOImpl: obtaining event by id={}", id);
         Optional<Event> event = Optional.empty();
-        try (PreparedStatement preparedStatement = connection.prepareStatement(FIND_EVENT_BY_ID)) {
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
+        try (PreparedStatement preparedStatementFindEvent = connection.prepareStatement(FIND_EVENT_BY_ID);
+             PreparedStatement preparedStatementCategories = connection.prepareStatement(FIND_CATEGORY_BY_EVENT_ID)) {
+            connection.setAutoCommit(false);
+
+            preparedStatementFindEvent.setInt(1, id);
+            preparedStatementCategories.setInt(1, id);
+
+            ResultSet resultSet = preparedStatementFindEvent.executeQuery();
+            ResultSet resultSetCategory = preparedStatementCategories.executeQuery();
             while (resultSet.next()) {
-                event = Optional.of(extractEvent(connection, resultSet));
+                event = Optional.of(extractEvent(connection, resultSet, resultSetCategory));
             }
+
+            connection.commit();
             event.ifPresent(e -> logger.info("EventDAOImpl: event with id={} was get successfully.", id));
         } catch (SQLException e) {
             logger.error("EventDAOImpl: exception during obtaining event with id={}.", id);
+            DAOFactory.getInstance().rollback(connection);
             throw new DBException(e);
         }
         return event;
     }
 
+    // TODO: check method for category
     @Override
     public int saveEvent(Connection connection, Event event) throws DBException {
         logger.info("EventDAOImpl: creating event.");
@@ -151,6 +165,41 @@ public class EventDAOImpl implements EventDAO {
         }
         logger.info("EventDAOImpl: event with id={} was created successfully.", id);
         return id;
+    }
+
+    @Override
+    public Integer countEventsByCategory(Connection connection, int id) throws DBException {
+        logger.info("CategoryDAOImpl: count events by category.");
+        int count;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(COUNT_EVENTS_BY_CATEGORY)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            count = resultSet.getInt(1);
+        } catch (SQLException e) {
+            logger.error("CategoryDAOImpl: exception {} during counting rows.", e.getMessage());
+            throw new DBException(e);
+        }
+        logger.info("CategoryDAOImpl: all events were calculated.");
+        return count;
+    }
+
+    @Override
+    public List<Event> findAllEventByCategory(Connection connection, int offset, int count, int id) throws DBException {
+        logger.info("CategoryDAOImpl: find all events by category with id {}.", id);
+        List<Event> eventList;
+        try (PreparedStatement preparedStatement = connection.prepareStatement(FIND_EVENTS_BY_CATEGORY)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(2, count);
+            preparedStatement.setInt(3, offset);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            eventList = extractEventList(connection, resultSet);
+        } catch (SQLException e) {
+            logger.error("CategoryDAOImpl: exception during getting all events by category.");
+            throw new DBException(e);
+        }
+        logger.info("CategoryDAOImpl: all events were found.");
+        return eventList;
     }
 
     @Override
@@ -288,13 +337,13 @@ public class EventDAOImpl implements EventDAO {
     private List<Event> extractEventList(Connection connection, ResultSet resultSet) throws DBException, SQLException {
         List<Event> eventList = new ArrayList<>();
         while (resultSet.next()) {
-            Optional<Event> event = Optional.ofNullable(extractEvent(connection, resultSet));
+            Optional<Event> event = Optional.ofNullable(extractEvent(connection, resultSet, null));
             event.ifPresent(eventList::add);
         }
         return eventList;
     }
 
-    private Event extractEvent(Connection connection, ResultSet resultSet) throws DBException {
+    private Event extractEvent(Connection connection, ResultSet resultSet, ResultSet resultSetCategories) throws DBException {
         try {
             Address address = new Address();
             address.setId(resultSet.getInt("id_address"));
@@ -309,12 +358,26 @@ public class EventDAOImpl implements EventDAO {
                     .setName(resultSet.getString("name"))
                     .setAddress(address).setDescription(resultSet.getString("description"))
                     .setReports(countReportsByEventId(connection, resultSet.getLong("id")))
+                    .setCategories(addCategoryToEvent(resultSetCategories))
                     .setRegisterUsers(countRegisteredUsersByEventId(connection, resultSet.getLong("id")))
                     .build();
         } catch (DBException | SQLException e) {
             throw new DBException(e);
         }
 
+    }
+
+    private List<Category> addCategoryToEvent(ResultSet resultSetCategory) throws SQLException {
+        List<Category> categories = new ArrayList<>();
+        if (resultSetCategory == null) {
+            return categories;
+        }
+        while (resultSetCategory.next()) {
+            String name = resultSetCategory.getString("name");
+            int id = resultSetCategory.getInt("id_category");
+            categories.add(new Category(id, name));
+        }
+        return categories;
     }
 
     private void insertParamAddress(PreparedStatement preparedStatement, Address address) throws SQLException {

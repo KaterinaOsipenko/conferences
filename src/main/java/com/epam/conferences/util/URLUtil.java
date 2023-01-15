@@ -15,7 +15,7 @@ public class URLUtil {
     public final static String ADMIN_CARD_EVENT = "/admin/cardEvent";
     public final static String ADMIN_CREATE_EVENT = "/admin/createEvent";
 
-    public final static String ADMIN_HOME = "/admin/home";
+    public final static String ADMIN_HOME = "/home";
 
     public final static String ADMIN_TOPICS = "/admin/topics";
     public final static String ADMIN_GET_REPORTS = "/admin/getReports";

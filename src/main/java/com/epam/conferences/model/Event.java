@@ -2,6 +2,8 @@ package com.epam.conferences.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Event implements Serializable {
 
@@ -19,6 +21,8 @@ public class Event implements Serializable {
 
     private final int registerUsers;
 
+    private final List<Category> categories;
+
     private Event(EventBuilder eventBuilder) {
         this.id = eventBuilder.id;
         this.address = eventBuilder.address;
@@ -27,6 +31,7 @@ public class Event implements Serializable {
         this.date = eventBuilder.date;
         this.registerUsers = eventBuilder.registerUsers;
         this.description = eventBuilder.description;
+        this.categories = eventBuilder.categories;
     }
 
     public long getId() {
@@ -55,6 +60,10 @@ public class Event implements Serializable {
 
     public String getDescription() {
         return description;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
     }
 
     @Override
@@ -114,6 +123,8 @@ public class Event implements Serializable {
 
         private int registerUsers;
 
+        private List<Category> categories;
+
         public EventBuilder setId(long id) {
             this.id = id;
             return this;
@@ -146,6 +157,15 @@ public class Event implements Serializable {
 
         public EventBuilder setRegisterUsers(int registerUsers) {
             this.registerUsers = registerUsers;
+            return this;
+        }
+
+        public EventBuilder setCategories(List<Category> categories) {
+            if (categories == null) {
+                this.categories = new ArrayList<>();
+            } else {
+                this.categories = categories;
+            }
             return this;
         }
 

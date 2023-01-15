@@ -58,8 +58,6 @@
                                 <th>date</th>
                                 <th>time</th>
                                 <th>reports</th>
-                                <th>registered users</th>
-                                <th>guests</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -74,15 +72,18 @@
                                         <ct:localTimeTag time="${event.date}"/>
                                     </td>
                                     <td>${event.reports}</td>
-                                    <td>${event.registerUsers}</td>
-                                    <c:if test="${event.date lt now}">
-                                        <td>${event.registerUsers}</td>
-                                    </c:if>
                                     <td>
                                         <a role="button" class="btn btn-light btn-sm me-2"
                                            href="${pageContext.request.contextPath}/admin/getReports?id=${event.id}">See
                                             Reports</a>
                                     </td>
+                                    <c:if test="${event.date lt now}">
+                                        <td>
+                                            <a role="button" class="btn btn-primary btn-sm me-2"
+                                               href="${pageContext.request.contextPath}/admin/statistics?id=${event.id}">See
+                                                statistics</a>
+                                        </td>
+                                    </c:if>
                                     <c:if test="${event.date gt now}">
                                         <td>
                                             <a role="button" class="btn btn-primary btn-sm me-2"

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../fonts/Cabin.css">
     <link rel="stylesheet" href="../fonts/Lora.css">
     <link rel="stylesheet" href="../css/Login-Form-Basic-icons.css">
@@ -34,16 +34,17 @@
                     <p style="text-align: left">
                         <a style="color: black;" href="${pageContext.request.contextPath}/admin/viewEvents">Go Back</a>
                     </p>
+                    <p class="text-danger">${ex}</p>
                     <div class="row h-100">
                         <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
-
                             <div class="table-responsive">
                                 <form method="post" action="${pageContext.request.contextPath}/admin/editEvent">
                                     <table class="table">
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <label for="name">Name</label></td>
+                                                <label for="name">Name</label>
+                                            </td>
                                             <td>
                                                 <input class="form-control form-control-user" type="text" id="name"
                                                        name="name" maxlength="45"
@@ -52,7 +53,9 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><label for="about">About</label></td>
+                                            <td>
+                                                <label for="about">About</label>
+                                            </td>
                                             <td>
                                                 <input class="form-control form-control-user" type="text" id="about"
                                                        name="about" maxlength="65"
@@ -87,51 +90,116 @@
                                                        value="<ct:localTimeTag time="${event.date}"/>"/>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>Category</td>
+                                            <td>
+                                                <div style="display: flex; gap: .5rem; height: 3.5rem;">
+                                                    <c:forEach var="category" items="${event.categories}">
+                                                        <div style="display: flex;">
+                                                            <p class="mb-4 text-body text-bg-light">${category.name}</p>
+                                                            <form method="post"
+                                                                  action="${pageContext.request.contextPath}/admin/deleteCategoryFromEvent">
+                                                                <input hidden name="id_category" value="${category.id}">
+                                                                <input hidden name="id_event" value="${event.id}">
+                                                                <button type="submit" class="close" style="border: none"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </c:forEach>
+                                                    <button type="button" class="btn btn-light"
+                                                            style="--bs-btn-hover-bg: none; color: rgba(66, 220, 163); height: 2rem;"
+                                                            data-toggle="modal"
+                                                            data-target="#addCategoryToEvent">
+                                                        + add category
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         </tbody>
                                     </table>
-                                    <input type="hidden" name="id" value="${event.id}"/>
+                                    <input type="hidden" name="id_event" value="${event.id}"/>
                                     <button type="submit" class="btn btn-primary">Edit</button>
                                 </form>
-                                <div class="modal fade" id="changeAddressModal">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" style="color:black;">
-                                                    Change address
-                                                </h5>
-                                                <button type="button" class="close"
-                                                        data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body" style="color: black">
-                                                <form method="post"
-                                                      action="${pageContext.request.contextPath}/admin/changeAddress"
-                                                      style="display: flex; flex-direction: column; gap: 1rem;">
-                                                    <input id="country" class="form-control form-control-user"
-                                                           type="text" name="country" value="${event.address.country}"
-                                                           maxlength="45" pattern="^[a-zA-Z].{1,45}$">
-                                                    <input id="city" class="form-control form-control-user" type="text"
-                                                           name="city" value="${event.address.city}"
-                                                           maxlength="45" pattern="^[a-zA-Z].{1,45}$">
-                                                    <input id="street" class="form-control form-control-user"
-                                                           type="text" name="street" value="${event.address.street}"
-                                                           maxlength="45" pattern="^[a-zA-Z].{1,45}$">
-                                                    <input id="house" class="form-control form-control-user"
-                                                           type="number" name="house" value="${event.address.house}">
-                                                    <input type="hidden" name="eventId" value="${event.id}">
-                                                    <input type="hidden" name="addressId" value="${event.address.id}">
-                                                    <div style="display: flex; justify-content: center; gap: 2rem;">
-                                                        <button type="submit" class="btn btn-primary">
-                                                            Change Address
-                                                        </button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">
-                                                            Cancel
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                            </div>
+                            <div class="modal fade" id="addCategoryToEvent">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" style="color:black;">
+                                                Add category to ${event.name}
+                                            </h5>
+                                            <button type="button" class="close"
+                                                    data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="color: black">
+                                            <form method="post"
+                                                  action="${pageContext.request.contextPath}/admin/addCategoryToEvent">
+                                                <input hidden name="id_event"
+                                                       value="${event.id}">
+                                                <select class="form-select" name="id_category">
+                                                    <c:forEach var="category"
+                                                               items="${categories}">
+                                                        <option value="${category.id}">${category.name}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1rem;">
+                                                    <button type="submit"
+                                                            class="btn btn-primary">
+                                                        Add
+                                                    </button>
+                                                    <button type="button"
+                                                            class="btn btn-secondary"
+                                                            data-dismiss="modal">
+                                                        Cancel
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="changeAddressModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" style="color:black;">
+                                                Change address
+                                            </h5>
+                                            <button type="button" class="close"
+                                                    data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="color: black">
+                                            <form method="post"
+                                                  action="${pageContext.request.contextPath}/admin/changeAddress"
+                                                  style="display: flex; flex-direction: column; gap: 1rem;">
+                                                <input id="country" class="form-control form-control-user"
+                                                       type="text" name="country" value="${event.address.country}"
+                                                       maxlength="45" pattern="^[a-zA-Z].{1,45}$">
+                                                <input id="city" class="form-control form-control-user" type="text"
+                                                       name="city" value="${event.address.city}"
+                                                       maxlength="45" pattern="^[a-zA-Z].{1,45}$">
+                                                <input id="street" class="form-control form-control-user"
+                                                       type="text" name="street" value="${event.address.street}"
+                                                       maxlength="45" pattern="^[a-zA-Z].{1,45}$">
+                                                <input id="house" class="form-control form-control-user"
+                                                       type="number" name="house" value="${event.address.house}">
+                                                <input type="hidden" name="eventId" value="${event.id}">
+                                                <input type="hidden" name="addressId" value="${event.address.id}">
+                                                <div style="display: flex; justify-content: center; gap: 2rem;">
+                                                    <button type="submit" class="btn btn-primary">
+                                                        Change Address
+                                                    </button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal"> Cancel
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

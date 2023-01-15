@@ -49,7 +49,6 @@
         <div class="container" style="display: flex; align-items: center;">
             <c:if test="${currentPage > 1}">
                 <div>
-
                     <c:choose>
                         <c:when test="${not empty sort}">
                             <a aria-label="Previous"
@@ -170,7 +169,6 @@
                                 </a>
                             </c:otherwise>
                         </c:choose>
-
                     </li>
                 </c:if>
                 <c:forEach var="i" begin="1" end="${maxPage}">

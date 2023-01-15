@@ -163,6 +163,49 @@ public class EventServiceImpl implements EventService, SortService {
     }
 
     @Override
+    public Integer countEventsByCategory(int id) throws ServiceException {
+        logger.info("EventServiceImpl: counting rows by category.");
+        Integer count;
+        try {
+            count = eventDAO.countEventsByCategory(DAOFactory.getConnection(), id);
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("EventServiceImpl: exception during counting all events.");
+            throw new ServiceException(e);
+        }
+        return count;
+    }
+
+    @Override
+    public List<Event> findEventsByCategory(int page, int pageSize, int id) throws ServiceException {
+        logger.info("EventServiceImpl: getting all events for category {}.", id);
+        List<Event> eventList;
+        try {
+            int count = getCountForPage(page, pageSize);
+            eventList = eventDAO.findAllEventByCategory(DAOFactory.getConnection(), (page * pageSize - pageSize), count, id);
+            if (eventList == null) {
+                logger.error("EventServiceImpl: list of events is NULL.");
+                throw new ServiceException("EventServiceImpl: list of events is NULL.");
+            }
+        } catch (DBException | NamingException | SQLException e) {
+            logger.error("EventServiceImpl: exception during getting all events.");
+            throw new ServiceException(e);
+        }
+        logger.info("EventServiceImpl: all events for page {} were obtained successfully.", page);
+        return eventList;
+    }
+
+    @Override
+    public Integer maxPage(int pageSize, int id) throws ServiceException {
+        logger.info("EventServiceImpl: get max page.");
+        int countEvents = countEventsByCategory(id);
+        int maxPage = countEvents / pageSize + countEvents % pageSize;
+        if (maxPage == 0) {
+            maxPage = 1;
+        }
+        return maxPage;
+    }
+
+    @Override
     public void changeAddressEvent(int addressId, int eventId, Address address) throws ServiceException {
         logger.info("EventServiceImpl: changing address with id={}.", addressId);
         try {

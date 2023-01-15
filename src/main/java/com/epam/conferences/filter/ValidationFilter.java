@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@WebFilter(filterName = "ValidationFilter", urlPatterns = {"/registration", "/admin/editEvent", "/admin/createEvent"})
+@WebFilter(filterName = "ValidationFilter", urlPatterns = {"/registration", "/admin/editEvent", "/admin/createEvent", "/admin/registration"})
 public class ValidationFilter implements Filter {
 
     private static final Logger logger = LogManager.getLogger(ValidationFilter.class);
@@ -67,11 +67,9 @@ public class ValidationFilter implements Filter {
     private boolean isValidUserRegistration(HttpServletRequest request) {
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
-        String role = request.getParameter("role");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         return password != null && !"".equals(password) && email != null && !"".equals(email)
-                && lastname != null && !"".equals(lastname) && firstname != null && !"".equals(firstname)
-                && role != null && !"".equals(role);
+                && lastname != null && !"".equals(lastname) && firstname != null && !"".equals(firstname);
     }
 }

@@ -1,12 +1,14 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
+TRUNCATE TABLE `conferences`.`category`;
 TRUNCATE TABLE `conferences`.`roles`;
 TRUNCATE TABLE `conferences`.`users`;
-TRUNCATE TABLE `conferences`.`topics`;
 TRUNCATE TABLE `conferences`.`addresses`;
 TRUNCATE TABLE `conferences`.`events`;
 TRUNCATE TABLE reports;
 TRUNCATE TABLE user_event_presence;
+TRUNCATE TABLE `conferences`.`event_category`;
+TRUNCATE TABLE `conferences`.`speaker_category`;
 
 SET FOREIGN_KEY_CHECKS = 1;
 
@@ -16,6 +18,18 @@ INSERT INTO `conferences`.`roles` (`name`)
 VALUES ('speaker');
 INSERT INTO `conferences`.`roles` (`name`)
 VALUES ('user');
+
+INSERT INTO `conferences`.`category` (`name`)
+VALUES ('IT');
+INSERT INTO `conferences`.`category` (`name`)
+VALUES ('Science');
+INSERT INTO `conferences`.`category` (`name`)
+VALUES ('Medicine');
+INSERT INTO `conferences`.`category` (`name`)
+VALUES ('Sport');
+INSERT INTO `conferences`.`category` (`name`)
+VALUES ('Entertainment');
+
 
 INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`, `id_role`)
 VALUES ('Катя', 'Brown', 'megan.brown@gmail.com', '123456789', '1');
@@ -28,16 +42,14 @@ VALUES ('Mile', 'Addison', 'mike.addison345@gmail.com', '567890', '2');
 INSERT INTO `conferences`.`users` (`firstName`, `lastName`, `email`, `password`)
 VALUES ('Luke', 'Sloan', 'luke.sloan68@gmail.com', '5678');
 
-INSERT INTO `conferences`.`topics` (`name`)
-VALUES ('Medicine Facts');
-INSERT INTO `conferences`.`topics` (`name`)
-VALUES ('Computer Networking');
-INSERT INTO `conferences`.`topics` (`name`)
-VALUES ('Programming in mideicine ');
-INSERT INTO `conferences`.`topics` (`name`)
-VALUES ('Hands for soldiers');
-INSERT INTO `conferences`.`topics` (`name`)
-VALUES ('Computer Science');
+INSERT INTO `conferences`.`speaker_category` (id_category, id_speaker)
+VALUES ('1', '2');
+INSERT INTO `conferences`.`speaker_category` (id_category, id_speaker)
+VALUES ('2', '2');
+INSERT INTO `conferences`.`speaker_category` (id_category, id_speaker)
+VALUES ('3', '2');
+INSERT INTO `conferences`.`speaker_category` (id_category, id_speaker)
+VALUES ('5', '4');
 
 INSERT INTO `conferences`.`addresses` (`country`, `city`, `street`, `numberBuilding`)
 VALUES ('Ukraine', 'Kyiv', 'Khreshatyk', '25');
@@ -63,13 +75,32 @@ VALUES ('Art', '2023-01-23 18:30:00', 'Art therapy for injured', '3');
 INSERT INTO `conferences`.`events` (`name`, `date`, `description`, `id_address`)
 VALUES ('Nutrition', '2023-05-12 18:30:00', 'All secrets of healthy food', '2');
 
-INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
-VALUES ('1', '2', '1');
-INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
-VALUES ('2', '4', '2');
-INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
-VALUES ('1', '4', '3');
-INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
-VALUES ('2', '2', '4');
-INSERT INTO `conferences`.`reports` (`id_event`, `id_speaker`, `id_topic`)
-VALUES ('5', '5', '5');
+INSERT INTO `conferences`.`event_category` (`id_event`, `id_category`)
+VALUES ('1', '3');
+INSERT INTO `conferences`.`event_category` (`id_event`, `id_category`)
+VALUES ('1', '2');
+INSERT INTO `conferences`.`event_category` (`id_event`, `id_category`)
+VALUES ('2', '1');
+INSERT INTO `conferences`.`event_category` (`id_event`, `id_category`)
+VALUES ('3', '2');
+INSERT INTO `conferences`.`event_category` (`id_event`, `id_category`)
+VALUES ('4', '2');
+INSERT INTO `conferences`.`event_category` (`id_event`, `id_category`)
+VALUES ('5', '4');
+INSERT INTO `conferences`.`event_category` (`id_event`, `id_category`)
+VALUES ('6', '5');
+INSERT INTO `conferences`.`event_category` (`id_event`, `id_category`)
+VALUES ('2', '2');
+
+
+INSERT INTO `conferences`.`reports` (`id_event`, `topic`, `id_speaker`)
+VALUES ('1', 'Medicine Facts', '1');
+INSERT INTO `conferences`.`reports` (`id_event`, `topic`, `id_speaker`)
+VALUES ('2', 'Computer Networking', '2');
+INSERT INTO `conferences`.`reports` (`id_event`, `topic`, `id_speaker`)
+VALUES ('1', 'Programming in mideicine ', '3');
+INSERT INTO `conferences`.`reports` (`id_event`, `topic`, `id_speaker`)
+VALUES ('2', 'Hands for soldiers', '4');
+INSERT INTO `conferences`.`reports` (`id_event`, `topic`, `id_speaker`)
+VALUES ('5', 'Computer Science', '5');
+

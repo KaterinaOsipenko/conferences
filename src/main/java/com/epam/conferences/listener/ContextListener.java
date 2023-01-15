@@ -36,7 +36,8 @@ public class ContextListener implements ServletContextListener {
         ReportDAO reportDAO = DAOFactoryImpl.getInstance().getReportDao();
         UserEventDAO userEventDAO = DAOFactoryImpl.getInstance().getUserEventDao();
         AddressDAO addressDAO = DAOFactoryImpl.getInstance().getAddressDao();
-        TopicDAO topicDAO = DAOFactoryImpl.getInstance().getTopicDao();
+        CategoryDAO categoryDAO = DAOFactoryImpl.getInstance().getCategoryDao();
+
 
         NotificationManager userManager = new NotificationManager();
         NotificationManager eventManager = new NotificationManager();
@@ -54,14 +55,15 @@ public class ContextListener implements ServletContextListener {
         ReportService reportService = new ReportServiceImpl(reportDAO);
         UserEventService userEventService = new UserEventServiceImpl(userEventDAO, userEventManager);
         AddressService addressService = new AddressServiceImpl(addressDAO);
-        TopicService topicService = new TopicServiceImpl(topicDAO);
+        CategoryService categoryService = new CategoryServiceImpl(categoryDAO);
+
 
         servletContext.setAttribute("userService", userService);
         servletContext.setAttribute("eventService", eventService);
         servletContext.setAttribute("reportService", reportService);
         servletContext.setAttribute("userEventService", userEventService);
         servletContext.setAttribute("addressService", addressService);
-        servletContext.setAttribute("topicService", topicService);
+        servletContext.setAttribute("categoryService", categoryService);
     }
 
 

@@ -50,7 +50,7 @@ public abstract class DAOFactory {
 
     public abstract AddressDAO getAddressDao();
 
-    public abstract TopicDAO getTopicDao();
+    public abstract CategoryDAO getCategoryDao();
 
     public abstract void rollback(Connection connection) throws DBException;
 

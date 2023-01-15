@@ -4,7 +4,6 @@ import com.epam.conferences.dao.ReportDAO;
 import com.epam.conferences.exception.DBException;
 import com.epam.conferences.model.Event;
 import com.epam.conferences.model.Report;
-import com.epam.conferences.model.Topic;
 import com.epam.conferences.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,15 +17,15 @@ public class ReportDAOImpl implements ReportDAO {
 
     private static final Logger logger = LogManager.getLogger(ReportDAOImpl.class);
     private final static String FIND_ALL_REPORTS_FOR_EVENT_ID = "SELECT reports.id, users.id AS id_user, users.firstName, " +
-            "users.lastName, topics.id AS id_topic, topics.name AS topic_name, events.id AS id_event,  events.name AS event_name, events.date" +
-            "  FROM reports JOIN users ON reports.id_speaker = users.id JOIN topics ON reports.id_topic = topics.id " +
+            "users.lastName,  topic AS topic_name, events.id AS id_event,  events.name AS event_name, events.date" +
+            "  FROM reports JOIN users ON reports.id_speaker = users.id " +
             "JOIN events ON reports.id_event = events.id WHERE id_event = ?";
     private final static String DELETE_REPORT = "DELETE FROM reports WHERE id = ?";
-    private final static String UPDATE_TOPIC_NAME = "UPDATE topics SET name = ? WHERE id = ?";
+    private final static String UPDATE_TOPIC_NAME = "UPDATE reports SET topic = ? WHERE id = ?";
     private final static String FIND_REPORTS_BY_USER = "SELECT reports.id, users.id AS id_user, users.firstName, " +
-            "users.lastName, topics.id AS id_topic, topics.name AS topic_name, events.id AS id_event, " +
+            "users.lastName, topic AS topic_name, events.id AS id_event, " +
             "events.name AS event_name, events.date" +
-            "  FROM reports JOIN users ON reports.id_speaker = users.id JOIN topics ON reports.id_topic = topics.id " +
+            "  FROM reports JOIN users ON reports.id_speaker = users.id " +
             "JOIN events ON reports.id_event = events.id WHERE reports.id_speaker = ?";
 
     @Override
@@ -105,16 +104,13 @@ public class ReportDAOImpl implements ReportDAO {
                 .setDate(date.toLocalDateTime())
                 .setName(nameEvent)
                 .build();
-        Topic topic = new Topic();
-        topic.setId(resultSet.getInt("id_topic"));
-        topic.setName(resultSet.getString("topic_name"));
         User user = new User();
         user.setId(resultSet.getInt("id_user"));
         user.setFirstName(resultSet.getString("firstName"));
         user.setLastName(resultSet.getString("lastName"));
         Report report = new Report();
+        report.setTopic(resultSet.getString("topic_name"));
         report.setId(resultSet.getInt("id"));
-        report.setTopic(topic);
         report.setSpeaker(user);
         report.setEvent(event);
         return report;

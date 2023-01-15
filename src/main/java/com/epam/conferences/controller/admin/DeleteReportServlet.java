@@ -32,13 +32,13 @@ public class DeleteReportServlet extends HttpServlet {
         logger.info("DeleteReportServlet: doPost method.");
         int reportId = Integer.parseInt(request.getParameter("reportId"));
         int eventId = Integer.parseInt(request.getParameter("eventId"));
-        String address;
+        String address = null;
         try {
             reportService.deleteReport(reportId);
-            address = "/admin/getReports?id=" + eventId;
+            address = URLUtil.ADMIN_GET_REPORTS + "?id=" + eventId;
         } catch (ServiceException e) {
             logger.error("DeleteReportServlet: exception ({}) during removing report with id={}", e.getMessage(), reportId);
-            request.getSession().setAttribute("address", URLUtil.ADMIN_GET_REPORTS + "?id=" + eventId);
+            request.getSession().setAttribute("address", address);
             request.getSession().setAttribute("ex", "Sorry, we have some troubles. Our specialists have already tried to copy with this.");
             address = PathUtil.ADMIN_ERROR_PAGE;
         }

@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="../fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="../css/Responsive-UI-Card.css">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous">
+    </script>
     <title>Event Card</title>
 </head>
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
@@ -50,6 +58,19 @@
                                         <td>Time</td>
                                         <td>
                                             <ct:localTimeTag time="${event.date}"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Category</td>
+                                        <td>
+                                            <div style="display: flex; gap: .5rem; height: 3.5rem;">
+                                                <c:forEach var="category" items="${event.categories}">
+                                                    <a role="button"
+                                                       href="${pageContext.request.contextPath}/admin/eventListCategory?id=${category.id}"
+                                                       class="mb-4 text-body text-bg-light"
+                                                       style="border: none;">${category.name}</a>
+                                                </c:forEach>
+                                            </div>
                                         </td>
                                     </tr>
                                     </tbody>

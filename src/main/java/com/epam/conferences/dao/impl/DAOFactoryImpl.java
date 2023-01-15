@@ -34,8 +34,8 @@ public class DAOFactoryImpl extends DAOFactory {
     }
 
     @Override
-    public TopicDAO getTopicDao() {
-        return new TopicDAOImpl();
+    public CategoryDAO getCategoryDao() {
+        return new CategoryDAOImpl();
     }
 
     @Override

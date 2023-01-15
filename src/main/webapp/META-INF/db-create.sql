@@ -1,10 +1,13 @@
 DROP TABLE IF EXISTS `conferences`.`user_event_presence`;
+DROP TABLE IF EXISTS `conferences`.`speaker_category`;
+DROP TABLE IF EXISTS `conferences`.`event_category`;
 DROP TABLE IF EXISTS `conferences`.`reports`;
 DROP TABLE IF EXISTS `conferences`.`events`;
 DROP TABLE IF EXISTS `conferences`.`users`;
 DROP TABLE IF EXISTS `conferences`.`roles`;
+DROP TABLE IF EXISTS `conferences`.`category`;
 DROP TABLE IF EXISTS `conferences`.`addresses`;
-DROP TABLE IF EXISTS `conferences`.`topics`;
+
 
 
 CREATE TABLE `conferences`.`roles`
@@ -32,15 +35,6 @@ CREATE TABLE `conferences`.`users`
             ON UPDATE CASCADE
 );
 
-
-CREATE TABLE `conferences`.`topics`
-(
-    `id`   INT         NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`id`, `name`),
-    UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE
-);
-
 CREATE TABLE `conferences`.`addresses`
 (
     `id`             INT         NOT NULL AUTO_INCREMENT,
@@ -50,6 +44,32 @@ CREATE TABLE `conferences`.`addresses`
     `numberBuilding` INT         NULL,
     PRIMARY KEY (`id`)
 );
+
+CREATE TABLE `conferences`.`category`
+(
+    `id`   INT         NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(45) NOT NULL UNIQUE,
+    primary key (`id`)
+);
+
+CREATE TABLE `conferences`.`speaker_category`
+(
+    `id_category` INT NOT NULL,
+    `id_speaker`  INT NOT NULL,
+    PRIMARY KEY (`id_category`, `id_speaker`),
+    CONSTRAINT `speaker_category`
+        FOREIGN KEY (`id_speaker`)
+            REFERENCES `conferences`.`users` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT `category_speaker`
+        FOREIGN KEY (`id_category`)
+            REFERENCES `conferences`.`category` (`id`)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+
+);
+
 
 CREATE TABLE `conferences`.`events`
 (
@@ -66,23 +86,36 @@ CREATE TABLE `conferences`.`events`
             REFERENCES `conferences`.`addresses` (`id`)
             ON DELETE CASCADE
             ON UPDATE CASCADE
+
+);
+
+CREATE TABLE `conferences`.`event_category`
+(
+    `id_category` INT NOT NULL,
+    `id_event`    INT NOT NULL,
+    PRIMARY KEY (`id_category`, `id_event`),
+    CONSTRAINT `event_category`
+        FOREIGN KEY (`id_event`)
+            REFERENCES `conferences`.`events` (`id`)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT `category_event`
+        FOREIGN KEY (`id_category`)
+            REFERENCES `conferences`.`category` (`id`)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+
 );
 
 CREATE TABLE `conferences`.`reports`
 (
-    `id`         INT NOT NULL AUTO_INCREMENT,
-    `id_event`   INT NOT NULL,
-    `id_speaker` INT NOT NULL,
-    `id_topic`   INT NOT NULL,
+    `id`         INT         NOT NULL AUTO_INCREMENT,
+    `topic`      VARCHAR(65) NOT NULL UNIQUE,
+    `id_event`   INT         NOT NULL,
+    `id_speaker` INT         NULL,
     PRIMARY KEY (`id`),
-    UNIQUE INDEX `id_topic_UNIQUE` (`id_topic` ASC) VISIBLE,
     INDEX `fk_reports_event_idx` (`id_event` ASC) VISIBLE,
     INDEX `fk_reports_users_idx` (`id_speaker` ASC) VISIBLE,
-    CONSTRAINT `fk_reports_topics`
-        FOREIGN KEY (`id_topic`)
-            REFERENCES `conferences`.`topics` (`id`)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE,
     CONSTRAINT `fk_reports_event`
         FOREIGN KEY (`id_event`)
             REFERENCES `conferences`.`events` (`id`)
