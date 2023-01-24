@@ -1695,3 +1695,25 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2023-01-14 14:42:18 ERROR LoginServlet: invalid password exception.
 2023-01-14 16:18:06 ERROR EventListServlet: there are no events.
 2023-01-14 16:18:06 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2023-01-22 18:32:43 ERROR AddressDAOImpl: exception Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.) during creation view.
+2023-01-22 18:33:15 ERROR AddressDAOImpl: exception Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.) during creation view.
+2023-01-24 15:13:39 ERROR AddressDAOImpl: exception Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.) during creation view.
+2023-01-24 15:14:25 ERROR UserServiceImpl: exception Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.) during checking existing of user
+2023-01-24 15:14:25 ERROR LoginServlet: exception while login command was in work java.sql.SQLException: Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2023-01-24 15:18:02 ERROR EmailServiceImpl: exception 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials h9-20020a05600c2ca900b003d237d60318sm2278092wmc.2 - gsmtp
+
+2023-01-24 15:18:02 ERROR RegistrationSpeakerServlet: exception while registration command was in work javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials h9-20020a05600c2ca900b003d237d60318sm2278092wmc.2 - gsmtp
+
+2023-01-24 15:19:17 ERROR RegistrationSpeakerServlet: there is moderator with this email. 

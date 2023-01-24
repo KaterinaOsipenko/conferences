@@ -66,7 +66,7 @@
                                             <div style="display: flex; gap: .5rem; height: 3.5rem;">
                                                 <c:forEach var="category" items="${event.categories}">
                                                     <a role="button"
-                                                       href="${pageContext.request.contextPath}/admin/eventListCategory?id=${category.id}"
+                                                       href="${pageContext.request.contextPath}/admin/eventListCategory?id=${category.id}&id_event=${event.id}"
                                                        class="mb-4 text-body text-bg-light"
                                                        style="border: none;">${category.name}</a>
                                                 </c:forEach>

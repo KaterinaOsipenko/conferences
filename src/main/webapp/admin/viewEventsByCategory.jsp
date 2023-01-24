@@ -23,6 +23,9 @@
             <div class="container">
                 <div class="text-white bg-dark border rounded border-0 p-4 p-md-5">
                     <div class="table-responsive">
+                        <p style="text-align: left">
+                            <a style="color: black;" href="${pageContext.request.contextPath}${address}">Go Back</a>
+                        </p>
                         <p class="text-primary">Events With the Category ${name}</p>
                         <table class="table" style="color: white;">
                             <thead>
