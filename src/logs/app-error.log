@@ -1717,3 +1717,11 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 535 5.7.8  https://support.google.com/mail/?p=BadCredentials h9-20020a05600c2ca900b003d237d60318sm2278092wmc.2 - gsmtp
 
 2023-01-24 15:19:17 ERROR RegistrationSpeakerServlet: there is moderator with this email. 
+2023-01-25 17:43:48 ERROR GetEventsByCategoryServlet: there are no events.
+2023-01-25 17:43:48 ERROR GetEventsByCategoryServlet: exception (There are no events.) during finding events for admin page 1
+2023-01-25 17:47:14 ERROR GetEventsByCategoryServlet: there are no events.
+2023-01-25 17:47:14 ERROR GetEventsByCategoryServlet: exception (There are no events.) during finding events for admin page 2
+2023-01-25 18:03:46 ERROR EventListServlet: there are no events.
+2023-01-25 18:03:46 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.
+2023-01-25 18:03:49 ERROR EventListServlet: there are no events.
+2023-01-25 18:03:49 ERROR GetReportsServlet: exception (There are no reports for this event.) during finding reports.

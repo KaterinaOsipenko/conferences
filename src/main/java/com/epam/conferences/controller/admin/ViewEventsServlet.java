@@ -2,7 +2,9 @@ package com.epam.conferences.controller.admin;
 
 import com.epam.conferences.exception.NoElementsException;
 import com.epam.conferences.exception.ServiceException;
+import com.epam.conferences.model.Category;
 import com.epam.conferences.model.Event;
+import com.epam.conferences.service.CategoryService;
 import com.epam.conferences.service.EventService;
 import com.epam.conferences.util.PathUtil;
 import com.epam.conferences.util.URLUtil;
@@ -26,10 +28,13 @@ public class ViewEventsServlet extends HttpServlet {
     private final static int PAGE_SIZE = 10;
     private EventService eventService;
 
+    private CategoryService categoryService;
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         eventService = (EventService) config.getServletContext().getAttribute("eventService");
+        categoryService = (CategoryService) config.getServletContext().getAttribute("categoryService");
     }
 
     @Override
@@ -37,15 +42,8 @@ public class ViewEventsServlet extends HttpServlet {
         logger.info("ViewEventsServlet: doGet method.");
         String address;
         String sort = request.getParameter("sort");
-        int page;
+        int page = getPagination(request);
         List<Event> eventList;
-        if (request.getParameter("page") == null || request.getParameter("page").equals("")) {
-            page = 1;
-            request.setAttribute("currentPage", 1);
-        } else {
-            page = Integer.parseInt(request.getParameter("page"));
-            request.setAttribute("currentPage", page);
-        }
         try {
             if (sort == null) {
                 sort = "future";
@@ -59,6 +57,8 @@ public class ViewEventsServlet extends HttpServlet {
                 logger.error("EventListServlet: there are no events.");
                 throw new NoElementsException("There are no events.");
             }
+            List<Category> categories = categoryService.findAll();
+            request.setAttribute("categories", categories);
             request.setAttribute("now", LocalDateTime.now());
             request.setAttribute("maxPage", eventService.maxPage(PAGE_SIZE));
             request.setAttribute("eventList", eventList);
@@ -73,6 +73,17 @@ public class ViewEventsServlet extends HttpServlet {
         logger.info("ViewEventsServlet: forward to view events page = {}", page);
 
         request.getRequestDispatcher(address).forward(request, response);
+    }
+
+    private int getPagination(HttpServletRequest request) {
+        int page = 1;
+        if (request.getParameter("page") == null || request.getParameter("page").equals("")) {
+            request.setAttribute("currentPage", 1);
+        } else {
+            page = Integer.parseInt(request.getParameter("page"));
+            request.setAttribute("currentPage", page);
+        }
+        return page;
     }
 
 }

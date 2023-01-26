@@ -40,7 +40,7 @@
                             <tbody>
                             <c:forEach var="report" items="${reports}">
                                 <tr>
-                                    <td>${report.topic.name}</td>
+                                    <td>${report.topic}</td>
                                     <td>${report.speaker.firstName} ${report.speaker.lastName}</td>
                                     <c:if test="${empty past}">
                                         <td>
@@ -69,7 +69,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body" style="color: black">
-                                                    Are you sure that you want to delete report ${report.topic.name}?
+                                                    Are you sure that you want to delete report ${report.topic}?
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
@@ -99,12 +99,12 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body" style="color: black">
-                                                    <p>Do you want to change topic name ${report.topic.name}?</p>
+                                                    <p>Do you want to change topic name ${report.topic}?</p>
                                                     <form name="changeTopic"
                                                           action="${pageContext.request.contextPath}/admin/changeTopic"
                                                           method="post">
                                                         <input type="hidden" name="eventId" value="${eventId}">
-                                                        <input type="hidden" name="topicId" value="${report.topic.id}">
+                                                        <input type="hidden" name="topicId" value="${report.id}">
                                                         <label for="nameTopic">Enter new name: </label>
                                                         <input id="nameTopic" type="text" name="nameTopic" required
                                                                maxlength="45"

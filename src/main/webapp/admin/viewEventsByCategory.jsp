@@ -81,7 +81,7 @@
                         <li class="page-item">
                             <a class="page-link" style="background: transparent; border: none;"
                                aria-label="Previous"
-                               href="${pageContext.request.contextPath}/admin/eventListCategory?page=${currentPage - 1}?id=${id}">
+                               href="${pageContext.request.contextPath}/admin/eventListCategory?page=${currentPage - 1}&id=${id}">
                                 <span aria-hidden="true">«</span>
                             </a>
                         </li>
@@ -92,28 +92,28 @@
                                 <c:when test="${i == 1}">
                                     <li class="page-item"><a class="page-link"
                                                              style="background: transparent; border: none;"
-                                                             href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i}?id=${id}">${i}</a>
+                                                             href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i}&id=${id}">${i}</a>
                                     </li>
                                     <c:if test="${currentPage != maxPage}">
                                         <li class="page-item"><a class="page-link"
                                                                  style="background: transparent; border: none;"
-                                                                 href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i + 1}?id=${id}">${i + 1}</a>
+                                                                 href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i + 1}&id=${id}">${i + 1}</a>
                                         </li>
                                     </c:if>
                                 </c:when>
                                 <c:otherwise>
                                     <li class="page-item"><a class="page-link"
                                                              style="background: transparent; border: none;"
-                                                             href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i - 1}?id=${id}">${i - 1}</a>
+                                                             href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i - 1}&id=${id}">${i - 1}</a>
                                     </li>
                                     <li class="page-item"><a class="page-link"
                                                              style="background: transparent; border: none;"
-                                                             href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i}?id=${id}">${i}</a>
+                                                             href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i}&id=${id}">${i}</a>
                                     </li>
                                     <c:if test="${currentPage != maxPage}">
                                         <li class="page-item"><a class="page-link"
                                                                  style="background: transparent; border: none;"
-                                                                 href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i + 1}?id=${id}">${i + 1}</a>
+                                                                 href="${pageContext.request.contextPath}/admin/eventListCategory?page=${i + 1}&id=${id}">${i + 1}</a>
                                         </li>
                                     </c:if>
                                 </c:otherwise>
@@ -124,7 +124,7 @@
                         <li class="page-item fs-2 text-start">
                             <a class="page-link" style="background: transparent; border: none;"
                                aria-label="Next"
-                               href="${pageContext.request.contextPath}/admin/eventListCategory?page=${currentPage + 1}?id=${id}">
+                               href="${pageContext.request.contextPath}/admin/eventListCategory?page=${currentPage + 1}?&=${id}">
                                 <span aria-hidden="true">»</span>
                             </a>
                         </li>
